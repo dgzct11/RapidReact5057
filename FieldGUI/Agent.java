@@ -32,10 +32,12 @@ public class Agent {
     public double y;
     public Color color;
 
-    public Agent(double xc, double yc, Color c){
+    public Agent(double xc, double yc, boolean is_red){
         x = xc; 
         y = yc;
-        color = c;
+        if(is_red)
+            color = new Color(255,0,0);
+        else    color = new Color(0,255,0);
     }
     public double[] getPose(){
         double[] result = {x,y};

@@ -35,13 +35,18 @@ public class Field extends JFrame{
     public Field(){
       
     }
-    
+    public void addRobot(Agent robot){
+        panel.robots.add(robot);
+    }
+    public void addBall(double[] ball){
+        panel.balls.add(ball);
+    }
     public void display(){
         frame = new JFrame();
         frame.setTitle("Field");
        
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        panel = new Panel("./FieldGUI\\rapid_react_field_render_cropped.png");
+        panel = new Panel("./FieldGUI\\rapid_react_field_render_small.png");
         frame.add(panel);
         panel.setFocusable(true);
         frame.setFocusable(true);
@@ -76,16 +81,16 @@ class Panel extends JPanel{
     public Image fieldImage;
     ArrayList<double[]> balls = new ArrayList<double[]>();
     ArrayList<Agent> robots = new ArrayList<Agent>();
-    public double robotWidth;
+    public double robotWidth = 0.889;
     public double pixelsPerMeter;
     Color red;
     Color blue;
     public double[] robotPos = new double[2];
-    double ballDiameter;
+    double ballDiameter = 0.24;
     public Panel(String path) {
        
         fieldImage = Toolkit.getDefaultToolkit().getImage(path);
-        
+        pixelsPerMeter = getWidth()/21.946;
         
     }
 
@@ -113,8 +118,8 @@ class Panel extends JPanel{
     }
 
    public int[] metersToPixelsArr(double[] input){
-    int[] result = {(int)(input[0]*pixelsPerMeter),
-        (int)(input[1]*pixelsPerMeter)};
+    int[] result = {(int)(input[0]*pixelsPerMeter+getWidth()/2),
+        (int)(input[1]*pixelsPerMeter + getHeight()/2)};
     return result;
    }
 
