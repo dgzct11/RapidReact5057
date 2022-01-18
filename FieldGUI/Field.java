@@ -55,7 +55,7 @@ public class Field extends JFrame{
         panel.requestFocusInWindow();
         System.out.printf("position: %d %d", panel.getWidth(), panel.getHeight());
         System.out.println(panel.getPreferredSize());
-       
+        addMouseListener(panel);
 
        
         frame.setSize(panel.getPreferredSize());
@@ -92,7 +92,8 @@ class Panel extends JPanel implements MouseInputListener{
     public Panel(String path) {
        
         fieldImage = Toolkit.getDefaultToolkit().getImage(path);
-        
+        addMouseListener(this);
+        addMouseMotionListener(this);
     }
 
     public void setppm(){
@@ -113,7 +114,7 @@ class Panel extends JPanel implements MouseInputListener{
             g.setColor(new Color(255,255,255));
         double[] pos = pixelsToMetersArr(mousePos);
         g.drawString(String.format("(%.2f, %.2f)", pos[0], pos[1]), mousePos[0], mousePos[1]);
-        System.out.println(mousePos[0] + " " + mousePos[1]);
+     
         repaint();
     }
     public int getHeight(){
@@ -137,7 +138,7 @@ class Panel extends JPanel implements MouseInputListener{
    public double[] pixelsToMetersArr(int[] input){
        double[] result = {
             (input[0] - getWidth()/2) / pixelsPerMeter,
-            (input[1] - getWidth()/2) / pixelsPerMeter
+            (input[1] - getHeight()/2) / -pixelsPerMeter
        };
        return result;
    }
@@ -164,6 +165,7 @@ class Panel extends JPanel implements MouseInputListener{
  public void mouseMoved(MouseEvent e){
      mousePos[0] = e.getX();
      mousePos[1] = e.getY();
+     
 
  }
 
@@ -171,13 +173,17 @@ class Panel extends JPanel implements MouseInputListener{
 public void mouseClicked(MouseEvent e) {
     // TODO Auto-generated method stub
     requestFocusInWindow();
+    mousePos[0] = e.getX();
+    mousePos[1] = e.getY();
 }
 
 @Override
 public void mousePressed(MouseEvent e) {
     // TODO Auto-generated method stub
     requestFocusInWindow();
-    System.out.println("mouseClicked")
+  
+    mousePos[0] = e.getX();
+    mousePos[1] = e.getY();
 }
 
 @Override
