@@ -23,25 +23,17 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 
-import app.gui.control_panel.SCSetPoint;
-import app.gui.trajectory.Circle;
-import app.gui.trajectory.Line;
-import app.gui.trajectory.M;
-import app.gui.trajectory.Path;
-import app.gui.trajectory.Segment;
 
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Graphics2D;
-public class TrajectoryPlanning extends JFrame{
+public class Field extends JFrame{
     JFrame frame;
     Panel panel;
- 
-    public static String currentPath = Paths.get("").toAbsolutePath().toString();
-    public static String fs = File.separator;
-    public TrajectoryPlanning(){
-        net = n;
+    
+    public Field(){
+      
     }
     
     public void display(){
@@ -49,7 +41,7 @@ public class TrajectoryPlanning extends JFrame{
         frame.setTitle("Field");
        
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        panel = new Panel("./RobotController" + fs + "resources" + fs + "Commons_drawing.png", net);
+        panel = new Panel("./FieldGUI\\rapid_react_field_render_cropped.png");
         frame.add(panel);
         panel.setFocusable(true);
         frame.setFocusable(true);
@@ -67,11 +59,9 @@ public class TrajectoryPlanning extends JFrame{
        
         frame.pack();
       
-        frame.setLocation(GUIConstants.trajectoryPlanningX, GUIConstants.trajectoryPlanningY);
-        frame.setVisible(true);
-        GUIConstants.trajectoryPlanningWidth = frame.getWidth();
         
-        GUIConstants.trajectoryPlanningHeight = frame.getHeight();
+        frame.setVisible(true);
+      
     }
   
 
@@ -84,12 +74,18 @@ public class TrajectoryPlanning extends JFrame{
 
 class Panel extends JPanel{
     public Image fieldImage;
-    NetClient net;
+    ArrayList<double[]> balls = new ArrayList<double[]>();
+    ArrayList<Agent> robots = new ArrayList<Agent>();
+    public double robotWidth;
+    public double pixelsPerMeter;
+    Color red;
+    Color blue;
     public double[] robotPos = new double[2];
-    public Panel(String path, NetClient n) {
+    double ballDiameter;
+    public Panel(String path) {
        
         fieldImage = Toolkit.getDefaultToolkit().getImage(path);
-        net = n;
+        
         
     }
 
@@ -98,10 +94,10 @@ class Panel extends JPanel{
         super.paintComponent(g1);
         Graphics2D g = (Graphics2D) g1;
         g.drawImage(fieldImage, 0, 0, null);
-
-     
-       
-        drawRobot(g);
+        for(Agent robot: robots)
+            drawRobot(g, robot);
+        for(double[] ball: balls)
+            drawBall(g, ball);
         repaint();
     }
     public int getHeight(){
@@ -116,37 +112,32 @@ class Panel extends JPanel{
         return new Dimension(fieldImage.getWidth(null), fieldImage.getHeight(null));
     }
 
-   
+   public int[] metersToPixelsArr(double[] input){
+    int[] result = {(int)(input[0]*pixelsPerMeter),
+        (int)(input[1]*pixelsPerMeter)};
+    return result;
+   }
 
    
-    public void drawRobot(Graphics g){
+    public void drawRobot(Graphics g, Agent robot){
      
-        int[] pos = M.metersToPixelsInt(net.getPose());
+        int[] pos = metersToPixelsArr(robot.getPose());
         
-        g.setColor(GUIConstants.robotColor);
+        g.setColor(robot.color);
         
-        g.fillRect(pos[0] - (int)(GUIConstants.robotWidth*GUIConstants.pixels_per_meter/2), pos[1] - (int)(GUIConstants.robotWidth*GUIConstants.pixels_per_meter/2), (int)(GUIConstants.robotWidth*GUIConstants.pixels_per_meter), (int)(GUIConstants.robotWidth*GUIConstants.pixels_per_meter));
+        g.fillRect(pos[0] - (int)(robotWidth*pixelsPerMeter/2), pos[1] - (int)(robotWidth*pixelsPerMeter/2), (int)(robotWidth*pixelsPerMeter), (int)(robotWidth*pixelsPerMeter));
      
-        repaint(pos[0] - (int)(GUIConstants.robotWidth*GUIConstants.pixels_per_meter/2), pos[1] - (int)(GUIConstants.robotWidth*GUIConstants.pixels_per_meter/2), (int)(GUIConstants.robotWidth*GUIConstants.pixels_per_meter), (int)(GUIConstants.robotWidth*GUIConstants.pixels_per_meter));
     }
-   
-  
-    public void drawArrow(Graphics2D g, double x, double y, double angle){
-        Arrow arrow = new Arrow();
-        
-        AffineTransform oldXForm = g.getTransform();    
-        angle = -angle;
-        AffineTransform at = new AffineTransform();
-        at.translate(2*(x), 2*(y- arrow.getBounds().getHeight()/4));
-        at.rotate(Math.toRadians(angle), 0, arrow.getBounds().getHeight()/2);
-        g.setTransform(at);
-        
-        g.setStroke(GUIConstants.arrowStroke);
-        g.draw(arrow);
-        g.setTransform(oldXForm);
+   public void drawBall(Graphics g, double[] ball){
+       int[] pos = metersToPixelsArr(ball);
        
-    }
+       if(ball[2] ==0) g.setColor(red);
+       else g.setColor(blue);
+       g.fillOval(pos[0], pos[1], (int)(ballDiameter*pixelsPerMeter), (int)(ballDiameter*pixelsPerMeter));
 
+   }
+  
+ 
 
 
     
@@ -157,20 +148,3 @@ class Panel extends JPanel{
 
 
 
-class Arrow extends Path2D.Double {
-
-    public Arrow() {
-        double arrow_breadth = 36;
-        double length = 100;
-        double arrow_length = 40;
-        moveTo(0, arrow_breadth/2);
-        lineTo(length, arrow_breadth/2);
-        
-        moveTo(length - arrow_length, 0);
-        lineTo(length, arrow_breadth/2);
-        moveTo(length - arrow_length, arrow_breadth);
-        lineTo(length, arrow_breadth/2);
-        
-    }
-
-}
