@@ -37,7 +37,7 @@ public class Agent {
         y = yc;
         if(is_red)
             color = new Color(255,0,0);
-        else    color = new Color(0,255,0);
+        else    color = new Color(0,0,255);
     }
     public double[] getPose(){
         double[] result = {x,y};

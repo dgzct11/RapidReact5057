@@ -83,8 +83,8 @@ class Panel extends JPanel{
     ArrayList<Agent> robots = new ArrayList<Agent>();
     public double robotWidth = 0.889;
     public double pixelsPerMeter;
-    Color red;
-    Color blue;
+    Color red = new Color(255,0,0);
+    Color blue = new Color(0,0,255);
     public double[] robotPos = new double[2];
     double ballDiameter = 0.24;
     public Panel(String path) {
@@ -131,7 +131,7 @@ class Panel extends JPanel{
         g.setColor(robot.color);
         
         g.fillRect(pos[0] - (int)(robotWidth*pixelsPerMeter/2), pos[1] - (int)(robotWidth*pixelsPerMeter/2), (int)(robotWidth*pixelsPerMeter), (int)(robotWidth*pixelsPerMeter));
-     
+        System.out.println("drawing robot");
     }
    public void drawBall(Graphics g, double[] ball){
        int[] pos = metersToPixelsArr(ball);
@@ -139,7 +139,7 @@ class Panel extends JPanel{
        if(ball[2] ==0) g.setColor(red);
        else g.setColor(blue);
        g.fillOval(pos[0], pos[1], (int)(ballDiameter*pixelsPerMeter), (int)(ballDiameter*pixelsPerMeter));
-
+    System.out.println("drawing ball");
    }
   
  
