@@ -77,7 +77,7 @@ public class Field extends JFrame{
 //__________________________________________________________________
 
 
-class Panel extends JPanel{
+class Panel extends JPanel implements MouseInputListener{
     public Image fieldImage;
     ArrayList<double[]> balls = new ArrayList<double[]>();
     ArrayList<Agent> robots = new ArrayList<Agent>();
@@ -87,6 +87,8 @@ class Panel extends JPanel{
     Color blue = new Color(0,0,255);
     public double[] robotPos = new double[2];
     double ballDiameter = 0.24;
+
+    int[] mousePos = new int[2];
     public Panel(String path) {
        
         fieldImage = Toolkit.getDefaultToolkit().getImage(path);
@@ -106,6 +108,12 @@ class Panel extends JPanel{
             drawRobot(g, robot);
         for(double[] ball: balls)
             drawBall(g, ball);
+
+            //displays mouses coordinates
+            g.setColor(new Color(255,255,255));
+        double[] pos = pixelsToMetersArr(mousePos);
+        g.drawString(String.format("(%.2f, %.2f)", pos[0], pos[1]), mousePos[0], mousePos[1]);
+        System.out.println(mousePos[0] + " " + mousePos[1]);
         repaint();
     }
     public int getHeight(){
@@ -124,6 +132,14 @@ class Panel extends JPanel{
     int[] result = {(int)(input[0]*pixelsPerMeter+getWidth()/2),
         (int)(-input[1]*pixelsPerMeter + getHeight()/2)};
     return result;
+   }
+
+   public double[] pixelsToMetersArr(int[] input){
+       double[] result = {
+            (input[0] - getWidth()/2) / pixelsPerMeter,
+            (input[1] - getWidth()/2) / pixelsPerMeter
+       };
+       return result;
    }
 
    
@@ -145,7 +161,50 @@ class Panel extends JPanel{
   
    }
   
- 
+ public void mouseMoved(MouseEvent e){
+     mousePos[0] = e.getX();
+     mousePos[1] = e.getY();
+
+ }
+
+@Override
+public void mouseClicked(MouseEvent e) {
+    // TODO Auto-generated method stub
+    requestFocusInWindow();
+}
+
+@Override
+public void mousePressed(MouseEvent e) {
+    // TODO Auto-generated method stub
+    requestFocusInWindow();
+    System.out.println("mouseClicked")
+}
+
+@Override
+public void mouseReleased(MouseEvent e) {
+    // TODO Auto-generated method stub
+    
+}
+
+@Override
+public void mouseEntered(MouseEvent e) {
+    // TODO Auto-generated method stub
+    
+}
+
+@Override
+public void mouseExited(MouseEvent e) {
+    // TODO Auto-generated method stub
+    
+}
+
+@Override
+public void mouseDragged(MouseEvent e) {
+    // TODO Auto-generated method stub
+    mousePos[0] = e.getX();
+    mousePos[1] = e.getY();
+    
+}
 
 
     

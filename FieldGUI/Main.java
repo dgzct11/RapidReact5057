@@ -3,6 +3,12 @@ class Main{
         Field field = new Field();
         field.display();
         Agent r1 = new Agent(0, 0, true);
+        Agent r2 = new Agent(0, 0, true);
+        Agent r3 = new Agent(0, 0, true);
+
+        Agent r4 = new Agent(0, 0, true);
+        Agent r5 = new Agent(0, 0, true);
+        Agent r6 = new Agent(0, 0, true);
 
         double[] ball1 = {3.174  ,2.243,1};
         double[] ball2 = {3.79  , 0.858,0};
