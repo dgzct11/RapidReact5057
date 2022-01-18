@@ -66,7 +66,7 @@ public class Field extends JFrame{
       
         
         frame.setVisible(true);
-      
+        panel.setppm();
     }
   
 
@@ -90,10 +90,13 @@ class Panel extends JPanel{
     public Panel(String path) {
        
         fieldImage = Toolkit.getDefaultToolkit().getImage(path);
-        pixelsPerMeter = getWidth()/21.946;
         
     }
 
+    public void setppm(){
+        pixelsPerMeter = getWidth()/21.946;
+        System.out.println(pixelsPerMeter);
+    }
     @Override
     public void paint(Graphics g1) {
         super.paintComponent(g1);
@@ -119,7 +122,7 @@ class Panel extends JPanel{
 
    public int[] metersToPixelsArr(double[] input){
     int[] result = {(int)(input[0]*pixelsPerMeter+getWidth()/2),
-        (int)(input[1]*pixelsPerMeter + getHeight()/2)};
+        (int)(-input[1]*pixelsPerMeter + getHeight()/2)};
     return result;
    }
 
@@ -131,7 +134,7 @@ class Panel extends JPanel{
         g.setColor(robot.color);
         
         g.fillRect(pos[0] - (int)(robotWidth*pixelsPerMeter/2), pos[1] - (int)(robotWidth*pixelsPerMeter/2), (int)(robotWidth*pixelsPerMeter), (int)(robotWidth*pixelsPerMeter));
-        System.out.println("drawing robot");
+     
     }
    public void drawBall(Graphics g, double[] ball){
        int[] pos = metersToPixelsArr(ball);
@@ -139,7 +142,7 @@ class Panel extends JPanel{
        if(ball[2] ==0) g.setColor(red);
        else g.setColor(blue);
        g.fillOval(pos[0], pos[1], (int)(ballDiameter*pixelsPerMeter), (int)(ballDiameter*pixelsPerMeter));
-    System.out.println("drawing ball");
+  
    }
   
  
