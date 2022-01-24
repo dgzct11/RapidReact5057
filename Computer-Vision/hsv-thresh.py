@@ -13,7 +13,7 @@ red = [80, 50, 20, 100, 255, 255]
 color = blue
 
 # Initialize Video Feed(s)
-cap1 = cv2.VideoCapture(3)
+cap1 = cv2.VideoCapture('http://192.168.1.196:8080/?action=stream')
 cap2 = cv2.VideoCapture('Videos/b.mp4')
 cap3 = cv2.VideoCapture('Videos/c.mp4')
 
@@ -39,8 +39,7 @@ while(True):
     colorHigh = np.array(color[3:6])
     mask = cv2.inRange(frameHSV, colorLow, colorHigh)
 
-    # Remove noise and repair objects that arent noise.
-    cv2.imshow("mask", mask)
+    #cv2.imshow("mask", mask)
 
     # Get the countours of the all that is in the color range
     contours, h = cv2.findContours(mask, 1, 2)
@@ -53,7 +52,7 @@ while(True):
         # Only proceed if the radius meets a minimum size
         # and if the area of the contour is atleast 75% of the enclosing circle
         if radius > 10 and cv2.contourArea(cnt)/(np.pi*radius**2) > 0.75:
-            cv2.drawContours(frame1, cnt, -1, (0,255,0), 3 )
+            cv2.drawContours(stacked, cnt, -1, (0,255,0), 3 )
 
             middleX = int(x)
             middleY = int(y)
