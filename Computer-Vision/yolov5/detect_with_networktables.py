@@ -24,7 +24,7 @@ Usage - formats:
                                          yolov5s_edgetpu.tflite     # TensorFlow Edge TPU
 """
 from networktables import NetworkTables
-NetworkTables.initialize(server="")
+print(f'\n\n\nconnected: {NetworkTables.initialize(server="10.50.57.1")} ')
 
 import argparse
 import os
@@ -157,7 +157,7 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
 
         """
         conf_thres = 0.7
-        balls = NetworkTables.getTable('SmartDashboard')
+        balls = NetworkTables.getTable('balldata')
         ball_num = 1
         for i, det in enumerate(pred):
           for tens in det:
