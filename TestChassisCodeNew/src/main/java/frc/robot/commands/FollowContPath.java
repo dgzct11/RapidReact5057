@@ -60,7 +60,7 @@ public class FollowContPath extends CommandBase {
       Trajectory.State goal = trajectory.sample(time);
       Pose2d currentRobotPose = new Pose2d(NavXGyro.ahrs.getDisplacementX(), NavXGyro.ahrs.getDisplacementY(), Rotation2d.fromDegrees(NavXGyro.ahrs.getAngle()));
       ChassisSpeeds adjustedSpeeds = controller.calculate(currentRobotPose, goal);
-      DifferentialDriveWheelSpeeds wheelSpeeds = kinematics.toWheelSpeeds(adjustedSpeeds);
+     
     } else {
       initialTime = System.currentTimeMillis();
       
