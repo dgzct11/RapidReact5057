@@ -24,7 +24,7 @@ Usage - formats:
                                          yolov5s_edgetpu.tflite     # TensorFlow Edge TPU
 """
 from networktables import NetworkTables
-print(f'\n\n\nconnected: {NetworkTables.initialize(server="10.50.57.1")} ')
+print(f'\n\n\nconnected: {NetworkTables.initialize(server="10.50.57.2")} ')
 
 import argparse
 import os
