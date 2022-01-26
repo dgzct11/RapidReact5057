@@ -164,6 +164,9 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
             if(tens[4] > conf_thres):
               balls.putNumberArray(f"ball_{ball_num}", [tens[0], tens[1], tens[2], tens[3], tens[4], tens[5]])
               ball_num+=1
+          while ball_num<22:
+              balls.putNumberArray(f"ball_{ball_num}", [0,0,0,0,0])
+              ball_num+=1
           
 
         for i, det in enumerate(pred):  # per image
