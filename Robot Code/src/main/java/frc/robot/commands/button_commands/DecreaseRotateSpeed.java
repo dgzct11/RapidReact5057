@@ -5,6 +5,7 @@
 package frc.robot.commands.button_commands;
 
 import edu.wpi.first.wpilibj2.command.InstantCommand;
+import frc.robot.Constants;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
@@ -16,5 +17,7 @@ public class DecreaseRotateSpeed extends InstantCommand {
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    Constants.max_rotate -= 0.25;
+  }
 }

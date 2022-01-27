@@ -167,7 +167,7 @@ public class DriveTrain extends SubsystemBase {
     //positive rotate speed is left turn, negative rotate speed is right turn
     double strafeXComponent = -Math.sin(Math.toRadians(strafeAngle))*speed;
     double strafeYComponent = Math.cos(Math.toRadians(strafeAngle))*speed;
-    double rotationComponent = Constants.rotate_dampaner*rotateSpeed/Math.sqrt(2);;
+    double rotationComponent = Constants.max_rotate*rotateSpeed/Math.sqrt(2);;
 
     double[] leftFrontVector = {strafeXComponent-rotationComponent, strafeYComponent-rotationComponent};
     double[] leftBackVector = {strafeXComponent + rotationComponent, strafeYComponent-rotationComponent};
@@ -314,7 +314,7 @@ public class DriveTrain extends SubsystemBase {
    
   }
   public void displayValues(){
-    SmartDashboard.putNumber("Drive Mode", Constants.drive_mode);
+    SmartDashboard.putString("Drive Mode", Constants.drive_mode);
     SmartDashboard.putNumber("Max V", Constants.velocityMax);
 
     //Angle difference in set Directional angles

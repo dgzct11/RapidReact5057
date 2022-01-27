@@ -86,7 +86,7 @@ public final class Constants {
 
     // control modifiers
 
-    public static final double rotate_dampaner = 1;
+    public static double max_rotate = 1;
     public static final double limeLightHeight = 0;
     public static final double ball_area = 0;
    
@@ -96,8 +96,11 @@ public final class Constants {
     public static double max_motor_percent = 1;
     
     // state variables
+    public static String field_oriented = "fo";
+    public static String robot_oriented = "ro";
     
-    public static int drive_mode = 0;
+    public static String drive_mode = field_oriented;
+  
     public static boolean in_auto = false;
     
    

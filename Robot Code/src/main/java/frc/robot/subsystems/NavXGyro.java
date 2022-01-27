@@ -21,6 +21,9 @@ public class NavXGyro extends SubsystemBase {
   public static double getAngle(){
     return RobotContainer.navxTo360(ahrs.getAngle())%360;
   }
+  public static void reset(){
+    ahrs.reset();
+  }
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

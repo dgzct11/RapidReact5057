@@ -10,8 +10,8 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
-import frc.robot.functional.ThreeDProjectile;
-import frc.robot.functional.trajectory.Position;
+
+import frc.robot.functional.Position;
 
 public class LimeLight extends SubsystemBase {
   /** Creates a new LimeLight. */
@@ -74,18 +74,7 @@ public class LimeLight extends SubsystemBase {
     };
     return result;
   }
-  public double[] trackBall(){
-    double[] currentPosition = getObjectPosition(Constants.ball_area, odometry.currentPosition);
-    double deltaTime = System.currentTimeMillis()/1000 - previousBallTime;
-    double[] velocities = {
-      (currentPosition[0] - previousBallPosition[0])/deltaTime,
-      (currentPosition[1] - previousBallPosition[1])/deltaTime,
-      (currentPosition[2] - previousBallPosition[2])/deltaTime
-    };
-    double[] landingZoneTime = ThreeDProjectile.getLandingPosTime(velocities, currentPosition);
-    previousBallPosition = currentPosition;
-    return landingZoneTime;
-  }
+ 
 
   public double getVerticalAngleDiff(){
     return y;
@@ -98,10 +87,7 @@ public class LimeLight extends SubsystemBase {
     SmartDashboard.putNumber("Lime Area", area);
     SmartDashboard.putNumber("Ball Distance", getDistanceFromArea(0.0316));
    
-    double[] landingZoneTime = trackBall();
-    SmartDashboard.putNumber("Ball X", landingZoneTime[0]);
-    SmartDashboard.putNumber("Ball Y", landingZoneTime[1]);
-    SmartDashboard.putNumber("Ball Time", landingZoneTime[2]);
+   
   }
   
   @Override
