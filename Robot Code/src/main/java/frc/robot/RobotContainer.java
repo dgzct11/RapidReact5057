@@ -6,24 +6,21 @@ package frc.robot;
 
 
 
-import java.util.ArrayList;
-
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 
 import edu.wpi.first.wpilibj2.command.Command;
-
-
+import frc.robot.commands.button_commands.DecreaseRotateSpeed;
+import frc.robot.commands.button_commands.DecreaseSpeed;
+import frc.robot.commands.button_commands.IncreaseRotateSpeed;
+import frc.robot.commands.button_commands.IncreaseSpeed;
 import frc.robot.functional.Circle;
 import frc.robot.functional.Line;
-
-import frc.robot.subsystems.DriveTrain;
-import frc.robot.subsystems.JoystickRemote;
-import frc.robot.subsystems.LimeLight;
-import frc.robot.subsystems.NavXGyro;
-import frc.robot.subsystems.Odometry;
-import frc.robot.subsystems.XboxRemote;
-
+import frc.robot.subsystems.mechanical_subsystems.DriveTrain;
+import frc.robot.subsystems.sensors.LimeLight;
+import frc.robot.subsystems.sensors.NavXGyro;
+import frc.robot.subsystems.sensors.Odometry;
+import frc.robot.subsystems.sensors.XboxRemote;
 import edu.wpi.first.wpilibj2.command.button.POVButton;
 import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -56,9 +53,11 @@ public class RobotContainer {
   
   Button rightButton = new JoystickButton(xboxController, Constants.rb_button_num);
   Button leftButton = new JoystickButton(xboxController, Constants.lb_button_num);
+
   Button xButton = new JoystickButton(xboxController, Constants.x_button_num);
   Button aButton = new JoystickButton(xboxController, Constants.a_button_num);
   Button bButton = new JoystickButton(xboxController, Constants.b_button_num); 
+  Button yButton = new JoystickButton(xboxController, Constants.y_button_num);
   Button startButton = new JoystickButton(xboxController, Constants.start_button_num);
   Button backButton = new JoystickButton(xboxController, Constants.back_button_num);
   public RobotContainer() {
@@ -79,7 +78,11 @@ public class RobotContainer {
    */
   
   private void configureButtonBindings() {
-    
+    aButton.whenPressed(new DecreaseSpeed());
+    yButton.whenPressed(new IncreaseSpeed());
+
+    xButton.whenPressed(new DecreaseRotateSpeed());
+    bButton.whenPressed(new IncreaseRotateSpeed());
   }
 
   /**

@@ -6,8 +6,8 @@ package frc.robot.commands.driving_commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
-import frc.robot.subsystems.DriveTrain;
-import frc.robot.subsystems.XboxRemote;
+import frc.robot.subsystems.mechanical_subsystems.DriveTrain;
+import frc.robot.subsystems.sensors.XboxRemote;
 
 public class SwerveDrive extends CommandBase {
   /** Creates a new SwerveDrive. */
