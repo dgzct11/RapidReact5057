@@ -1,4 +1,4 @@
-package frc.robot.functional.trajectory;
+package frc.robot.functional;
 
 
 /** Add your docs here. */
