@@ -7,11 +7,11 @@ package frc.robot.subsystems.sensors;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants;
 
-import frc.robot.functional.Position;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
+
+
 
 public class LimeLight extends SubsystemBase {
   /** Creates a new LimeLight. */
@@ -26,74 +26,18 @@ public class LimeLight extends SubsystemBase {
   //used for distance estimation. 
   NetworkTableEntry ta = table.getEntry("ta");
 
+  //boolean value wether its in viuew
   NetworkTableEntry tv = table.getEntry("tv");
   
-  double x;
-  double y;
-  boolean objectInView;
-  double area;
-  double[] previousBallPosition; 
-  double previousBallTime;
-  Odometry odometry;
-
-  public LimeLight(Odometry od) {
-    odometry = od;
-  }
-
-  public void updateValues(){
-    x = tx.getDouble(0.0);
-    y = ty.getDouble(0.0);
-    area = ta.getDouble(0.0);
-    objectInView = (tv.getDouble(0.0) == 1);
-    previousBallPosition = getObjectPosition(Constants.ball_area, odometry.currentPosition);
-    previousBallTime = System.currentTimeMillis()/1000;
-  }
-  public double getDistance(double objectHeight){
-    double heightDifference = objectHeight-Constants.limeLightHeight;
-    return heightDifference/Math.tan(Math.toRadians(getHorizontalAngleDiff())); 
-  }
-  public double getDistanceFromArea(double objectArea){
-    //returns distance to plane.
-    double totalCameraArea = objectArea/(area/100);
-    double horizontalWidthOfFrame = Math.sqrt(totalCameraArea/0.733789999804);
-    return horizontalWidthOfFrame/2/0.509525449494;
-  }
-  public double getHorizontalAngleDiff(){
-    return x;
-    //positive x is right, negative x is left
-  }
-  public double[] getObjectPosition(double objectArea, Position currentPosition){
   
-    double pointDistance = getDistanceFromArea(objectArea)/Math.cos(Math.toRadians(Math.abs(getHorizontalAngleDiff())));
-    double angle = NavXGyro.getAngle() - getHorizontalAngleDiff();
-    double height = Math.tan(Math.toRadians(getVerticalAngleDiff())) + Constants.limeLightHeight;
-    double[] result = {
-      -Math.sin(Math.toRadians(angle))*pointDistance + currentPosition.x,
-      Math.cos(Math.toRadians(angle)) * pointDistance + currentPosition.y,
-      height
-    };
-    return result;
-  }
- 
 
-  public double getVerticalAngleDiff(){
-    return y;
+  public LimeLight() {
+  
   }
-  public boolean inView(){
-    return objectInView;
-  }
-  public void outputToDash(){
- 
-    SmartDashboard.putNumber("Lime Area", area);
-    SmartDashboard.putNumber("Ball Distance", getDistanceFromArea(0.0316));
-   
-   
-  }
+
   
   @Override
   public void periodic() {
-    // This method will be called once per scheduler run
-    updateValues();
-    outputToDash();
+   System.out.println(ta.getDouble(0)); //prints area of object
   }
 }
