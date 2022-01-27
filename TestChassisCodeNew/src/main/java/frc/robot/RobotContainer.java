@@ -11,6 +11,7 @@ import com.kauailabs.navx.frc.AHRS;
 //import org.graalvm.compiler.nodes.ConstantNode;
 
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.commands.AlignBall;
 import frc.robot.commands.ChangeMaxSpeed;
 import frc.robot.commands.DisplayMPX;
 
@@ -115,7 +116,7 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return null;
+    return new AlignBall(driveTrain);
   }
 
 

@@ -25,7 +25,7 @@ public class Vision extends SubsystemBase {
       //Get the table within that instance that contains the data. There can
       //be as many tables as you like and exist to make it easier to organize
       //your data. In this case, it's a table called datatable.
-      NetworkTable table = inst.getTable("ball_data");
+      NetworkTable table = inst.getTable("balldata");
 
       //Get the entries within that table that correspond to the X and Y values
       //for some operation in your program.
@@ -37,9 +37,14 @@ public class Vision extends SubsystemBase {
   }
 
   public double getHorizontalAngleDiff(){
-    double[] vector = ball_entries.get(0).getDoubleArray(zereos);
-
-    return vector[0] + vector[2]/2 - 500;
+    
+    for(NetworkTableEntry entry: ball_entries){
+      double[] vector = entry.getDoubleArray(zereos);
+      if(entry.getDoubleArray(zereos)[4] !=0)
+        return vector[0] + vector[2]/2 - 350;
+    }
+    return 1000000;
+    
   }
 
   @Override

@@ -18,13 +18,15 @@ import frc.robot.subsystems.NavXGyro;
  */
 public final class Constants {
 
+
+    public static boolean in_auto = false;
     public static final int xbox_port = 0;
-    public static final int right_motor_port = 4;
+    public static final int right_motor_port = 0;
     
     public static final int left_y_axis = 1;
     public static final int right_y_axis = 5;
     public static final int right_x_axis = 4;
-    public static final int left_motor_port = 0;
+    public static final int left_motor_port = 2;
     public static  double max_motor_percent = 0.3;
     public static final Port mxp_port = Port.kMXP;
     public static final double angle_error = 0.6;

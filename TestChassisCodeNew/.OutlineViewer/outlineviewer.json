@@ -2,5 +2,29 @@
   "Connections": {
     "open": true
   },
+  "LiveWindow": {
+    "Ungrouped": {
+      "open": true
+    }
+  },
+  "NetworkTables Settings": {
+    "mode": "Client"
+  },
+  "SmartDashboard": {
+    "DB": {
+      "open": true
+    }
+  },
+  "Usage": {
+    "Client": {
+      "Dashboard": {
+        "open": true
+      },
+      "open": true
+    }
+  },
+  "balldata": {
+    "open": true
+  },
   "connections": true
 }

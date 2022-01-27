@@ -5,6 +5,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Vision;
 
@@ -19,15 +20,20 @@ public class AlignBall extends CommandBase {
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    Constants.in_auto = true;
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double error;
-    if(Math.abs(vision.getHorizontalAngleDiff()) < 0.01)
-      error = vision.getHorizontalAngleDiff()*0.001;
-    else error = 0.01 * ( vision.getHorizontalAngleDiff() < 0 ? 1:-1);
+    
+    double error = 0.1;
+    System.out.println("error: "+vision.getHorizontalAngleDiff());
+    if(Math.abs(vision.getHorizontalAngleDiff()*0.01) < 0.1)
+      error = -vision.getHorizontalAngleDiff()*0.01;
+    else error = 0.1 * ( vision.getHorizontalAngleDiff() < 0 ? -1:1);
+    
     driveTrain.spin(error);
   }
 

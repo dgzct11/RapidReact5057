@@ -44,10 +44,10 @@ public class DriveTrain extends SubsystemBase {
   public void spin(double speed){
     //pos speed is left
     //neg speed is right
-    rightSpeedC.set(ControlMode.PercentOutput, speed*Constants.max_motor_percent);
+    rightSpeedC.set(ControlMode.PercentOutput, speed);
     currentLeft = speed;
     currentRight = speed;
-    leftSpeedC.set(ControlMode.PercentOutput, speed*Constants.max_motor_percent);
+    leftSpeedC.set(ControlMode.PercentOutput, speed);
   }
   @Override
   public void periodic() {
