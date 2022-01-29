@@ -33,31 +33,20 @@ public final class Constants {
     public static final int right_front_direction_port = 5;
     public static final int right_front_thrust_port = 6;
    
-<<<<<<< HEAD
-    //Indexer
+    //Intake
+    public static final int forward_channel;
+    public static final int reverse_channel;
+
+    //Climb
+    public static final int motorTLPort = 0;
+    public static final int motorTRPort = 0;
+    public static final int motorALPort = 0;
+    public static final int motorARPort = 0;
+    public static final int pivot_motor_ticks__per_degree = 0;
+    public static final int telescoping_meter_to_ticks = 0;
+    //Index
     public static final int front_left_Motor = 0000; // WIP
     public static final int front_right_Motor = 0000; // WIP
-    public static final int back_left_Motor = 0000; // WIP
-    public static final int back_right_Motor = 0000; // WIP
-
-
-
-=======
-    //Intake
-    public static final int forward_channel_port = -1;
-    public static final int reverse_channel_port = -1;
-    public static final int pneumatic_CAN_id = -1;
-    public static final int intake_motor_id = -1;
-    public static final int intake_motor_percent_output = -1;
->>>>>>> 5637c0897a29f6309d1c8ec58718d9148ae1cbca
-    //Climb
-    //Intake
-    //Index
-<<<<<<< HEAD
-=======
-    public static final int front_left_motor = 0000; // WIP
-    public static final int front_right_motor = 0000; // WIP
->>>>>>> 5637c0897a29f6309d1c8ec58718d9148ae1cbca
     //Shooter
 
     //xbox bindings
@@ -116,6 +105,7 @@ public final class Constants {
     public static final double limeLightHeight = 0;
     public static final double ball_area = 0;
    
+   
     public static  double velocityMax = 1;
     
     public static double max_motor_percent = 1;
@@ -127,6 +117,10 @@ public final class Constants {
     public static String drive_mode = field_oriented;
   
     public static boolean in_auto = false;
+
+
+
+
 
 
     
