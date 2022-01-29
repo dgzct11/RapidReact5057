@@ -24,6 +24,10 @@ public class Climb extends SubsystemBase {
   {
 
   }
+  public void setVelocity()
+  {
+    
+  }
   public void setHeight(int height)
   {
     telescopingTL.set(ControlMode.MotionMagic, height*(Constants.telescoping_meter_to_ticks));
