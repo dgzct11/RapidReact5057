@@ -41,8 +41,8 @@ public final class Constants {
     public static final int intake_motor_percent_output = -1;
     //Climb
     //Index
-    public static final int front_left_Motor = 0000; // WIP
-    public static final int front_right_Motor = 0000; // WIP
+    public static final int front_left_motor = 0000; // WIP
+    public static final int front_right_motor = 0000; // WIP
     //Shooter
 
     //xbox bindings

@@ -12,9 +12,9 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 public class Indexer extends SubsystemBase {
   /** Creates a new Indexer. */
-  TalonSRX frontleftMotar = new TalonSRX(Constants.front_left_Motor);
-  TalonSRX frontrightMotar = new TalonSRX(Constants.front_right_Motor);
-  Motor775 = 0000;
+  TalonSRX frontleftMotor = new TalonSRX(Constants.front_left_motor);
+  TalonSRX frontrightMotor = new TalonSRX(Constants.front_right_motor);
+  //Motor775 = 0000;
   
 
   public Indexer() {}
