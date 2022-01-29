@@ -20,22 +20,18 @@ public class JetsonVision extends SubsystemBase {
   // vector = [x,y,width, height, confidence, red or blue ball, camera_number]
   NetworkTable table = NetworkTableInstance.getDefault().getTable("balldata");
   
-  public JetsonVision() {
-    
+  public JetsonVision() { 
       for(int i = 0; i<22; i++){
         ball_entries.add(table.getEntry("ball_"+(i+1)));
-        ball_entries.get(0).setDoubleArray(zereos);
+        ball_entries.get(i).setDoubleArray(zereos);
       }
-
   }
 
   public double[] getAngleDifference(double[] ball){
     return zereos;
   }
+
   public double getDistance(double[] ball_angle_diff){
     return 0;
   }
-
-
-  
 }
