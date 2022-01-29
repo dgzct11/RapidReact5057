@@ -17,6 +17,7 @@ import frc.robot.commands.button_commands.IncreaseSpeed;
 import frc.robot.functional.Circle;
 import frc.robot.functional.Line;
 import frc.robot.subsystems.mechanical_subsystems.DriveTrain;
+import frc.robot.subsystems.mechanical_subsystems.Indexer;
 import frc.robot.subsystems.sensors.LimeLight;
 import frc.robot.subsystems.sensors.NavXGyro;
 import frc.robot.subsystems.sensors.Odometry;
@@ -35,10 +36,11 @@ public class RobotContainer {
   public XboxController xboxController = new XboxController(Constants.xbox_port);
 
   //subsystems
-
+    //Mechanical subsystems
   public DriveTrain driveTrain = new DriveTrain();
+  public Indexer indexer = new Indexer();
  
-  
+    //Sensor subsystems
   public XboxRemote xboxRemote = new XboxRemote(xboxController);
   public Odometry odometry = new Odometry();
   public NavXGyro navx = new NavXGyro(); 
