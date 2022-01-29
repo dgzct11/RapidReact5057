@@ -110,6 +110,7 @@ public final class Constants {
     public static double max_rotate = 1;
     public static final double limeLightHeight = 0;
     public static final double ball_area = 0;
+
    
     public static  double velocityMax = 1;
     
@@ -123,8 +124,9 @@ public final class Constants {
   
     public static boolean in_auto = false;
 
-
-    
+    //Limelight
+    public static final double camera_angle = 0;
+    public static final int hub_height = 0;
    
    
     
