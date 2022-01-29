@@ -34,8 +34,8 @@ public final class Constants {
     public static final int right_front_thrust_port = 6;
    
     //Intake
-    public static final int forward_channel= 1;
-    public static final int reverse_channel = 1;
+    public static final int forward_channel = -1;
+    public static final int reverse_channel = -1;
 
     //Climb
     public static final int motorTLPort = 0;
@@ -104,6 +104,17 @@ public final class Constants {
     public static double max_rotate = 1;
     public static final double limeLightHeight = 0;
     public static final double ball_area = 0;
+
+    //Limelight
+    public static final double camera_angle = -1;
+    public static final double hub_height = -1;
+
+    //Intake
+    public static final int pneumatic_CAN_id = -1;
+    public static final int forward_channel_port = -1;
+    public static final int reverse_channel_port = -1;
+    public static final int intake_motor_id = -1;
+    public static final double intake_motor_percent_output = -1;
 
    
    
