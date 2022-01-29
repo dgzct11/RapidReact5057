@@ -9,6 +9,7 @@ import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 
 
@@ -34,10 +35,23 @@ public class LimeLight extends SubsystemBase {
   public LimeLight() {
   
   }
-
+  public double getDistance(){
+    double theta = Constants.camera_angle + ty.getDouble(0.0);
+    double height = Constants.hub_height - Constants.limeLightHeight;
+    double distance = height / java.lang.Math.tan(theta);
+    return distance;
+  }
+  public double getHorizontalOffset(){
+    return tx.getDouble(0.0);
+  }
+  public boolean isInView(){
+    return tv.getBoolean(false);
+  }
   
+
   @Override
   public void periodic() {
    System.out.println(ta.getDouble(0)); //prints area of object
   }
 }
+//hi
