@@ -20,17 +20,24 @@ public class Climb extends SubsystemBase {
   public Climb() {}
   
   //TODO
+  public void getHeight()
+  {
+
+  }
+  public void setVelocity()
+  {
+    
+  }
   public void setHeight(int height)
   {
-    telescopingTL.set(ControlMode.MotionMagic, height);
-    telescopingTR.set(ControlMode.MotionMagic, height);
+    telescopingTL.set(ControlMode.MotionMagic, height*(Constants.telescoping_meter_to_ticks));
+    telescopingTR.set(ControlMode.MotionMagic, height*(Constants.telescoping_meter_to_ticks));
   }
 
   public void setAngle(int angle)
   {
-    angle = angle*(Constants.pivot_motor_ticks__per_degree);
-    telescopingAL.set(ControlMode.MotionMagic, angle);
-    telescopingAR.set(ControlMode.MotionMagic, angle);
+    telescopingAL.set(ControlMode.MotionMagic, angle*(Constants.pivot_motor_ticks__per_degree));
+    telescopingAR.set(ControlMode.MotionMagic, angle*(Constants.pivot_motor_ticks__per_degree));
   }
 
   @Override
