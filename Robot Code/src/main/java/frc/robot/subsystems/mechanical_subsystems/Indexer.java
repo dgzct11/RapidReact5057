@@ -14,11 +14,14 @@ public class Indexer extends SubsystemBase {
   /** Creates a new Indexer. */
   TalonSRX frontleftMotar = new TalonSRX(Constants.front_left_Motor);
   TalonSRX frontrightMotar = new TalonSRX(Constants.front_right_Motor);
-  Motor775 = 0000;
+  FrontMotar
+  
   
 
   public Indexer() {}
   //TODO
+
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

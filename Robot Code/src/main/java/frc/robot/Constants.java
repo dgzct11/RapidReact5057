@@ -33,14 +33,14 @@ public final class Constants {
     public static final int right_front_direction_port = 5;
     public static final int right_front_thrust_port = 6;
    
-    //Intake
+    //Indexer
     public static final int front_left_Motor = 0000; // WIP
     public static final int front_right_Motor = 0000; // WIP
 
 
 
     //Climb
-    //Index
+    //Intake
     //Shooter
 
     //xbox bindings
