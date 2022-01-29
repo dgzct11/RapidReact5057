@@ -15,6 +15,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 public class Indexer extends SubsystemBase {
   /** Creates a new Indexer. */
+<<<<<<< HEAD
   TalonSRX frontleftMotor = new TalonSRX(Constants.front_left_Motor);
   TalonSRX frontrightMotor = new TalonSRX(Constants.front_right_Motor);
   TalonSRX backleftMotor = new TalonSRX(Constants.back_left_Motor);
@@ -43,6 +44,12 @@ public class Indexer extends SubsystemBase {
     backleftMotor.set(ControlMode.PercentOutput,  percentOutput);
     backleftMotor.set(ControlMode.PercentOutput,  percentOutput);
   }
+=======
+  TalonSRX frontleftMotor = new TalonSRX(Constants.front_left_motor);
+  TalonSRX frontrightMotor = new TalonSRX(Constants.front_right_motor);
+  //Motor775 = 0000;
+  
+>>>>>>> 5637c0897a29f6309d1c8ec58718d9148ae1cbca
 
   @Override
   public void periodic() {
