@@ -5,9 +5,18 @@
 package frc.robot.subsystems.mechanical_subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
+
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
 
 public class Indexer extends SubsystemBase {
   /** Creates a new Indexer. */
+  TalonSRX frontleftMotar = new TalonSRX(Constants.front_left_Motor);
+  TalonSRX frontrightMotar = new TalonSRX(Constants.front_right_Motor);
+  Motor775 = 0000;
+  
+
   public Indexer() {}
   //TODO
   @Override
