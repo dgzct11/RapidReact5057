@@ -34,9 +34,8 @@ public final class Constants {
     public static final int right_front_thrust_port = 6;
    
     //Intake
-    
-
-
+    public static final int forward_channel;
+    public static final int reverse_channel;
 
     //Climb
     //Index
