@@ -24,9 +24,10 @@ public class Climb extends SubsystemBase {
   {
 
   }
-  public void setVelocity()
+  public void setVelocity(int velocity)
   {
-    
+    telescopingTL.set(ControlMode.Velocity, velocity);
+    telescopingTR.set(ControlMode.Velocity, velocity);
   }
   public void setHeight(int height)
   {
