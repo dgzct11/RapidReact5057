@@ -9,7 +9,17 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Climb extends SubsystemBase {
   /** Creates a new Climber. */
   public Climb() {}
+  
   //TODO
+  public void setHeight()
+  {
+
+  } 
+
+  public void setAngle()
+  {
+    
+  }
 
   @Override
   public void periodic() {
