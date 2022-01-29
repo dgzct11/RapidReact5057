@@ -11,7 +11,15 @@ public class Climb extends SubsystemBase {
   public Climb() {}
   
   //TODO
-  
+  public void setHeight()
+  {
+
+  } 
+
+  public void setAngle()
+  {
+    
+  }
 
   @Override
   public void periodic() {
