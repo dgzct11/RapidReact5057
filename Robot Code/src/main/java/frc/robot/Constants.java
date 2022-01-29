@@ -36,11 +36,14 @@ public final class Constants {
     //Indexer
     public static final int front_left_Motor = 0000; // WIP
     public static final int front_right_Motor = 0000; // WIP
+    public static final int back_left_Motor = 0000; // WIP
+    public static final int back_right_Motor = 0000; // WIP
 
 
 
     //Climb
     //Intake
+    //Index
     //Shooter
 
     //xbox bindings
