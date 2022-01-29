@@ -35,6 +35,11 @@ public class LimeLight extends SubsystemBase {
   
   }
 
+  public double getDistance(){}
+
+  public boolean isInView(){
+    return tv.getBoolean(false);
+  }
   
   @Override
   public void periodic() {
