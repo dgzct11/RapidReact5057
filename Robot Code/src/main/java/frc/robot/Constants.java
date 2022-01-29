@@ -23,6 +23,7 @@ public final class Constants {
     public static final int xbox_port = 0;
     public static final Port mxp_port = Port.kMXP;
     
+    //Swurve Drive
     public static final int left_front_direction_port = 7;
     public static final int left_front_thrust_port = 8;
     public static final int right_back_direction_port = 3;
@@ -32,7 +33,15 @@ public final class Constants {
     public static final int right_front_direction_port = 5;
     public static final int right_front_thrust_port = 6;
    
-    
+    //Intake
+    public static final int forward_channel;
+    public static final int reverse_channel;
+
+    //Climb
+    //Index
+    public static final int front_left_Motor = 0000; // WIP
+    public static final int front_right_Motor = 0000; // WIP
+    //Shooter
 
     //xbox bindings
     
@@ -102,6 +111,8 @@ public final class Constants {
     public static String drive_mode = field_oriented;
   
     public static boolean in_auto = false;
+
+
     
    
    
