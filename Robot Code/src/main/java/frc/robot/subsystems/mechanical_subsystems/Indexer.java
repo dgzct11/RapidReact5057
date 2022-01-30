@@ -43,8 +43,7 @@ public class Indexer extends SubsystemBase {
     backleftMotor.set(ControlMode.PercentOutput,  percentOutput);
     backleftMotor.set(ControlMode.PercentOutput,  percentOutput);
   }
-  TalonSRX frontleftMotor = new TalonSRX(Constants.front_left_motor);
-  TalonSRX frontrightMotor = new TalonSRX(Constants.front_right_motor);
+
   //Motor775 = 0000;
   
 
