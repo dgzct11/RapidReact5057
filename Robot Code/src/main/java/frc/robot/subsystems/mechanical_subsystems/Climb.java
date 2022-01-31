@@ -20,10 +20,15 @@ public class Climb extends SubsystemBase {
   public Climb() {}
   
   //TODO
-  public void getHeight()
+  public double getHeight()
   {
 
   }
+  public double getAngle(){}
+
+  public void setAngularVelocity(){}
+
+
   public void setVelocity(int velocity)
   {
     telescopingTL.set(ControlMode.Velocity, velocity);

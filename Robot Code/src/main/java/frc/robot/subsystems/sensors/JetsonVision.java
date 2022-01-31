@@ -21,7 +21,7 @@ public class JetsonVision extends SubsystemBase {
   double[] zereos = {0,0,0,0,0,0};
   double ball_confidence_threshold = 0.7;
   Odometry odometry;
-  public JetsonVision() {
+  public JetsonVision(Odometry od) {
     //Get the default instance of NetworkTables that was created automatically
       //when your program starts
       NetworkTableInstance inst = NetworkTableInstance.getDefault();
@@ -33,7 +33,7 @@ public class JetsonVision extends SubsystemBase {
 
       //Get the entries within that table that correspond to the X and Y values
       //for some operation in your program.
-      
+      odometry = od;
       for(int i = 0; i<22; i++){
         ball_entries.add(table.getEntry("ball_"+(i+1)));
         ball_entries.get(0).setDoubleArray(zereos);
