@@ -1,6 +1,22 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
+/**
+ * TODO
+ * 
+ * Complete the color sensor class:
+ * - we will have two color sensors, one in the front indexer, one in the back of the indexer. 
+ * - the color sensor subsystem should return if we have a ball in the front or back, and the color of each ball
+ * 
+ * Then: 
+ * PID settings for Falcon Motors
+ * 
+ *
+ * getBallStates methods for the indexer class
+ * 
+ * commands
+ * BackIndexerUpDown command
+ * front indexer spin
+ * 
+ * 
+ */
 
 package frc.robot.subsystems.mechanical_subsystems;
 
