@@ -1,0 +1,5 @@
+The robot stars in the tarmac, facing outwards. There are two balls in front of each tarmac, one red, one blue.
+
+1. The robot determiens which ball infront of it is red, which is blue, and goes for the correct color.
+2. Fires the ball is started out with, and the ball it just picked up.
+3. 
