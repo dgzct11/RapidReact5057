@@ -11,11 +11,11 @@ import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
-import frc.robot.functional.Position;
+import frc.robot.functional.trajectory.Position;
+
 
 public class JetsonVision extends SubsystemBase {
   /** Creates a new JetsonVision. */
-  
   ArrayList<NetworkTableEntry> ball_entries = new ArrayList<NetworkTableEntry>();
   //{x, y, width, height, confidence, class, camera}
   double[] zereos = {0,0,0,0,0,0};
@@ -40,7 +40,8 @@ public class JetsonVision extends SubsystemBase {
       }
   }
 
-  public ArrayList<Position> getFieldPosition(ArrayList<double[]> anglesDistancesColors){
+  public ArrayList<Position> getBallPositions(){
+    ArrayList<double[]> anglesDistancesColors = getBallsRelativeHeadingDistanceColor();
     ArrayList<Position> fieldPositions = new ArrayList<Position>();
     for(double[] angleDistance: anglesDistancesColors){
       double fieldAngle = NavXGyro.getAngle() + angleDistance[0];
