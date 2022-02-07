@@ -121,6 +121,8 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
     # Run inference
     model.warmup(imgsz=(1, 3, *imgsz), half=half)  # warmup
     dt, seen = [0.0, 0.0, 0.0], 0
+    prevTime = time_sync()
+    times = [0,0,0,0]
     for path, im, im0s, vid_cap, s in dataset:
         t1 = time_sync()
         im = torch.from_numpy(im).to(device)
@@ -130,17 +132,19 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
             im = im[None]  # expand for batch dim
         t2 = time_sync()
         dt[0] += t2 - t1
-
+        times[0] = t2-t1
         # Inference
         
-        pred = model(im, augment=augment, visualize=visualize)
+
+        pred = model(im, augment=False, visualize=False)
         t3 = time_sync()
         dt[1] += t3 - t2
-
+        times[1] = t3-t2
         # NMS
         pred = non_max_suppression(pred, conf_thres, iou_thres, classes, agnostic_nms, max_det=max_det)
-        dt[2] += time_sync() - t3
-
+        t4 = time_sync()
+        dt[2] += t4 - t3
+        times[2] = t4 - t3
         # Second-stage classifier (optional)
         # pred = utils.general.apply_classifier(pred, classifier_model, im, im0s)
 
@@ -164,7 +168,7 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
 
         """
         #updateNetwork(pred)
-          
+        print(dt)
 
         for i, det in enumerate(pred):  # per image
             seen += 1
@@ -175,9 +179,7 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
 
            
             s += '%gx%g ' % im.shape[2:]  # print string
-            gn = torch.tensor(im0.shape)[[1, 0, 1, 0]]  # normalization gain whwh
-            imc = im0.copy() if save_crop else im0  # for save_crop
-            annotator = Annotator(im0, line_width=line_thickness, example=str(names))
+           
             if len(det):
                 # Rescale boxes from img_size to im0 size
                 det[:, :4] = scale_coords(im.shape[2:], det[:, :4], im0.shape).round()
@@ -191,10 +193,10 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
               
                     
                    
-
+            times[3] = time_sync() - t4
             # Print time (inference-only)
-            LOGGER.info(f'{s}Done. ({t3 - t2:.3f}s)')
-
+            LOGGER.info(f'{s}Done. ({t3 - t2:.3f}s): fps: {1/(time_sync() - prevTime)}: times: {times}')
+            prevTime = time_sync()
             # Stream results
             
 
@@ -202,8 +204,8 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
            
     # Print results
     t = tuple(x / seen * 1E3 for x in dt)  # speeds per image
-    LOGGER.info(f'Speed: %.1fms pre-process, %.1fms inference, %.1fms NMS per image at shape {(1, 3, *imgsz)}' % t)
-  
+    LOGGER.info(f'Speed: %.1fms pre-process, %.1fms inference, %.1fms NMS per image at shape {(1, 3, *imgsz)}. fps = {1/(time_sync()-prevTime)}' % t)
+    prevTime = time_sync()
     if update:
         strip_optimizer(weights)  # update model (to fix SourceChangeWarning)
 
