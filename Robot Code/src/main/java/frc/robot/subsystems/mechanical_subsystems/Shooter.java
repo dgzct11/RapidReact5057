@@ -1,7 +1,29 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
+//TODO
+/**
+ * Subsystem Methods:
+ * set Turet Angle
+ * get turet Angle
+ * 
+ * set Hood Angle
+ * get Hood Angle
+ * 
+ * set Flywheel Velocity
+ * get Flywheel Velocity
+ * 
+ * fire( double distance)
+ * 
+ * PID settigns for falcon motors
+ * 
+ * 
+ * Subsystem Commands:
+ * Align With Hub
+ * Fire
+ * driver shooter control (this command allows the driver to control the angle of the turet with joystikcs, incase limelight stops working)
+ * 
+ * 
+ * 
+ * 
+ */
 package frc.robot.subsystems.mechanical_subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;

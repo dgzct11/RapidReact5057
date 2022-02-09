@@ -11,17 +11,17 @@ import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
-import frc.robot.functional.Position;
+import frc.robot.functional.trajectory.Position;
+
 
 public class JetsonVision extends SubsystemBase {
   /** Creates a new JetsonVision. */
-  
   ArrayList<NetworkTableEntry> ball_entries = new ArrayList<NetworkTableEntry>();
   //{x, y, width, height, confidence, class, camera}
   double[] zereos = {0,0,0,0,0,0};
   double ball_confidence_threshold = 0.7;
   Odometry odometry;
-  public JetsonVision() {
+  public JetsonVision(Odometry od) {
     //Get the default instance of NetworkTables that was created automatically
       //when your program starts
       NetworkTableInstance inst = NetworkTableInstance.getDefault();
@@ -33,14 +33,15 @@ public class JetsonVision extends SubsystemBase {
 
       //Get the entries within that table that correspond to the X and Y values
       //for some operation in your program.
-      
+      odometry = od;
       for(int i = 0; i<22; i++){
         ball_entries.add(table.getEntry("ball_"+(i+1)));
         ball_entries.get(0).setDoubleArray(zereos);
       }
   }
 
-  public ArrayList<Position> getFieldPosition(ArrayList<double[]> anglesDistancesColors){
+  public ArrayList<Position> getBallPositions(){
+    ArrayList<double[]> anglesDistancesColors = getBallsRelativeHeadingDistanceColor();
     ArrayList<Position> fieldPositions = new ArrayList<Position>();
     for(double[] angleDistance: anglesDistancesColors){
       double fieldAngle = NavXGyro.getAngle() + angleDistance[0];

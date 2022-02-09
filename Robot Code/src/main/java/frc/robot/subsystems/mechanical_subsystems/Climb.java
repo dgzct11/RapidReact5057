@@ -1,6 +1,14 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
+/**
+ * TODO
+ * 
+ * implement getHeight, getAngle, setAngularVelocity
+ * 
+ * PID settings for Falcon Motors
+ * 
+ * Commands:
+ * driverClimbControl
+ * Automatic climbing
+ */
 
 package frc.robot.subsystems.mechanical_subsystems;
 
@@ -20,10 +28,15 @@ public class Climb extends SubsystemBase {
   public Climb() {}
   
   //TODO
-  public void getHeight()
+  public double getHeight()
   {
 
   }
+  public double getAngle(){}
+
+  public void setAngularVelocity(){}
+
+
   public void setVelocity(int velocity)
   {
     telescopingTL.set(ControlMode.Velocity, velocity * (Constants.telescoping_velocity_to_ticks));
