@@ -33,7 +33,9 @@ public final class Constants {
     public static final int right_front_direction_port = 5;
     public static final int right_front_thrust_port = 6;
    
-    
+    //Intake
+    public static final int forward_channel= 1;
+    public static final int reverse_channel = 1;
 
     //Climb
     public static final int motorTLPort = 0;
@@ -42,39 +44,11 @@ public final class Constants {
     public static final int motorARPort = 0;
     public static final int pivot_motor_ticks__per_degree = 0;
     public static final int telescoping_meter_to_ticks = 0;
+    public static final int telescoping_velocity_to_ticks = 0;
     //Index
     public static final int front_left_Motor = 0000; // WIP
     public static final int front_right_Motor = 0000; // WIP
     //Shooter
-
-      //Limelight
-      public static final double limelight_angle = -1;
-      public static final double hub_height = -1;
-  
-      //Intake
-      public static final int pneumatic_CAN_id = -1;
-      public static final int forward_channel_port = -1;
-      public static final int reverse_channel_port = -1;
-      public static final int intake_motor_id = -1;
-      public static final double intake_motor_percent_output = -1;
-      
-    public static final int forward_channel = -1;
-    public static final int reverse_channel = -1;
-    
-  
-      //camera Parameters
-      public static final double[] camera_0_radial_constants = null;
-      public static final double[] camera_0_distortion_center = null;
-      public static final double[] camera_0_focal_lengths = null;
-      public static final double camera_0_angle_offset = 0;
-      public static final double camera_1_angle_offset = 0;
-      public static final int camera_height = 0;
-      public static final int cargo_diameter = 0;
-      public static final double camera_angle = -1;
-      public static final double[] camera_1_focal_lengths = null;
-      public static final double[] camera_1_distortion_center = null;
-      public static final double[] camera_1_radial_constants = null;
-  
 
     //xbox bindings
     
@@ -132,7 +106,6 @@ public final class Constants {
     public static final double limeLightHeight = 0;
     public static final double ball_area = 0;
 
-  
    
    
     public static  double velocityMax = 1;
