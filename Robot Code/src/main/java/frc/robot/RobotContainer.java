@@ -14,8 +14,8 @@ import frc.robot.commands.button_commands.DecreaseRotateSpeed;
 import frc.robot.commands.button_commands.DecreaseSpeed;
 import frc.robot.commands.button_commands.IncreaseRotateSpeed;
 import frc.robot.commands.button_commands.IncreaseSpeed;
-import frc.robot.functional.Circle;
-import frc.robot.functional.Line;
+import frc.robot.functional.trajectory.Circle;
+import frc.robot.functional.trajectory.Line;
 import frc.robot.subsystems.mechanical_subsystems.DriveTrain;
 import frc.robot.subsystems.mechanical_subsystems.Indexer;
 import frc.robot.subsystems.sensors.LimeLight;
@@ -166,5 +166,6 @@ public static double getArcLength(Circle circle){
   double halfAngle = Math.atan(distance(midPoint, base.startPoint)/distance(midPoint, circle.center));
   return halfAngle*2*circle.radius;
 }
+
 
 }

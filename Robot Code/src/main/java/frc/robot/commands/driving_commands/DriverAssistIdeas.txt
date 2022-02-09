@@ -1,0 +1,8 @@
+Align with nearest Ball
+- The drivers control the x and y position of the robot with the left 
+joystick in field oriented mode. The cameras always search for the nearest ball, and keep the robot facing twoards it
+-when distance to ball is less then threshold, start spinning intake to pick up ball
+
+
+Auto Intake
+- drivers press a button, and the robot drives to the nearest ball and picks it up

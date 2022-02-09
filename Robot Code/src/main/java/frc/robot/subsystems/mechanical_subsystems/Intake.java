@@ -1,16 +1,14 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
+/**
+ * TODO
+ * 
+ * finish intake up down, and intake spin commands
+ * research 
+ * check out limelight TODO
+ */
 package frc.robot.subsystems.mechanical_subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-<<<<<<< HEAD
 
-public class Intake extends SubsystemBase {
-  /** Creates a new Intake. */
-  public Intake() {}
-=======
 import frc.robot.Constants;
 
 import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.*;
@@ -39,6 +37,7 @@ public class Intake extends SubsystemBase {
   }
   public void down(){
     ds.set(kForward);
+    
     isUp = false;
   }
 
@@ -49,7 +48,6 @@ public class Intake extends SubsystemBase {
   public boolean getState(){
     return isUp;
   }
->>>>>>> 5637c0897a29f6309d1c8ec58718d9148ae1cbca
   //TODO
   @Override
   public void periodic() {
