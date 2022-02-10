@@ -33,10 +33,9 @@ public final class Constants {
     public static final int right_front_direction_port = 5;
     public static final int right_front_thrust_port = 6;
    
-<<<<<<< HEAD
     //Intake
-    public static final int forward_channel;
-    public static final int reverse_channel;
+    public static final int forward_channel= 1;
+    public static final int reverse_channel = 1;
 
     //Climb
     public static final int motorTLPort = 0;
@@ -45,13 +44,11 @@ public final class Constants {
     public static final int motorARPort = 0;
     public static final int pivot_motor_ticks__per_degree = 0;
     public static final int telescoping_meter_to_ticks = 0;
+    public static final int telescoping_velocity_to_ticks = 0;
     //Index
     public static final int front_left_Motor = 0000; // WIP
     public static final int front_right_Motor = 0000; // WIP
-=======
-    //Indexer
-    public static final int front_left_Motor = 0000; // WIP
-    public static final int front_right_Motor = 0000; // WIP
+<<<<<<< HEAD
     public static final int back_left_Motor = 0000; // WIP
     public static final int back_right_Motor = 0000; // WIP
     public static final int front_radius = 1;
@@ -67,9 +64,13 @@ public final class Constants {
     public static final int pneumatic_CAN_id = -1;
     public static final int intake_motor_id = -1;
     public static final int intake_motor_percent_output = -1;
+    public static final int back_indexer_speed = 1;
+    public static final int front_indexer_speed = 1;
+
     //Climb
    
->>>>>>> d049bc3ce5616b9c020e886d7b41fe406aef0af2
+=======
+>>>>>>> c8d96da2947015b051718409a80da73181b86d40
     //Shooter
 
     //xbox bindings
@@ -142,18 +143,12 @@ public final class Constants {
   
     public static boolean in_auto = false;
 
-<<<<<<< HEAD
 
 
 
 
 
     
-=======
-    //Limelight
-    public static final double camera_angle = 0;
-    public static final int hub_height = 0;
->>>>>>> ee1cad00763018ecfe085f00f587b5e203931db4
    
    
     

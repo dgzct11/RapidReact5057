@@ -1,7 +1,9 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
+//TODO
+/**
+ * In Odometry, implement the updatePosition Limelight
+ *  - this method should use the heading from the robot, the heading of the turet, and the horizontal angle displacement of the limelight,
+ *    as well as the distance, to calculate the x, y cooridnate of the robot.
+ */
 package frc.robot.subsystems.sensors;
 
 import edu.wpi.first.networktables.NetworkTable;
@@ -35,6 +37,9 @@ public class LimeLight extends SubsystemBase {
   public LimeLight() {
   
   }
+
+  
+
   public double getDistance(){
     double theta = Constants.camera_angle + ty.getDouble(0.0);
     double height = Constants.hub_height - Constants.limeLightHeight;
