@@ -27,8 +27,8 @@ cv2.createTrackbar("L - V", "Trackbars", 0, 255, nothing)
 cv2.createTrackbar("U - H", "Trackbars", 179, 179, nothing)
 cv2.createTrackbar("U - S", "Trackbars", 255, 255, nothing)
 cv2.createTrackbar("U - V", "Trackbars", 255, 255, nothing)
-imagename = "7ft10in"
-frame = cv2.imread("Computer-Vision\\hub_images\\TarmacCenter" + imagename + ".png")
+imagename = "14ft6in"
+frame = cv2.imread("Computer-Vision\\hub_images\\Terminal" + imagename + ".png")
 while True:
 
     # Start reading the webcam feed frame by frame.
