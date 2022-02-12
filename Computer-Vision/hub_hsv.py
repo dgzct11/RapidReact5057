@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-from networktables import NetworkTables
 
 #green = [36, 202, 59, 71, 255, 255]
 #yellow = [18, 0, 196, 36, 255, 255]

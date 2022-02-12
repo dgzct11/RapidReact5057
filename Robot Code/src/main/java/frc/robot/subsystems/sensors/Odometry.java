@@ -44,7 +44,16 @@ public class Odometry extends SubsystemBase {
     limelight = ll;
   }
 
-  public void updatePoseLimelight(){}
+  public void updatePoseLimelight(){
+    //don't know how to get
+    double shA = getShooterAngle();
+    double rA = NavXGyro.getAngle();
+    double theta = (shA + rA) - 180;
+    double dist = limelight.getDistance();
+    double x = dist * -Math.sin(theta);
+    double y = dist * Math.cos(theta);
+    currentPosition = new Position(x, y, 0);
+  }
 
 
   
