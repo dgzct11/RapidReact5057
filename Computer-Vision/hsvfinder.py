@@ -76,7 +76,7 @@ while True:
     # If the user presses `s` then print this array.
     if key == ord('s'):
         file_object = open('Computer-Vision\\hub_values.txt', 'a')
-        n = file_object.write(imagename + ',(' + str(l_h) + ',' + str(l_s) + ',' + str(l_v) + '),(' + str(u_h) + ',' + str(u_s) + ',' + str(u_v) + ')')
+        n = file_object.write('\n' + imagename + ',(' + str(l_h) + ',' + str(l_s) + ',' + str(l_v) + '),(' + str(u_h) + ',' + str(u_s) + ',' + str(u_v) + ')')
         file_object.close()
         print('this is a test')
         break
