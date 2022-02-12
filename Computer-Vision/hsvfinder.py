@@ -10,7 +10,7 @@ def nothing(x):
 
 
 # Initializing the webcam feed.
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 cap.set(3, 1280)
 cap.set(4, 720)
 
@@ -78,8 +78,6 @@ while True:
         file_object = open('hub_values.txt', 'a')
         file_object.write(imagename + ',(' + str(l_h) + ',' + str(l_s) + ',' + str(l_v) + '),(' + str(u_h) + ',' + str(u_s) + ',' + str(u_v) + ')')
         print('this is a test')
-        cap.release()
-        cv2.destroyAllWindows()
         break
 
 # Release the camera & destroy the windows.
