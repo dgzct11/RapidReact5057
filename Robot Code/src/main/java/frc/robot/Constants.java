@@ -45,6 +45,8 @@ public final class Constants {
     public static final int pivot_motor_ticks__per_degree = 0;
     public static final int telescoping_meter_to_ticks = 0;
     public static final int telescoping_velocity_to_ticks = 0;
+    public static final double maximum_telescoping_velocity = 0;
+    public static final double maximum_pivot_velocity = 0;
     
     //Index
     public static final int front_left_Motor = 0000; // WIP
