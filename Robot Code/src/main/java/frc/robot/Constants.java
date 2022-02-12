@@ -48,7 +48,6 @@ public final class Constants {
     //Index
     public static final int front_left_Motor = 0000; // WIP
     public static final int front_right_Motor = 0000; // WIP
-<<<<<<< HEAD
     public static final int back_left_Motor = 0000; // WIP
     public static final int back_right_Motor = 0000; // WIP
     public static final int front_radius = 1;
@@ -69,9 +68,13 @@ public final class Constants {
 
     //Climb
    
-=======
->>>>>>> c8d96da2947015b051718409a80da73181b86d40
-    //Shooter
+    //Shooter WIP
+    public static final int turet_motor_id = 1111;//tbd
+    public static final int hood_motor_id = 1111;//tbd
+    public static final int flywheel_motor_id = 1111;//tbd
+    public static final int turet_ticks_per_degree = 1;
+    public static final int hood_ticks_per_degree = 1;
+    public static final int flywheel_velocity_to_meters = 1; 
 
     //xbox bindings
     
