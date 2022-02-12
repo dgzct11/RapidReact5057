@@ -77,6 +77,7 @@ while True:
     if key == ord('s'):
         file_object = open('hub_values.txt', 'a')
         file_object.write(imagename + ',(' + str(l_h) + ',' + str(l_s) + ',' + str(l_v) + '),(' + str(u_h) + ',' + str(u_s) + ',' + str(u_v) + ')')
+        print('this is a test')
         break
 
 # Release the camera & destroy the windows.
