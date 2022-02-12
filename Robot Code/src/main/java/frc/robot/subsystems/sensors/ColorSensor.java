@@ -8,11 +8,19 @@
  */
 package frc.robot.subsystems.sensors;
 
+import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
+import com.revrobotics.ColorSensorV3;
+
+
+
 
 public class ColorSensor extends SubsystemBase {
   /** Creates a new ColorSensor. */
+  private final I2C.Port i2cPort = I2C.Port.kOnboard;
 
+  private final ColorSensorV3 m_colorSensor = new ColorSensorV3(i2cPort);
   
   public ColorSensor() {}
 

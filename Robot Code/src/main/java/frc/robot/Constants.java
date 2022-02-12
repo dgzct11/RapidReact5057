@@ -45,14 +45,19 @@ public final class Constants {
     public static final int pivot_motor_ticks__per_degree = 0;
     public static final int telescoping_meter_to_ticks = 0;
     public static final int telescoping_velocity_to_ticks = 0;
+    
     //Index
-    public static final int front_left_Motor = 0000; // WIP
-    public static final int front_right_Motor = 0000; // WIP
-    public static final int back_left_Motor = 0000; // WIP
-    public static final int back_right_Motor = 0000; // WIP
+    public static final int front_left_Motor = 111111; // WIP
+    public static final int front_right_Motor = 1111; // WIP
+    public static final int back_left_Motor = 1111; // WIP
+    public static final int back_right_Motor = 1111; // WIP
     public static final int front_radius = 1;
     public static final double front_wheel_rev_per_meter = 1/(2*Math.PI*front_radius);
     public static final double front_index_motor_ticks_per_rotation = 1;
+        //Color Sensor -- [Index] --
+    public static final int colorSensor = 1; //WIP
+
+
 
 
 
