@@ -132,6 +132,7 @@ public final class Constants {
     public static final double limeLightHeight = 0;
     public static final double ball_area = 0;
 
+
    
    
     public static  double velocityMax = 1;
@@ -146,7 +147,8 @@ public final class Constants {
   
     public static boolean in_auto = false;
 
-
+    public static final double camera_angle = 0;
+    public static final double hub_height = 0;
 
 
 
