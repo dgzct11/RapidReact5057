@@ -76,7 +76,7 @@ while True:
     # If the user presses `s` then print this array.
     if key == ord('s'):
         file_object = open('hub_values.txt', 'a')
-        file_object.write('\n' + imagename + ',(' + l_h + ',' + l_s + ',' + l_v + '),(' + u_h + ',' + u_s + ',' + u_v + ')')
+        file_object.write('\n' + imagename + ',(' + str(l_h) + ',' + str(l_s) + ',' + str(l_v) + '),(' + str(u_h) + ',' + str(u_s) + ',' + str(u_v) + ')')
 
 # Release the camera & destroy the windows.
 cap.release()
