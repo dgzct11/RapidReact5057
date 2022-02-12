@@ -30,11 +30,18 @@ public class Climb extends SubsystemBase {
   //TODO
   public double getHeight()
   {
+    return ((telescopingTL.getSelectedSensorPosition()/Constants.telescoping_meter_to_ticks)+(telescopingTR.getSelectedSensorPosition()/Constants.telescoping_meter_to_ticks))/2;
+  } 
 
+  public double getAngle()
+  {
+    return ((telescopingAL.getSelectedSensorPosition()/Constants.pivot_motor_ticks__per_degree)+(telescopingAR.getSelectedSensorPosition()/Constants.pivot_motor_ticks__per_degree)/2
   }
-  public double getAngle(){}
 
-  public void setAngularVelocity(){}
+  public void setAngularVelocity(int angularVelocity)
+  {
+   
+  }
 
 
   public void setVelocity(int velocity)
