@@ -27,10 +27,41 @@
 package frc.robot.subsystems.mechanical_subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
 
 public class Shooter extends SubsystemBase {
+  TalonSRX turetMotor = new TalonSRX(Constants.turet_motor_id);
+  TalonSRX hoodMotor = new TalonSRX(Constants.hood_motor_id);
+  TalonSRX flywheelMotor = new TalonSRX(Constants.flywheel_motor_id);
   /** Creates a new Shooter. */
   public Shooter() {}
+
+  public void setTuretAngle(int angle){
+    turetMotor.set(ControlMode.Position, angle * Constants.turet_ticks_per_degree);
+  } 
+  public int getTuretAngle(){
+    //WIP
+    return 0;
+  }
+  public void setHoodAngle(int angle){
+    hoodMotor.set(ControlMode.Position, angle * Constants.hood_ticks_per_degree);
+  } 
+  public int getHoodAngle(){
+    //WIP
+    return 0;
+  }
+  public void setFlywheelVelocity(int velocity){
+    flywheelMotor.set(ControlMode.Velocity, velocity * Constants.flywheel_velocity_to_meters);
+  }
+  public int getFlywheelVelocity(int velocity){
+   //WIP
+    return 0;
+  }
+
+
   //TODO
   @Override
   public void periodic() {
