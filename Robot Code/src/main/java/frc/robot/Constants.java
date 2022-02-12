@@ -49,7 +49,33 @@ public final class Constants {
     //Index
     public static final int front_left_Motor = 0000; // WIP
     public static final int front_right_Motor = 0000; // WIP
-    //Shooter
+    public static final int back_left_Motor = 0000; // WIP
+    public static final int back_right_Motor = 0000; // WIP
+    public static final int front_radius = 1;
+    public static final double front_wheel_rev_per_meter = 1/(2*Math.PI*front_radius);
+    public static final double front_index_motor_ticks_per_rotation = 1;
+
+
+
+
+    //Intake
+    public static final int forward_channel_port = -1;
+    public static final int reverse_channel_port = -1;
+    public static final int pneumatic_CAN_id = -1;
+    public static final int intake_motor_id = -1;
+    public static final int intake_motor_percent_output = -1;
+    public static final int back_indexer_speed = 1;
+    public static final int front_indexer_speed = 1;
+
+    //Climb
+   
+    //Shooter WIP
+    public static final int turet_motor_id = 1111;//tbd
+    public static final int hood_motor_id = 1111;//tbd
+    public static final int flywheel_motor_id = 1111;//tbd
+    public static final int turet_ticks_per_degree = 1;
+    public static final int hood_ticks_per_degree = 1;
+    public static final int flywheel_velocity_to_meters = 1; 
 
     //xbox bindings
     
@@ -107,6 +133,7 @@ public final class Constants {
     public static final double limeLightHeight = 0;
     public static final double ball_area = 0;
 
+
    
    
     public static  double velocityMax = 1;
@@ -121,7 +148,8 @@ public final class Constants {
   
     public static boolean in_auto = false;
 
-
+    public static final double camera_angle = 0;
+    public static final double hub_height = 0;
 
 
 
