@@ -57,7 +57,7 @@ public class DriveTrain extends SubsystemBase {
   //dir index 0
   public double kpDir = 0.2;
   public double kiDir = 0.002;
-  public double kdDir = 0;
+  public double kdDir = 0.1;
  
   double errorDeg = 0.1;
 
