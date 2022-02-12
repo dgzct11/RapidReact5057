@@ -78,7 +78,6 @@ while True:
         file_object = open('Computer-Vision\\hub_values.txt', 'a')
         n = file_object.write('\n' + imagename + ',(' + str(l_h) + ',' + str(l_s) + ',' + str(l_v) + '),(' + str(u_h) + ',' + str(u_s) + ',' + str(u_v) + ')')
         file_object.close()
-        print('this is a test')
         break
 
 # Release the camera & destroy the windows.
