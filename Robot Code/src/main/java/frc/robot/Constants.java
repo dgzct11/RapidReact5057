@@ -26,14 +26,14 @@ public final class Constants {
     public static final Port mxp_port = Port.kMXP;
     
     //Swurve Drive
-    public static final int left_front_direction_port = 7;
-    public static final int left_front_thrust_port = 8;
-    public static final int right_back_direction_port = 3;
-    public static final int right_back_thrust_port = 4;
-    public static final int left_back_direction_port = 1;
-    public static final int left_back_thrust_port = 2;
-    public static final int right_front_direction_port = 5;
-    public static final int right_front_thrust_port = 6;
+    public static final int left_front_direction_port = 1;
+    public static final int left_front_thrust_port = 2;
+    public static final int right_back_direction_port = 7;
+    public static final int right_back_thrust_port = 8;
+    public static final int left_back_direction_port = 5;
+    public static final int left_back_thrust_port = 6;
+    public static final int right_front_direction_port = 3;
+    public static final int right_front_thrust_port = 4;
    
     //Intake
     public static final int forward_channel= 1;
@@ -155,6 +155,16 @@ public final class Constants {
     public static String drive_mode = field_oriented;
   
     public static boolean in_auto = false;
+    public static double[] camera_0_radial_constants;
+    public static double[] camera_0_distortion_center;
+    public static double[] camera_0_focal_lengths;
+    public static double camera_0_angle_offset;
+    public static double[] camera_1_radial_constants;
+    public static double[] camera_1_distortion_center;
+    public static double[] camera_1_focal_lengths;
+    public static double camera_1_angle_offset;
+    public static int camera_height;
+    public static int cargo_diameter;
 
     public static final double camera_angle = 0;
     public static final double hub_height = 0;

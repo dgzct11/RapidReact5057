@@ -10,6 +10,7 @@ package frc.robot.subsystems.sensors;
 
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+<<<<<<< HEAD
 import frc.robot.Constants;
 import edu.wpi.first.wpilibj.util.Color;
 
@@ -23,6 +24,9 @@ import com.revrobotics.ColorMatchResult;
 
 
 
+=======
+import com.revrobotics.ColorSensorV3;
+>>>>>>> d3d303601bd08bd2ed6b61a3f549b63cc842e9f2
 public class ColorSensor extends SubsystemBase {
   /** Creates a new ColorSensor. */
 

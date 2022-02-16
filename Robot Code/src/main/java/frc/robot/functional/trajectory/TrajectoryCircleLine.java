@@ -7,7 +7,7 @@ package frc.robot.functional.trajectory;
 import java.util.ArrayList;
 
 import frc.robot.RobotContainer;
-import frc.robot.functional.files.FileReader;
+
 /** Add your docs here. */
 public class TrajectoryCircleLine extends Trajectory{
     double[][] points;
@@ -23,15 +23,7 @@ public class TrajectoryCircleLine extends Trajectory{
        getTotalDistance();
     }
 
-    public TrajectoryCircleLine(double a, double mv, double[] angles) {
-        super(a, mv, angles);
-        FileReader f = new FileReader();
-        points = f.getPoints();
-       
-       distances = f.getDistances();
-      
-        
-    }
+  
   
     public void initializeSegments(){
         segments = new ArrayList<Segment>();
