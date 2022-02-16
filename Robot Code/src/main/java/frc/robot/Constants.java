@@ -75,6 +75,7 @@ public final class Constants {
     public static final int turet_ticks_per_degree = 1;
     public static final int hood_ticks_per_degree = 1;
     public static final int flywheel_velocity_to_meters = 1; 
+    public static final int flywheel_percent = 1; 
 
     //xbox bindings
     
