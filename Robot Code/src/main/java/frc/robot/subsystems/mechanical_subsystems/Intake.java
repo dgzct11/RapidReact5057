@@ -26,6 +26,8 @@ public class Intake extends SubsystemBase {
   DoubleSolenoid ds = new DoubleSolenoid(Constants.pneumatic_CAN_id, PneumaticsModuleType.REVPH, Constants.forward_channel_port, Constants.reverse_channel_port);
   TalonSRX intakeMotor = new TalonSRX(Constants.intake_motor_id);
   boolean isUp;
+
+  //m_motor = new CANSparkMax(deviceID, MotorType.kBrushless);
   public Intake() {
     up();
   }

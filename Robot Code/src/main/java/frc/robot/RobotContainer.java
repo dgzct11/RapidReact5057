@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.commands.button_commands.AlignAllWheels;
 import frc.robot.commands.button_commands.DecreaseRotateSpeed;
 import frc.robot.commands.button_commands.DecreaseSpeed;
 import frc.robot.commands.button_commands.IncreaseRotateSpeed;
@@ -43,9 +44,10 @@ public class RobotContainer {
  
     //Sensor subsystems
   public XboxRemote xboxRemote = new XboxRemote(xboxController);
-  //public Odometry odometry = new Odometry();
+  
   public NavXGyro navx = new NavXGyro(); 
- //public LimeLight limeLight = new LimeLight(/*odometry*/);
+  public LimeLight limeLight = new LimeLight();
+  public Odometry odometry = new Odometry(driveTrain, limeLight);
   //buttons
 
 
@@ -88,6 +90,7 @@ public class RobotContainer {
 
     xButton.whenPressed(new DecreaseRotateSpeed());
     bButton.whenPressed(new IncreaseRotateSpeed());
+    startButton.whenPressed(new AlignAllWheels(driveTrain));
   }
 
   /**
