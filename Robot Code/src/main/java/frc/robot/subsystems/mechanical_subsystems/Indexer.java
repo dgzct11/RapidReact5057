@@ -22,9 +22,6 @@ package frc.robot.subsystems.mechanical_subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
-import java.lang.Math;
-import java.lang.reflect.Array;
-
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
@@ -36,7 +33,7 @@ public class Indexer extends SubsystemBase {
   TalonSRX backleftMotor = new TalonSRX(Constants.back_left_Motor);
   TalonSRX backrightMotor = new TalonSRX(Constants.back_right_Motor);
 
-  public double[] getBallStates(){
+  public double getBallStates(){
     //TODO
     double[] zero = {0,0};
     return zero;
@@ -60,7 +57,6 @@ public class Indexer extends SubsystemBase {
     backleftMotor.set(ControlMode.PercentOutput,  percentOutput);
   }
 
-  //Motor775 = 0000;
   
 
   @Override
