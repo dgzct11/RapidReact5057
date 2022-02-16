@@ -43,7 +43,7 @@ public class RobotContainer {
  
     //Sensor subsystems
   public XboxRemote xboxRemote = new XboxRemote(xboxController);
-  public Odometry odometry = new Odometry();
+  //public Odometry odometry = new Odometry();
   public NavXGyro navx = new NavXGyro(); 
  //public LimeLight limeLight = new LimeLight(/*odometry*/);
   //buttons
