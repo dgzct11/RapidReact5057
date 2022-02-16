@@ -16,10 +16,12 @@ import frc.robot.commands.button_commands.DecreaseSpeed;
 import frc.robot.commands.button_commands.IncreaseRotateSpeed;
 import frc.robot.commands.button_commands.IncreaseSpeed;
 import frc.robot.commands.driving_commands.SwerveDrive;
+import frc.robot.commands.intake_commands.IntakeSpin;
 import frc.robot.functional.trajectory.Circle;
 import frc.robot.functional.trajectory.Line;
 import frc.robot.subsystems.mechanical_subsystems.DriveTrain;
 import frc.robot.subsystems.mechanical_subsystems.Indexer;
+import frc.robot.subsystems.mechanical_subsystems.Intake;
 import frc.robot.subsystems.sensors.LimeLight;
 import frc.robot.subsystems.sensors.NavXGyro;
 import frc.robot.subsystems.sensors.Odometry;
@@ -40,6 +42,7 @@ public class RobotContainer {
   //subsystems
     //Mechanical subsystems
   public DriveTrain driveTrain = new DriveTrain();
+  public Intake intake = new Intake();
   //public Indexer indexer = new Indexer();
  
     //Sensor subsystems
@@ -87,7 +90,7 @@ public class RobotContainer {
   private void configureButtonBindings() {
     aButton.whenPressed(new DecreaseSpeed());
     yButton.whenPressed(new IncreaseSpeed());
-
+    rightButton.whenHeld(new IntakeSpin(intake));
     xButton.whenPressed(new DecreaseRotateSpeed());
     bButton.whenPressed(new IncreaseRotateSpeed());
     startButton.whenPressed(new AlignAllWheels(driveTrain));
