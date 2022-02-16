@@ -6,6 +6,8 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.SPI.Port;
 
+import edu.wpi.first.wpilibj.I2C;
+
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -55,7 +57,7 @@ public final class Constants {
     public static final double front_wheel_rev_per_meter = 1/(2*Math.PI*front_radius);
     public static final double front_index_motor_ticks_per_rotation = 1;
         //Color Sensor -- [Index] --
-    public static final int colorSensor = 1; //WIP
+    public final static I2C.Port i2cPort = I2C.Port.kOnboard;
 
 
 
@@ -145,6 +147,8 @@ public final class Constants {
     public static double max_motor_percent = 1;
     
     // state variables
+    public static String TeamColor = "Blue";
+    
     public static String field_oriented = "fo";
     public static String robot_oriented = "ro";
     

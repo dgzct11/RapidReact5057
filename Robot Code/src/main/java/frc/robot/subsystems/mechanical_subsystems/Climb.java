@@ -30,25 +30,32 @@ public class Climb extends SubsystemBase {
   //TODO
   public double getHeight()
   {
+    return ((telescopingTL.getSelectedSensorPosition()/Constants.telescoping_meter_to_ticks)+(telescopingTR.getSelectedSensorPosition()/Constants.telescoping_meter_to_ticks))/2;
+  } 
 
+  public double getAngle()
+  {
+    return ((telescopingAL.getSelectedSensorPosition()/Constants.pivot_motor_ticks__per_degree)+(telescopingAR.getSelectedSensorPosition()/Constants.pivot_motor_ticks__per_degree)/2);
   }
-  public double getAngle(){}
 
-  public void setAngularVelocity(){}
+  public void setAngularVelocity(double angularVelocity)
+  {
+   
+  }
 
 
-  public void setVelocity(int velocity)
+  public void setVelocity(double velocity)
   {
     telescopingTL.set(ControlMode.Velocity, velocity * (Constants.telescoping_velocity_to_ticks));
     telescopingTR.set(ControlMode.Velocity, velocity * (Constants.telescoping_velocity_to_ticks));
   }
-  public void setHeight(int height)
+  public void setHeight(double height)
   {
     telescopingTL.set(ControlMode.MotionMagic, height*(Constants.telescoping_meter_to_ticks));
     telescopingTR.set(ControlMode.MotionMagic, height*(Constants.telescoping_meter_to_ticks));
   }
 
-  public void setAngle(int angle)
+  public void setAngle(double angle)
   {
     telescopingAL.set(ControlMode.MotionMagic, angle*(Constants.pivot_motor_ticks__per_degree));
     telescopingAR.set(ControlMode.MotionMagic, angle*(Constants.pivot_motor_ticks__per_degree));
