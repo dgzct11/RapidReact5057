@@ -65,9 +65,9 @@ public final class Constants {
 
 
     //Intake
-    public static final int forward_channel_port = -1;
-    public static final int reverse_channel_port = -1;
-    public static final int pneumatic_CAN_id = -1;
+    public static final int forward_channel_port = 1;
+    public static final int reverse_channel_port = 1;
+    public static final int pneumatic_CAN_id = 1;
     public static final int intake_motor_id = 0;
     public static final double intake_motor_percent_output = 0.5;
     public static final int back_indexer_speed = 1;
@@ -165,6 +165,8 @@ public final class Constants {
     public static double camera_1_angle_offset;
     public static int camera_height;
     public static int cargo_diameter;
+    public static double maximum_telescoping_velocity;
+    public static double maximum_pivot_velocity;
 
     public static final double camera_angle = 0;
     public static final double hub_height = 0;
