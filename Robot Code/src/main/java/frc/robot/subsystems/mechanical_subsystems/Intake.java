@@ -35,14 +35,16 @@ public class Intake extends SubsystemBase {
   }
 
   public void up(){
-    ds.set(kReverse);
     isUp = true;
+    ds.set(kReverse);
+    
     
   }
   public void down(){
+    isUp = false;
     ds.set(kForward);
     
-    isUp = false;
+    
   }
 
   public void spin(){
