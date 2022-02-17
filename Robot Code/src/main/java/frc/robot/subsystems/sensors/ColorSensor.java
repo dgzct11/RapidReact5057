@@ -32,6 +32,9 @@ import com.revrobotics.ColorMatchResult;
 import com.revrobotics.ColorSensorV3;
 >>>>>>> d3d303601bd08bd2ed6b61a3f549b63cc842e9f2
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 375ee9f (fixed bugs)
+=======
 >>>>>>> parent of 375ee9f (fixed bugs)
 =======
 >>>>>>> parent of 375ee9f (fixed bugs)
