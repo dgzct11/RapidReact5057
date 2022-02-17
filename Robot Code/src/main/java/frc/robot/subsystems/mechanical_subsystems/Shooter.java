@@ -62,12 +62,11 @@ public class Shooter extends SubsystemBase {
     return 0;
   }
   public void setFlywheelVelocity(int velocity){
-    flywheelMotorL.set(ControlMode.Velocity, velocity * Constants.flywheel_velocity_to_meters * Constants.flywheel_percent);
-    flywheelMotorR.set(ControlMode.Velocity, velocity * Constants.flywheel_velocity_to_meters * Constants.flywheel_percent);
+    flywheelMotorL.set(ControlMode.Velocity, velocity * Constants.flywheel_velocity_to_ticks * Constants.flywheel_percent);
+    flywheelMotorR.set(ControlMode.Velocity, velocity * Constants.flywheel_velocity_to_ticks * Constants.flywheel_percent);
   }
   public double getFlywheelVelocity(int velocity){
-    //return flywheelMotorL.get();
-    return 0.0;
+    return flywheelMotorL.getSelectedSensorVelocity()/Constants.flywheel_velocity_to_ticks;
   }
   
 
