@@ -36,7 +36,7 @@ public class Indexer extends SubsystemBase {
   TalonSRX backleftMotor = new TalonSRX(Constants.back_left_Motor);
   TalonSRX backrightMotor = new TalonSRX(Constants.back_right_Motor);
 
-  public double[] getBallStates(){
+  public double getBallStates(){
     //TODO
   }
  
