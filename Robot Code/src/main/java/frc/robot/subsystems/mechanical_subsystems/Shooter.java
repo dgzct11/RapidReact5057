@@ -33,18 +33,26 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 
 public class Shooter extends SubsystemBase {
+  private double shooterAngle;
   TalonSRX turetMotor = new TalonSRX(Constants.turet_motor_id);
   TalonSRX hoodMotor = new TalonSRX(Constants.hood_motor_id);
-  TalonSRX flywheelMotor = new TalonSRX(Constants.flywheel_motor_id);
+  TalonSRX flywheelMotorL = new TalonSRX(Constants.flywheel_motor_id);
+  TalonSRX flywheelMotorR = new TalonSRX(Constants.flywheel_motor_id);
   /** Creates a new Shooter. */
-  public Shooter() {}
-
+  public Shooter(double angle) {
+    flywheelMotorL.setInverted(true);
+    shooterAngle = angle;
+  }
+  public Shooter() {
+    flywheelMotorL.setInverted(true);
+    shooterAngle = 0;
+  }
   public void setTuretAngle(int angle){
     turetMotor.set(ControlMode.Position, angle * Constants.turet_ticks_per_degree);
+    shooterAngle += angle;
   } 
-  public int getTuretAngle(){
-    //WIP
-    return 0;
+  public double getTuretAngle(){
+    return shooterAngle;
   }
   public void setHoodAngle(int angle){
     hoodMotor.set(ControlMode.Position, angle * Constants.hood_ticks_per_degree);
@@ -54,13 +62,13 @@ public class Shooter extends SubsystemBase {
     return 0;
   }
   public void setFlywheelVelocity(int velocity){
-    flywheelMotor.set(ControlMode.Velocity, velocity * Constants.flywheel_velocity_to_meters);
+    flywheelMotorL.set(ControlMode.Velocity, velocity * Constants.flywheel_velocity_to_ticks * Constants.flywheel_percent);
+    flywheelMotorR.set(ControlMode.Velocity, velocity * Constants.flywheel_velocity_to_ticks * Constants.flywheel_percent);
   }
-  public int getFlywheelVelocity(int velocity){
-   //WIP
-    return 0;
+  public double getFlywheelVelocity(int velocity){
+    return flywheelMotorL.getSelectedSensorVelocity()/Constants.flywheel_velocity_to_ticks;
   }
-
+  
 
   //TODO
   @Override

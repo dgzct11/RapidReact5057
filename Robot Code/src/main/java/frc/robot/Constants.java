@@ -6,8 +6,6 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.SPI.Port;
 
-import edu.wpi.first.wpilibj.I2C;
-
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -26,14 +24,14 @@ public final class Constants {
     public static final Port mxp_port = Port.kMXP;
     
     //Swurve Drive
-    public static final int left_front_direction_port = 1;
-    public static final int left_front_thrust_port = 2;
-    public static final int right_back_direction_port = 7;
-    public static final int right_back_thrust_port = 8;
-    public static final int left_back_direction_port = 5;
-    public static final int left_back_thrust_port = 6;
-    public static final int right_front_direction_port = 3;
-    public static final int right_front_thrust_port = 4;
+    public static final int left_front_direction_port = 7;
+    public static final int left_front_thrust_port = 8;
+    public static final int right_back_direction_port = 3;
+    public static final int right_back_thrust_port = 4;
+    public static final int left_back_direction_port = 1;
+    public static final int left_back_thrust_port = 2;
+    public static final int right_front_direction_port = 5;
+    public static final int right_front_thrust_port = 6;
    
     //Intake
     public static final int forward_channel= 1;
@@ -47,29 +45,32 @@ public final class Constants {
     public static final int pivot_motor_ticks__per_degree = 0;
     public static final int telescoping_meter_to_ticks = 0;
     public static final int telescoping_velocity_to_ticks = 0;
-    
     //Index
-    public static final int front_left_Motor = 111111; // WIP
-    public static final int front_right_Motor = 1111; // WIP
-    public static final int back_left_Motor = 1111; // WIP
-    public static final int back_right_Motor = 1111; // WIP
+    public static final int front_left_Motor = 0000; // WIP
+    public static final int front_right_Motor = 0000; // WIP
+    public static final int back_left_Motor = 0000; // WIP
+    public static final int back_right_Motor = 0000; // WIP
     public static final int front_radius = 1;
     public static final double front_wheel_rev_per_meter = 1/(2*Math.PI*front_radius);
     public static final double front_index_motor_ticks_per_rotation = 1;
-        //Color Sensor -- [Index] --
-    public final static I2C.Port i2cPort = I2C.Port.kOnboard;
-
-
 
 
 
 
     //Intake
+<<<<<<< HEAD
     public static final int forward_channel_port = 1;
     public static final int reverse_channel_port = 1;
     public static final int pneumatic_CAN_id = 1;
     public static final int intake_motor_id = 0;
     public static final double intake_motor_percent_output = 0.5;
+=======
+    public static final int forward_channel_port = -1;
+    public static final int reverse_channel_port = -1;
+    public static final int pneumatic_CAN_id = -1;
+    public static final int intake_motor_id = -1;
+    public static final int intake_motor_percent_output = -1;
+>>>>>>> 8affcc67ef8069a35fafe8acfdf9f1e45698a7bc
     public static final int back_indexer_speed = 1;
     public static final int front_indexer_speed = 1;
 
@@ -81,7 +82,8 @@ public final class Constants {
     public static final int flywheel_motor_id = 1111;//tbd
     public static final int turet_ticks_per_degree = 1;
     public static final int hood_ticks_per_degree = 1;
-    public static final int flywheel_velocity_to_meters = 1; 
+    public static final int flywheel_velocity_to_ticks = 1; 
+    public static final int flywheel_percent = 1; 
 
     //xbox bindings
     
@@ -139,7 +141,6 @@ public final class Constants {
     public static final double limeLightHeight = 0;
     public static final double ball_area = 0;
 
-
    
    
     public static  double velocityMax = 1;
@@ -147,14 +148,13 @@ public final class Constants {
     public static double max_motor_percent = 1;
     
     // state variables
-    public static String TeamColor = "Blue";
-    
     public static String field_oriented = "fo";
     public static String robot_oriented = "ro";
     
     public static String drive_mode = field_oriented;
   
     public static boolean in_auto = false;
+<<<<<<< HEAD
     public static double[] camera_0_radial_constants;
     public static double[] camera_0_distortion_center;
     public static double[] camera_0_focal_lengths;
@@ -170,6 +170,10 @@ public final class Constants {
 
     public static final double camera_angle = 0;
     public static final double hub_height = 0;
+=======
+
+
+>>>>>>> 8affcc67ef8069a35fafe8acfdf9f1e45698a7bc
 
 
 

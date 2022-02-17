@@ -5,13 +5,10 @@
 package frc.robot.commands.intake_commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.mechanical_subsystems.Intake;
 
 public class IntakeSpin extends CommandBase {
   /** Creates a new IntakeSpin. */
-  public Intake intake;
-  public IntakeSpin(Intake i) {
-    intake = i;
+  public IntakeSpin() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
@@ -21,9 +18,7 @@ public class IntakeSpin extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {
-    intake.spin();
-  }
+  public void execute() {}
 
   // Called once the command ends or is interrupted.
   @Override

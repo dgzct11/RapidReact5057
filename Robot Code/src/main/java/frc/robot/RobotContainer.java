@@ -10,18 +10,14 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.commands.button_commands.AlignAllWheels;
 import frc.robot.commands.button_commands.DecreaseRotateSpeed;
 import frc.robot.commands.button_commands.DecreaseSpeed;
 import frc.robot.commands.button_commands.IncreaseRotateSpeed;
 import frc.robot.commands.button_commands.IncreaseSpeed;
-import frc.robot.commands.driving_commands.SwerveDrive;
-import frc.robot.commands.intake_commands.IntakeSpin;
 import frc.robot.functional.trajectory.Circle;
 import frc.robot.functional.trajectory.Line;
 import frc.robot.subsystems.mechanical_subsystems.DriveTrain;
 import frc.robot.subsystems.mechanical_subsystems.Indexer;
-import frc.robot.subsystems.mechanical_subsystems.Intake;
 import frc.robot.subsystems.sensors.LimeLight;
 import frc.robot.subsystems.sensors.NavXGyro;
 import frc.robot.subsystems.sensors.Odometry;
@@ -42,15 +38,13 @@ public class RobotContainer {
   //subsystems
     //Mechanical subsystems
   public DriveTrain driveTrain = new DriveTrain();
-  public Intake intake = new Intake();
-  //public Indexer indexer = new Indexer();
+  public Indexer indexer = new Indexer();
  
     //Sensor subsystems
   public XboxRemote xboxRemote = new XboxRemote(xboxController);
-  
+  public Odometry odometry = new Odometry();
   public NavXGyro navx = new NavXGyro(); 
-  public LimeLight limeLight = new LimeLight();
-  public Odometry odometry = new Odometry(driveTrain, limeLight);
+ public LimeLight limeLight = new LimeLight(/*odometry*/);
   //buttons
 
 
@@ -72,9 +66,7 @@ public class RobotContainer {
     // configures commands
     NavXGyro.ahrs.reset();
 
-    SwerveDrive sd = new SwerveDrive(driveTrain, xboxRemote);
-    driveTrain.setDefaultCommand(sd);
-    sd.addRequirements(driveTrain);
+   
   
     
     configureButtonBindings();
@@ -90,10 +82,9 @@ public class RobotContainer {
   private void configureButtonBindings() {
     aButton.whenPressed(new DecreaseSpeed());
     yButton.whenPressed(new IncreaseSpeed());
-    rightButton.whenHeld(new IntakeSpin(intake));
+
     xButton.whenPressed(new DecreaseRotateSpeed());
     bButton.whenPressed(new IncreaseRotateSpeed());
-    startButton.whenPressed(new AlignAllWheels(driveTrain));
   }
 
   /**

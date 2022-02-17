@@ -17,7 +17,6 @@ public class SwerveDrive extends CommandBase {
     // Use addRequirements() here to declare subsystem dependencies.
     driveTrain = dt;
     xboxRemote = xr;
-    addRequirements(driveTrain);
   }
 
   // Called when the command is initially scheduled.

@@ -15,8 +15,6 @@ import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.*;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -26,10 +24,8 @@ public class Intake extends SubsystemBase {
   /** Creates a new Intake. */
   Compressor comp = new Compressor(1, PneumaticsModuleType.REVPH);
   DoubleSolenoid ds = new DoubleSolenoid(Constants.pneumatic_CAN_id, PneumaticsModuleType.REVPH, Constants.forward_channel_port, Constants.reverse_channel_port);
-  CANSparkMax intakeMotor = new CANSparkMax(Constants.intake_motor_id, MotorType.kBrushed);
+  TalonSRX intakeMotor = new TalonSRX(Constants.intake_motor_id);
   boolean isUp;
-
-  //m_motor = new CANSparkMax(deviceID, MotorType.kBrushless);
   public Intake() {
     up();
   }
@@ -46,7 +42,7 @@ public class Intake extends SubsystemBase {
   }
 
   public void spin(){
-    intakeMotor.set(Constants.intake_motor_percent_output);
+    intakeMotor.set(ControlMode.PercentOutput, Constants.intake_motor_percent_output);
   }
 
   public boolean getState(){

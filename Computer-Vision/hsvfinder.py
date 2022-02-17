@@ -10,7 +10,7 @@ def nothing(x):
 
 
 # Initializing the webcam feed.
-cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+cap = cv2.VideoCapture(0)
 cap.set(3, 1280)
 cap.set(4, 720)
 
@@ -27,8 +27,7 @@ cv2.createTrackbar("L - V", "Trackbars", 0, 255, nothing)
 cv2.createTrackbar("U - H", "Trackbars", 179, 179, nothing)
 cv2.createTrackbar("U - S", "Trackbars", 255, 255, nothing)
 cv2.createTrackbar("U - V", "Trackbars", 255, 255, nothing)
-imagename = "14ft6in"
-frame = cv2.imread("Computer-Vision\\hub_images\\Terminal" + imagename + ".png")
+frame = cv2.imread("images/TarmacCenter2ft10in.png")
 while True:
 
     # Start reading the webcam feed frame by frame.
@@ -75,9 +74,11 @@ while True:
 
     # If the user presses `s` then print this array.
     if key == ord('s'):
-        file_object = open('Computer-Vision\\hub_values.txt', 'a')
-        n = file_object.write('\n' + imagename + ',(' + str(l_h) + ',' + str(l_s) + ',' + str(l_v) + '),(' + str(u_h) + ',' + str(u_s) + ',' + str(u_v) + ')')
-        file_object.close()
+        thearray = [[l_h, l_s, l_v], [u_h, u_s, u_v]]
+        print(thearray)
+
+        # Also save this array as penval.npy
+        np.save('hsv_value', thearray)
         break
 
 # Release the camera & destroy the windows.
