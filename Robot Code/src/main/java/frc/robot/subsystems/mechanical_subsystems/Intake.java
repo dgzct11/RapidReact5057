@@ -27,7 +27,7 @@ public class Intake extends SubsystemBase {
   //Compressor comp = new Compressor(1, PneumaticsModuleType.REVPH);
   DoubleSolenoid ds = new DoubleSolenoid(Constants.pneumatic_CAN_id, PneumaticsModuleType.REVPH, Constants.forward_channel_port, Constants.reverse_channel_port);
   CANSparkMax intakeMotor = new CANSparkMax(Constants.intake_motor_id, MotorType.kBrushed);
-  boolean isUp;
+  public boolean isUp;
 
   //m_motor = new CANSparkMax(deviceID, MotorType.kBrushless);
   public Intake() {
@@ -56,5 +56,6 @@ public class Intake extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    spin();
   }
 }

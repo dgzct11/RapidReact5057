@@ -37,7 +37,7 @@ public final class Constants {
    
     //Intake
     public static final int forward_channel= 1;
-    public static final int reverse_channel = 1;
+    public static final int reverse_channel = 0;
 
     //Climb
     public static final int motorTLPort = 0;
@@ -68,10 +68,10 @@ public final class Constants {
 
     //Intake
     public static final int forward_channel_port = 1;
-    public static final int reverse_channel_port = 1;
+    public static final int reverse_channel_port = 0;
     public static final int pneumatic_CAN_id = 9;
     public static final int intake_motor_id = 0;
-    public static final double intake_motor_percent_output = 0.5;
+    public static final double intake_motor_percent_output = 1;
 
     
 

@@ -25,8 +25,8 @@ public class ClimbCommand extends CommandBase{
     public void execute() {
       double leftYAxis = xboxRemote.getLeftY();
       double rightXAxis = xboxRemote.getRightX();
-      climb.setVelocity(leftYAxis*(Constants.maximum_telescoping_velocity));
-      climb.setAngularVelocity(rightXAxis*(Constants.maximum_pivot_velocity));
+      //climb.setVelocity(leftYAxis*(Constants.maximum_telescoping_velocity));
+      //climb.setAngularVelocity(rightXAxis*(Constants.maximum_pivot_velocity));
 
     }
   
