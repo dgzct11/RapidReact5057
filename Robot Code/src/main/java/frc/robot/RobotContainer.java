@@ -14,10 +14,12 @@ import frc.robot.commands.button_commands.DecreaseRotateSpeed;
 import frc.robot.commands.button_commands.DecreaseSpeed;
 import frc.robot.commands.button_commands.IncreaseRotateSpeed;
 import frc.robot.commands.button_commands.IncreaseSpeed;
+import frc.robot.commands.intake_commands.IntakeUpDown;
 import frc.robot.functional.trajectory.Circle;
 import frc.robot.functional.trajectory.Line;
 import frc.robot.subsystems.mechanical_subsystems.DriveTrain;
 import frc.robot.subsystems.mechanical_subsystems.Indexer;
+import frc.robot.subsystems.mechanical_subsystems.Intake;
 import frc.robot.subsystems.sensors.LimeLight;
 import frc.robot.subsystems.sensors.NavXGyro;
 import frc.robot.subsystems.sensors.Odometry;
@@ -39,6 +41,7 @@ public class RobotContainer {
     //Mechanical subsystems
   public DriveTrain driveTrain = new DriveTrain();
   public Indexer indexer = new Indexer();
+  public Intake intake = new Intake();
  
     //Sensor subsystems
   public XboxRemote xboxRemote = new XboxRemote(xboxController);
@@ -85,6 +88,8 @@ public class RobotContainer {
 
     xButton.whenPressed(new DecreaseRotateSpeed());
     bButton.whenPressed(new IncreaseRotateSpeed());
+
+    leftButton.whenPressed(new IntakeUpDown(intake))
   }
 
   /**

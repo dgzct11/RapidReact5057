@@ -18,6 +18,11 @@ public class IntakeUpDown extends CommandBase {
     intake = i;
   }
 
+  public IntakeUpDown(Intake i) {
+    intake = i;
+    upDown = !upDown;
+  }
+
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
