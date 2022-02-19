@@ -29,12 +29,14 @@ public class IntakeUpDown extends CommandBase {
     if(upDown)
     {
       intake.up();
+      upDown = !upDown;
     }
     else
     {
       intake.down();
+      upDown = !upDown;
     }
-    upDown = !upDown;
+    System.out.println("Up down: " + upDown);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
