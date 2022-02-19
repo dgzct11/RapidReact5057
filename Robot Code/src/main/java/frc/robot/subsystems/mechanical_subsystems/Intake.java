@@ -28,11 +28,17 @@ public class Intake extends SubsystemBase {
   Spark intakeMotor = new Spark(Constants.intake_motor_id);
   boolean isUp;
   public Intake() {
-    ds.set(kReverse);
+    down();
   }
 
-  public void toggle() {
-    ds.toggle();
+  private void down() {
+    ds.set(kForward);
+    isUp = false;
+  }
+
+  public void up() {
+    ds.set(kReverse);
+    isUp = true;
   }
 
   public void spin(){
