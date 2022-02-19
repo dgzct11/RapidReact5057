@@ -4,6 +4,7 @@
 
 package frc.robot.commands.intake_commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.mechanical_subsystems.Intake;
 
@@ -36,7 +37,7 @@ public class IntakeUpDown extends CommandBase {
       intake.down();
       upDown = !upDown;
     }
-    System.out.println("Up down: " + upDown);
+    SmartDashboard.putBoolean("upDown", upDown);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
