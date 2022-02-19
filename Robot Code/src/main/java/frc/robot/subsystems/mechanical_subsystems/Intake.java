@@ -19,12 +19,13 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
+import edu.wpi.first.wpilibj.motorcontrol.Spark;
 
 public class Intake extends SubsystemBase {
   /** Creates a new Intake. */
   Compressor comp = new Compressor(1, PneumaticsModuleType.REVPH);
   DoubleSolenoid ds = new DoubleSolenoid(Constants.pneumatic_CAN_id, PneumaticsModuleType.REVPH, Constants.forward_channel_port, Constants.reverse_channel_port);
-  TalonSRX intakeMotor = new TalonSRX(Constants.intake_motor_id);
+  Spark intakeMotor = new Spark(Constants.intake_motor_id);
   boolean isUp;
   public Intake() {
     ds.set(kReverse);
@@ -35,11 +36,11 @@ public class Intake extends SubsystemBase {
   }
 
   public void spin(){
-    intakeMotor.set(ControlMode.PercentOutput, Constants.intake_motor_percent_output);
+    intakeMotor.set(Constants.intake_motor_percent_output);
   }
 
   public void stopSpin() {
-    intakeMotor.set(ControlMode.PercentOutput, 0.0);
+    intakeMotor.set(0.0);
   }
 
   public boolean getState(){
