@@ -38,6 +38,7 @@ public class Indexer extends SubsystemBase {
 
   public double getBallStates(){
     //TODO
+    return 0.0;
   }
  
   public Indexer(){

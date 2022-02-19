@@ -146,7 +146,6 @@ public final class Constants {
     public static String drive_mode = field_oriented;
   
     public static boolean in_auto = false;
-<<<<<<< HEAD
     public static double[] camera_0_radial_constants;
     public static double[] camera_0_distortion_center;
     public static double[] camera_0_focal_lengths;
@@ -162,10 +161,6 @@ public final class Constants {
 
     public static final double camera_angle = 0;
     public static final double hub_height = 0;
-=======
-
-
->>>>>>> 8affcc67ef8069a35fafe8acfdf9f1e45698a7bc
 
 
 

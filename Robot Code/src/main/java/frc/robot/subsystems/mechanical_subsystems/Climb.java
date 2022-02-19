@@ -28,11 +28,13 @@ public class Climb extends SubsystemBase {
   public Climb() {}
   
   //TODO
-  public double getHeight()
-  {
-
+  public double getHeight() {
+    return 0.0;
   }
-  public double getAngle(){}
+  
+  public double getAngle(){
+    return 0.0;
+  }
 
   public void setAngularVelocity(){}
 
