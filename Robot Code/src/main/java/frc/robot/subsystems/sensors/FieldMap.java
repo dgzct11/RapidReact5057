@@ -22,8 +22,7 @@ public class FieldMap extends SubsystemBase {
   JetsonVision jetson;
   double xBound = 4.121;
   double yBound = 8.230;
-  
-  Line tapeLine = new Line(start, end);
+  Line tapeLine = new Line(null, null);
 
   public FieldMap(Odometry od) {
     constructField();

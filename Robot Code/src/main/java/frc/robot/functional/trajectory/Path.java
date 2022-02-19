@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotContainer;
-import frc.robot.functional.files.FileReader;
-import frc.robot.functional.files.SCSetPoint;
+//import frc.robot.functional.files.FileReader;
+//import frc.robot.functional.files.SCSetPoint;
 
 /** Add your docs here. */
 public class Path {
@@ -29,7 +29,7 @@ public class Path {
        getTotalDistance();
     }
 
-    public Path() {
+    /*public Path() {
         FileReader f = new FileReader();
         points = f.getPoints();
         distances = f.getDistances();
@@ -42,14 +42,14 @@ public class Path {
         getTotalDistance();
         kinematics = new Kinematics(this, f.getVelocity());
         
-    }
-    public SCSetPoint getSetPoint(double time){
+    }*/
+    /*public SCSetPoint getSetPoint(double time){
         double distance = kinematics.getDistance(time);
         for(SCSetPoint setPoint: setPoints){
             if(distance >=setPoint.startDistance && distance <= setPoint.endDistance) return setPoint;
         }
         return null;
-    }
+    }*/
   
     public void initializeSegments(){
         segments = new ArrayList<Segment>();

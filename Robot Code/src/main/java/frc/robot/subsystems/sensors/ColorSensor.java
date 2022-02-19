@@ -16,23 +16,24 @@ import edu.wpi.first.wpilibj.util.Color;
 
 import java.lang.reflect.Array;
 
-import com.revrobotics.ColorMatch;
+/*import com.revrobotics.ColorMatch;
 import com.revrobotics.ColorSensorV3;
 import com.revrobotics.ColorMatchResult;
 
-import com.revrobotics.ColorSensorV3;
+import com.revrobotics.ColorSensorV3;*/
 
 public class ColorSensor extends SubsystemBase {
+  public int[] Balls = new int[2];
   /** Creates a new ColorSensor. */
   public ColorSensor() {}
 
 
-  private final ColorSensorV3 m_colorSensor = new ColorSensorV3(Constants.i2cPort);
+  /*private final ColorSensorV3 m_colorSensor = new ColorSensorV3(Constants.i2cPort);
   
   private final ColorMatch m_colorMatcher = new ColorMatch();
   
   private final Color kBlueTarget = ColorMatch.makeColor(0.143, 0.427, 0.429);
-  private final Color kRedTarget = ColorMatch.makeColor(0.561, 0.232, 0.114);
-
-  public int[] Balls = new int[2];
+  private final Color kRedTarget = ColorMatch.makeColor(0.561, 0.232, 0.114);*/
+}
+  
 
