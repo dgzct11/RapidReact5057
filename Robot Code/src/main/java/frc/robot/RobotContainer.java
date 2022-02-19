@@ -14,6 +14,7 @@ import frc.robot.commands.button_commands.DecreaseRotateSpeed;
 import frc.robot.commands.button_commands.DecreaseSpeed;
 import frc.robot.commands.button_commands.IncreaseRotateSpeed;
 import frc.robot.commands.button_commands.IncreaseSpeed;
+import frc.robot.commands.intake_commands.IntakeSpin;
 import frc.robot.commands.intake_commands.IntakeUpDown;
 import frc.robot.functional.trajectory.Circle;
 import frc.robot.functional.trajectory.Line;
@@ -89,7 +90,8 @@ public class RobotContainer {
     xButton.whenPressed(new DecreaseRotateSpeed());
     bButton.whenPressed(new IncreaseRotateSpeed());
 
-    leftButton.whenPressed(new IntakeUpDown(intake));
+    leftButton.whenPressed(new IntakeUpDown(false, intake));
+    rightButton.whenPressed(new IntakeSpin(false, intake));
   }
 
   /**

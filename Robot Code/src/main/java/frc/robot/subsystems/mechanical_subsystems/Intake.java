@@ -45,6 +45,10 @@ public class Intake extends SubsystemBase {
     intakeMotor.set(ControlMode.PercentOutput, Constants.intake_motor_percent_output);
   }
 
+  public void stopSpin() {
+    intakeMotor.set(ControlMode.PercentOutput, 0.0);
+  }
+
   public boolean getState(){
     return isUp;
   }
