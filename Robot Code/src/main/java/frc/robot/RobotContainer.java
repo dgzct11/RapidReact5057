@@ -89,7 +89,7 @@ public class RobotContainer {
     xButton.whenPressed(new DecreaseRotateSpeed());
     bButton.whenPressed(new IncreaseRotateSpeed());
 
-    leftButton.whenPressed(new IntakeUpDown(intake))
+    leftButton.whenPressed(new IntakeUpDown(intake));
   }
 
   /**
