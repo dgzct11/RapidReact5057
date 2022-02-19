@@ -34,6 +34,7 @@ public class IntakeUpDown extends CommandBase {
     {
       intake.down();
     }
+    upDown = !upDown;
   }
 
   // Called every time the scheduler runs while the command is scheduled.
