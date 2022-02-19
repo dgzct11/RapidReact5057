@@ -27,18 +27,11 @@ public class Intake extends SubsystemBase {
   TalonSRX intakeMotor = new TalonSRX(Constants.intake_motor_id);
   boolean isUp;
   public Intake() {
-    up();
+    ds.set(kReverse);
   }
 
-  public void down(){
-    ds.set(kReverse);
-    isUp = false;
-    
-  }
-  public void up(){
-    ds.set(kForward);
-    
-    isUp = true;
+  public void toggle() {
+    ds.toggle();
   }
 
   public void spin(){

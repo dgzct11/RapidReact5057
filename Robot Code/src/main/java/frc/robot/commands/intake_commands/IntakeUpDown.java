@@ -27,16 +27,7 @@ public class IntakeUpDown extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    if(upDown)
-    {
-      intake.up();
-      upDown = !upDown;
-    }
-    else
-    {
-      intake.down();
-      upDown = !upDown;
-    }
+    intake.toggle();
     SmartDashboard.putBoolean("upDown", upDown);
   }
 
