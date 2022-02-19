@@ -10,27 +10,33 @@ import frc.robot.subsystems.mechanical_subsystems.Intake;
 
 public class IntakeUpDown extends CommandBase {
   //true for up, false for down
-  public boolean upDown;
+  public boolean isUp;
   public Intake intake;
   /** Creates a new IntakeDown. */
   public IntakeUpDown(boolean ud, Intake i) {
     // Use addRequirements() here to declare subsystem dependencies.
-    upDown = ud;
+    isUp = ud;
     intake = i;
   }
 
   public IntakeUpDown(Intake i) {
     intake = i;
-    upDown = !upDown;
+    isUp = false;
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    intake.toggle();
-    SmartDashboard.putBoolean("upDown", upDown);
+    if (isUp) {
+      intake.down();
+      isUp = false;
+    }
+    else {
+      intake.up();
+      isUp = true;
+    }
+    SmartDashboard.putBoolean("is up", isUp);
   }
-
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {}

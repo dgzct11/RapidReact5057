@@ -31,7 +31,7 @@ public class Intake extends SubsystemBase {
     down();
   }
 
-  private void down() {
+  public void down() {
     ds.set(kForward);
     isUp = false;
   }
