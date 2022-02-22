@@ -71,7 +71,7 @@ public final class Constants {
     public static final int reverse_channel_port = 0;
     public static final int pneumatic_CAN_id = 9;
     public static final int intake_motor_id = 0;
-    public static final double intake_motor_percent_output = 1;
+    public static final double intake_motor_percent_output = 0.5;
 
     
 

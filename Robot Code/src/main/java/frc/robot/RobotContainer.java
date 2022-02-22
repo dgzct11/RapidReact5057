@@ -92,10 +92,13 @@ public class RobotContainer {
   private void configureButtonBindings() {
     aButton.whenPressed(new DecreaseSpeed());
     yButton.whenPressed(new IncreaseSpeed());
+
     rightButton.whenPressed(new IntakeSpin(intake));
     leftButton.whenPressed(new IntakeToggle(intake));
+
     xButton.whenPressed(new DecreaseRotateSpeed());
     bButton.whenPressed(new IncreaseRotateSpeed());
+    
     startButton.whenPressed(new AlignAllWheels(driveTrain));
   }
 
