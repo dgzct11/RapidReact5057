@@ -5,13 +5,18 @@
 package frc.robot.commands.intake_commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.mechanical_subsystems.Indexer;
 import frc.robot.subsystems.mechanical_subsystems.Intake;
+import frc.robot.subsystems.sensors.XboxRemote;
 
 public class IntakeSpin extends CommandBase {
   /** Creates a new IntakeSpin. */
   public Intake intake;
-  public IntakeSpin(Intake i) {
+  public Indexer indexer;
+  public IntakeSpin(Intake i, Indexer in ) {
     intake = i;
+    indexer = in;
+   
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
@@ -22,12 +27,17 @@ public class IntakeSpin extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    
     intake.spin();
+    indexer.setPercentOutput(0.5);
   }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    intake.stop();
+    indexer.setPercentOutput(0);
+  }
 
   // Returns true when the command should end.
   @Override

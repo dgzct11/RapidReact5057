@@ -26,8 +26,10 @@ public class Intake extends SubsystemBase {
   /** Creates a new Intake. */
   //Compressor comp = new Compressor(1, PneumaticsModuleType.REVPH);
   DoubleSolenoid ds = new DoubleSolenoid(Constants.pneumatic_CAN_id, PneumaticsModuleType.REVPH, Constants.forward_channel_port, Constants.reverse_channel_port);
-  CANSparkMax intakeMotor = new CANSparkMax(Constants.intake_motor_id, MotorType.kBrushed);
+  TalonSRX intakeMotor = new TalonSRX(Constants.intake_motor_id);
   public boolean isUp;
+
+
 
   //m_motor = new CANSparkMax(deviceID, MotorType.kBrushless);
   public Intake() {
@@ -48,7 +50,13 @@ public class Intake extends SubsystemBase {
   }
 
   public void spin(){
-    intakeMotor.set(Constants.intake_motor_percent_output);
+    intakeMotor.set(ControlMode.PercentOutput, Constants.intake_motor_percent_output);
+ 
+  }
+
+  public void stop(){
+    intakeMotor.set(ControlMode.PercentOutput, 0);
+  
   }
 
   public boolean getState(){

@@ -15,6 +15,7 @@ import frc.robot.commands.button_commands.DecreaseRotateSpeed;
 import frc.robot.commands.button_commands.DecreaseSpeed;
 import frc.robot.commands.button_commands.IncreaseRotateSpeed;
 import frc.robot.commands.button_commands.IncreaseSpeed;
+import frc.robot.commands.button_commands.SetShooterAngle;
 import frc.robot.commands.driving_commands.SwerveDrive;
 import frc.robot.commands.intake_commands.IntakeSpin;
 import frc.robot.commands.intake_commands.IntakeToggle;
@@ -24,6 +25,7 @@ import frc.robot.functional.trajectory.Line;
 import frc.robot.subsystems.mechanical_subsystems.DriveTrain;
 import frc.robot.subsystems.mechanical_subsystems.Indexer;
 import frc.robot.subsystems.mechanical_subsystems.Intake;
+import frc.robot.subsystems.mechanical_subsystems.Shooter;
 import frc.robot.subsystems.sensors.LimeLight;
 import frc.robot.subsystems.sensors.NavXGyro;
 import frc.robot.subsystems.sensors.Odometry;
@@ -45,7 +47,8 @@ public class RobotContainer {
     //Mechanical subsystems
   public DriveTrain driveTrain = new DriveTrain();
   public Intake intake = new Intake();
-  //public Indexer indexer = new Indexer();
+  public Shooter shooter = new Shooter();
+  public Indexer indexer = new Indexer();
  
     //Sensor subsystems
   public XboxRemote xboxRemote = new XboxRemote(xboxController);
@@ -60,6 +63,8 @@ public class RobotContainer {
   Button rightPad = new POVButton(xboxController, Constants.right_pad_num);
   Button upPad = new POVButton(xboxController, Constants.up_pad_num);
   Button downPad = new POVButton(xboxController, Constants.down_pad_num);
+
+ 
   
   Button rightButton = new JoystickButton(xboxController, Constants.rb_button_num);
   Button leftButton = new JoystickButton(xboxController, Constants.lb_button_num);
@@ -93,13 +98,18 @@ public class RobotContainer {
     aButton.whenPressed(new DecreaseSpeed());
     yButton.whenPressed(new IncreaseSpeed());
 
-    rightButton.whenPressed(new IntakeSpin(intake));
+    rightButton.whenHeld(new IntakeSpin(intake, indexer));
     leftButton.whenPressed(new IntakeToggle(intake));
 
     xButton.whenPressed(new DecreaseRotateSpeed());
     bButton.whenPressed(new IncreaseRotateSpeed());
     
     startButton.whenPressed(new AlignAllWheels(driveTrain));
+
+    upPad.whenPressed(new SetShooterAngle(0, shooter));
+    leftPad.whenPressed(new SetShooterAngle(90, shooter));
+    downPad.whenPressed(new SetShooterAngle(180, shooter));
+    rightPad.whenPressed(new SetShooterAngle(270, shooter));
   }
 
   /**

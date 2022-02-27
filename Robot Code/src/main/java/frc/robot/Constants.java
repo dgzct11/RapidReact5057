@@ -49,10 +49,10 @@ public final class Constants {
     public static final int telescoping_velocity_to_ticks = 0;
     
     //Index
-    public static final int front_left_Motor = 111111; // WIP
-    public static final int front_right_Motor = 1111; // WIP
-    public static final int back_left_Motor = 1111; // WIP
-    public static final int back_right_Motor = 1111; // WIP
+    public static final int front_left_Motor = 0; // WIP
+    public static final int front_right_Motor = 0; // WIP
+    public static final int back_left_Motor = 11; // WIP
+    public static final int back_right_Motor = 15; // WIP
     public static final int front_radius = 1;
     public static final double front_wheel_rev_per_meter = 1/(2*Math.PI*front_radius);
     public static final double front_index_motor_ticks_per_rotation = 1;
@@ -78,10 +78,10 @@ public final class Constants {
     //Climb
    
     //Shooter WIP
-    public static final int turet_motor_id = 1111;//tbd
+    public static final int turet_motor_id = 12;//tbd
     public static final int hood_motor_id = 1111;//tbd
     public static final int flywheel_motor_id = 1111;//tbd
-    public static final int turet_ticks_per_degree = 1;
+    public static final double turet_ticks_per_degree = 227.601111;
     public static final int hood_ticks_per_degree = 1;
     public static final int flywheel_velocity_to_meters = 1; 
 

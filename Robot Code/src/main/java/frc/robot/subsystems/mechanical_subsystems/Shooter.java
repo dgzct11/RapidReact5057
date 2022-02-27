@@ -26,8 +26,12 @@
  */
 package frc.robot.subsystems.mechanical_subsystems;
 
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
+import frc.robot.RobotContainer;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
@@ -37,14 +41,27 @@ public class Shooter extends SubsystemBase {
   TalonSRX hoodMotor = new TalonSRX(Constants.hood_motor_id);
   TalonSRX flywheelMotor = new TalonSRX(Constants.flywheel_motor_id);
   /** Creates a new Shooter. */
-  public Shooter() {}
+  public Shooter() {
+    turetMotor.setSelectedSensorPosition(0);
 
-  public void setTuretAngle(int angle){
-    turetMotor.set(ControlMode.Position, angle * Constants.turet_ticks_per_degree);
+    //TODO
+    //set soft limits for motior
+    //pid constants
+    
+  }
+
+  public void setTuretAngle(double angle){
+    
+    turetMotor.set(ControlMode.MotionMagic, ((turetMotor.getSelectedSensorPosition() + 
+    RobotContainer.angleDistance2(angle, getTuretAngle())*Constants.turet_ticks_per_degree * (RobotContainer.shouldTurnLeft(getTuretAngle(), angle) ? 1:-1) )));
+
+    
   } 
-  public int getTuretAngle(){
+  public double getTuretAngle(){
     //WIP
-    return 0;
+    double pos = turetMotor.getSelectedSensorPosition();
+    pos = RobotContainer.floorMod(pos/Constants.turet_ticks_per_degree, 360);
+    return pos;
   }
   public void setHoodAngle(int angle){
     hoodMotor.set(ControlMode.Position, angle * Constants.hood_ticks_per_degree);
@@ -66,5 +83,6 @@ public class Shooter extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    SmartDashboard.putNumber("Turet Angle", getTuretAngle());
   }
 }
