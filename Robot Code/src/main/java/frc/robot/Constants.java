@@ -49,8 +49,8 @@ public final class Constants {
     public static final int telescoping_velocity_to_ticks = 0;
     
     //Index
-    public static final int front_left_Motor = 0; // WIP
-    public static final int front_right_Motor = 0; // WIP
+    public static final int front_left_Motor = 16; // WIP
+    public static final int front_right_Motor = 19; // WIP
     public static final int back_left_Motor = 11; // WIP
     public static final int back_right_Motor = 15; // WIP
     public static final int front_radius = 1;

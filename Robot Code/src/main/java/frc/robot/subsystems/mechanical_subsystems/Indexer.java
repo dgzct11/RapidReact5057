@@ -40,7 +40,7 @@ public class Indexer extends SubsystemBase {
   }
  
   public Indexer(){
-    frontleftMotor.setInverted(false);
+    frontleftMotor.setInverted(true);
     frontrightMotor.setInverted(false);
     backleftMotor.setInverted(false);
     backleftMotor.setInverted(false);
@@ -55,6 +55,9 @@ public class Indexer extends SubsystemBase {
   public void setPercentOutput(double percentOutput){
     backleftMotor.set(ControlMode.PercentOutput,  percentOutput);
     backrightMotor.set(ControlMode.PercentOutput,  percentOutput);
+
+    frontleftMotor.set(ControlMode.PercentOutput, percentOutput);
+    frontrightMotor.set(ControlMode.PercentOutput, percentOutput);
   }
 
   

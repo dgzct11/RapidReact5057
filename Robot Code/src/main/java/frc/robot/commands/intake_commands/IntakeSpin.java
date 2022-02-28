@@ -29,7 +29,8 @@ public class IntakeSpin extends CommandBase {
   public void execute() {
     
     intake.spin();
-    indexer.setPercentOutput(0.5);
+    indexer.setPercentOutput(0.1);
+    
   }
 
   // Called once the command ends or is interrupted.
