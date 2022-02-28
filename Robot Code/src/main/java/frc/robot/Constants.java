@@ -78,6 +78,8 @@ public final class Constants {
     public static final int flywheel_percent = 1; 
 
     //xbox bindings
+    //-2552707
+    //-3372071
     
     public static final int left_x_axis = 0;
     public static final int left_y_axis = 1;
