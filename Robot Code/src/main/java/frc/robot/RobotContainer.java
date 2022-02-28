@@ -20,6 +20,7 @@ import frc.robot.commands.driving_commands.SwerveDrive;
 import frc.robot.commands.intake_commands.IntakeSpin;
 import frc.robot.commands.intake_commands.IntakeToggle;
 import frc.robot.commands.intake_commands.IntakeUpDown;
+import frc.robot.commands.shooter_commands.KeepShooterStill;
 import frc.robot.functional.trajectory.Circle;
 import frc.robot.functional.trajectory.Line;
 import frc.robot.subsystems.mechanical_subsystems.DriveTrain;
@@ -83,6 +84,9 @@ public class RobotContainer {
     driveTrain.setDefaultCommand(sd);
     sd.addRequirements(driveTrain);
   
+    KeepShooterStill ks = new KeepShooterStill(shooter);
+    shooter.setDefaultCommand(ks);
+    ks.addRequirements(shooter);
     
     configureButtonBindings();
   }
