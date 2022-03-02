@@ -29,7 +29,7 @@ public class IntakeSpin extends CommandBase {
   public void execute() {
     
     intake.spin();
-    indexer.setPercentOutput(0.1);
+    indexer.setPercentOutput(0.5);
     
   }
 

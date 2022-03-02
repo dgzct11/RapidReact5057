@@ -16,6 +16,7 @@ import frc.robot.commands.button_commands.DecreaseSpeed;
 import frc.robot.commands.button_commands.IncreaseRotateSpeed;
 import frc.robot.commands.button_commands.IncreaseSpeed;
 import frc.robot.commands.button_commands.SetShooterAngle;
+import frc.robot.commands.button_commands.SwitchDriveMode;
 import frc.robot.commands.driving_commands.SwerveDrive;
 import frc.robot.commands.intake_commands.IntakeSpin;
 import frc.robot.commands.intake_commands.IntakeToggle;
@@ -109,7 +110,7 @@ public class RobotContainer {
     bButton.whenPressed(new IncreaseRotateSpeed());
     
     startButton.whenPressed(new AlignAllWheels(driveTrain));
-
+    backButton.whenPressed(new SwitchDriveMode());
     upPad.whenPressed(new SetShooterAngle(0, shooter));
     leftPad.whenPressed(new SetShooterAngle(90, shooter));
     downPad.whenPressed(new SetShooterAngle(180, shooter));
