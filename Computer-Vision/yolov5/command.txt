@@ -1,7 +1,0 @@
-cd Programming\Robotics\Vision\yolov5
-python train.py --img 640 --batch 16 --epochs 30 --data data/custom.yaml --weights models/best.pt --cache
-
-python detect.py --source 1 --weights models/best_1_21_small.pt --imgsz 720 1280 --conf-thres 0.75
-
-
-python detect.py --source videos/cluter_4.mp4  --weights models/best_1_22_small.pt 
