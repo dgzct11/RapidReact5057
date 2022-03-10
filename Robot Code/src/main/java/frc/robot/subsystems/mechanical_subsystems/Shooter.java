@@ -52,6 +52,8 @@ public class Shooter extends SubsystemBase {
 
   public void setTuretAngle(double angle){
     
+    //add motor checks
+    
     turetMotor.set(ControlMode.Position, ((turetMotor.getSelectedSensorPosition() + 
     RobotContainer.angleDistance2(angle, getTuretAngle())*Constants.turet_ticks_per_degree * (RobotContainer.shouldTurnLeft(getTuretAngle(), angle) ? 1:-1) )));
 
