@@ -15,6 +15,16 @@ import edu.wpi.first.wpilibj.I2C;
  *
  * <p>It is advised to statically import this class (or one of its inner classes) wherever the
  * constants are needed, to reduce verbosity.
+ * 
+ * motor ports
+ * 0 intake
+ * 1-8 swerveDrive
+ * 9-12 indexer/loader
+ * 13-15 shooter
+ * 16-18 climb
+ * 19 intake pneumatics
+ * 
+ * 
  */
 public final class Constants {
 
@@ -23,6 +33,7 @@ public final class Constants {
     public static final int right_joystick_port = 0;
 
     public static final int xbox_port = 0;
+    public static final int xbox_port_2 = 1;
     public static final Port mxp_port = Port.kMXP;
     
     //Swurve Drive
@@ -40,19 +51,19 @@ public final class Constants {
     public static final int reverse_channel = 0;
 
     //Climb
-    public static final int motorTLPort = 0;
-    public static final int motorTRPort = 0;
-    public static final int motorALPort = 0;
-    public static final int motorARPort = 0;
+    public static final int motorTLPort = 16;
+
+    public static final int motorALPort = 17;
+    public static final int motorARPort = 18;
     public static final int pivot_motor_ticks__per_degree = 0;
     public static final int telescoping_meter_to_ticks = 0;
     public static final int telescoping_velocity_to_ticks = 0;
     
     //Index
-    public static final int front_left_Motor = 16; // WIP
-    public static final int front_right_Motor = 19; // WIP
+    public static final int front_left_Motor = 9; // WIP
+    public static final int front_right_Motor = 10; // WIP
     public static final int back_left_Motor = 11; // WIP
-    public static final int back_right_Motor = 15; // WIP
+    public static final int back_right_Motor = 12; // WIP
     public static final int front_radius = 1;
     public static final double front_wheel_rev_per_meter = 1/(2*Math.PI*front_radius);
     public static final double front_index_motor_ticks_per_rotation = 1;
@@ -69,18 +80,19 @@ public final class Constants {
     //Intake
     public static final int forward_channel_port = 1;
     public static final int reverse_channel_port = 0;
-    public static final int pneumatic_CAN_id = 9;
+    public static final int pneumatic_CAN_id = 19;
     public static final int intake_motor_id = 0;
-    public static final double intake_motor_percent_output = 0.5;
+    public static final double intake_motor_percent_output = 0.3;
 
     
 
     //Climb
    
     //Shooter WIP
-    public static final int turet_motor_id = 12;//tbd
+    public static final int turet_motor_id = 15;//tbd
     public static final int hood_motor_id = 1111;//tbd
-    public static final int flywheel_motor_id = 1111;//tbd
+    public static final int flywheel_motor_id = 13;//tbd
+    public static int flywheel_motor_2_id = 14;
     public static final double turet_ticks_per_degree = 227.601111;
     public static final int hood_ticks_per_degree = 1;
     public static final int flywheel_velocity_to_meters = 1; 
@@ -146,6 +158,7 @@ public final class Constants {
    
     public static  double velocityMax = 1;
     
+    public static double shooterPercent = -01;
     public static double max_motor_percent = 1;
     
     // state variables
@@ -157,6 +170,8 @@ public final class Constants {
     public static String drive_mode = field_oriented;
   
     public static boolean in_auto = false;
+    public static boolean climb_enabled = false;
+
     public static double[] camera_0_radial_constants;
     public static double[] camera_0_distortion_center;
     public static double[] camera_0_focal_lengths;
@@ -167,6 +182,7 @@ public final class Constants {
     public static double camera_1_angle_offset;
     public static int camera_height;
     public static int cargo_diameter;
+ 
 
     public static final double camera_angle = 0;
     public static final double hub_height = 0;

@@ -40,8 +40,8 @@ public class Indexer extends SubsystemBase {
   }
  
   public Indexer(){
-    frontleftMotor.setInverted(true);
-    frontrightMotor.setInverted(false);
+    frontleftMotor.setInverted(false);
+    frontrightMotor.setInverted(true);
     backleftMotor.setInverted(false);
     backleftMotor.setInverted(false);
   }

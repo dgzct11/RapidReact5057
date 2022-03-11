@@ -13,6 +13,8 @@ public class ClimbCommand extends CommandBase{
     public ClimbCommand( XboxRemote xRemote, Climb c) {
         xboxRemote = xRemote;
         climb = c;
+
+        addRequirements(climb);
       // Use addRequirements() here to declare subsystem dependencies.
     }
   
@@ -23,10 +25,12 @@ public class ClimbCommand extends CommandBase{
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-      double leftYAxis = xboxRemote.getLeftY();
-      double rightXAxis = xboxRemote.getRightX();
-      //climb.setVelocity(leftYAxis*(Constants.maximum_telescoping_velocity));
-      //climb.setAngularVelocity(rightXAxis*(Constants.maximum_pivot_velocity));
+      if(Constants.climb_enabled){
+        double leftYAxis = xboxRemote.getLeftY();
+        double rightXAxis = xboxRemote.getRightX();
+        //climb.setVelocity(leftYAxis*(Constants.maximum_telescoping_velocity));
+        //climb.setAngularVelocity(rightXAxis*(Constants.maximum_pivot_velocity));
+      }
 
     }
   

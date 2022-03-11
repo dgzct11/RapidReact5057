@@ -33,6 +33,7 @@ import frc.robot.Constants;
 import frc.robot.RobotContainer;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.InvertType;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 
@@ -40,9 +41,19 @@ public class Shooter extends SubsystemBase {
   TalonSRX turetMotor = new TalonSRX(Constants.turet_motor_id);
   TalonSRX hoodMotor = new TalonSRX(Constants.hood_motor_id);
   TalonSRX flywheelMotor = new TalonSRX(Constants.flywheel_motor_id);
+  TalonSRX flywheelMotor2 = new TalonSRX(Constants.flywheel_motor_2_id);
+  
   /** Creates a new Shooter. */
   public Shooter() {
     turetMotor.setSelectedSensorPosition(0);
+    turetMotor.configForwardSoftLimitEnable(true);
+    turetMotor.configReverseSoftLimitEnable(true);
+    turetMotor.configForwardSoftLimitThreshold(90*Constants.turet_ticks_per_degree);
+    turetMotor.configReverseSoftLimitThreshold(-90*Constants.turet_ticks_per_degree);
+    flywheelMotor2.follow(flywheelMotor);
+    flywheelMotor2.setInverted(InvertType.OpposeMaster);
+
+
 
     //TODO
     //set soft limits for motior
@@ -53,10 +64,10 @@ public class Shooter extends SubsystemBase {
   public void setTuretAngle(double angle){
     
     //add motor checks
-    
-    turetMotor.set(ControlMode.Position, ((turetMotor.getSelectedSensorPosition() + 
-    RobotContainer.angleDistance2(angle, getTuretAngle())*Constants.turet_ticks_per_degree * (RobotContainer.shouldTurnLeft(getTuretAngle(), angle) ? 1:-1) )));
-
+    if(angle<=90 && angle >= -90){
+      turetMotor.set(ControlMode.Position, ((turetMotor.getSelectedSensorPosition() + 
+      RobotContainer.angleDistance2(angle, getTuretAngle())*Constants.turet_ticks_per_degree * (RobotContainer.shouldTurnLeft(getTuretAngle(), angle) ? 1:-1) )));
+    }
     
   } 
   public double getTuretAngle(){
@@ -72,8 +83,12 @@ public class Shooter extends SubsystemBase {
     //WIP
     return 0;
   }
-  public void setFlywheelVelocity(int velocity){
+  public void setFlywheelVelocity(double velocity){
     flywheelMotor.set(ControlMode.Velocity, velocity * Constants.flywheel_velocity_to_meters);
+  }
+
+  public void setFlywheelPercentOutput(double percentOutput){
+    flywheelMotor.set(ControlMode.PercentOutput, percentOutput);
   }
   public int getFlywheelVelocity(int velocity){
    //WIP

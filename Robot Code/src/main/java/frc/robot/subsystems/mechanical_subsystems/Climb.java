@@ -21,7 +21,7 @@ import frc.robot.Constants;
 public class Climb extends SubsystemBase {
   /** Creates a new Climber. */
   TalonSRX telescopingTL = new TalonSRX(Constants.motorTLPort);
-  TalonSRX telescopingTR = new TalonSRX(Constants.motorTRPort);
+
   TalonSRX telescopingAL = new TalonSRX(Constants.motorALPort);
   TalonSRX telescopingAR = new TalonSRX(Constants.motorARPort);
   
@@ -30,7 +30,7 @@ public class Climb extends SubsystemBase {
   //TODO
   public double getHeight()
   {
-    return ((telescopingTL.getSelectedSensorPosition()/Constants.telescoping_meter_to_ticks)+(telescopingTR.getSelectedSensorPosition()/Constants.telescoping_meter_to_ticks))/2;
+    return (telescopingTL.getSelectedSensorPosition()/Constants.telescoping_meter_to_ticks);
   } 
 
   public double getAngle()
@@ -47,12 +47,12 @@ public class Climb extends SubsystemBase {
   public void setVelocity(double velocity)
   {
     telescopingTL.set(ControlMode.Velocity, velocity * (Constants.telescoping_velocity_to_ticks));
-    telescopingTR.set(ControlMode.Velocity, velocity * (Constants.telescoping_velocity_to_ticks));
+    
   }
   public void setHeight(double height)
   {
     telescopingTL.set(ControlMode.MotionMagic, height*(Constants.telescoping_meter_to_ticks));
-    telescopingTR.set(ControlMode.MotionMagic, height*(Constants.telescoping_meter_to_ticks));
+    
   }
 
   public void setAngle(double angle)

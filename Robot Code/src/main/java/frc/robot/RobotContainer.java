@@ -13,17 +13,22 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.button_commands.AlignAllWheels;
 import frc.robot.commands.button_commands.DecreaseRotateSpeed;
 import frc.robot.commands.button_commands.DecreaseSpeed;
+import frc.robot.commands.button_commands.EnableDisableClimb;
 import frc.robot.commands.button_commands.IncreaseRotateSpeed;
 import frc.robot.commands.button_commands.IncreaseSpeed;
+import frc.robot.commands.button_commands.IncrementShooterOutput;
 import frc.robot.commands.button_commands.SetShooterAngle;
 import frc.robot.commands.button_commands.SwitchDriveMode;
+import frc.robot.commands.climb_commands.ClimbCommand;
 import frc.robot.commands.driving_commands.SwerveDrive;
 import frc.robot.commands.intake_commands.IntakeSpin;
 import frc.robot.commands.intake_commands.IntakeToggle;
 import frc.robot.commands.intake_commands.IntakeUpDown;
+import frc.robot.commands.shooter_commands.Fire;
 import frc.robot.commands.shooter_commands.KeepShooterStill;
 import frc.robot.functional.trajectory.Circle;
 import frc.robot.functional.trajectory.Line;
+import frc.robot.subsystems.mechanical_subsystems.Climb;
 import frc.robot.subsystems.mechanical_subsystems.DriveTrain;
 import frc.robot.subsystems.mechanical_subsystems.Indexer;
 import frc.robot.subsystems.mechanical_subsystems.Intake;
@@ -44,6 +49,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 public class RobotContainer {
   //hardware
   public XboxController xboxController = new XboxController(Constants.xbox_port);
+  public XboxController subsystemController = new XboxController(Constants.xbox_port_2);
 
   //subsystems
     //Mechanical subsystems
@@ -51,32 +57,50 @@ public class RobotContainer {
   public Intake intake = new Intake();
   public Shooter shooter = new Shooter();
   public Indexer indexer = new Indexer();
+  public Climb climb = new Climb();
  
     //Sensor subsystems
   public XboxRemote xboxRemote = new XboxRemote(xboxController);
-  
+  public XboxRemote subsytemRemote = new XboxRemote(subsystemController);
+
+
   public NavXGyro navx = new NavXGyro(); 
   public LimeLight limeLight = new LimeLight();
   public Odometry odometry = new Odometry(driveTrain, limeLight);
   //buttons
 
+    //xboxcontroller buttons
 
-  Button leftPad = new POVButton(xboxController, Constants.left_pad_num);
-  Button rightPad = new POVButton(xboxController, Constants.right_pad_num);
-  Button upPad = new POVButton(xboxController, Constants.up_pad_num);
-  Button downPad = new POVButton(xboxController, Constants.down_pad_num);
+      Button leftPad = new POVButton(xboxController, Constants.left_pad_num);
+      Button rightPad = new POVButton(xboxController, Constants.right_pad_num);
+      Button upPad = new POVButton(xboxController, Constants.up_pad_num);
+      Button downPad = new POVButton(xboxController, Constants.down_pad_num);
 
- 
-  
-  Button rightButton = new JoystickButton(xboxController, Constants.rb_button_num);
-  Button leftButton = new JoystickButton(xboxController, Constants.lb_button_num);
+      Button rightButton = new JoystickButton(xboxController, Constants.rb_button_num);
+      Button leftButton = new JoystickButton(xboxController, Constants.lb_button_num);
 
-  Button xButton = new JoystickButton(xboxController, Constants.x_button_num);
-  Button aButton = new JoystickButton(xboxController, Constants.a_button_num);
-  Button bButton = new JoystickButton(xboxController, Constants.b_button_num); 
-  Button yButton = new JoystickButton(xboxController, Constants.y_button_num);
-  Button startButton = new JoystickButton(xboxController, Constants.start_button_num);
-  Button backButton = new JoystickButton(xboxController, Constants.back_button_num);
+      Button xButton = new JoystickButton(xboxController, Constants.x_button_num);
+      Button aButton = new JoystickButton(xboxController, Constants.a_button_num);
+      Button bButton = new JoystickButton(xboxController, Constants.b_button_num); 
+      Button yButton = new JoystickButton(xboxController, Constants.y_button_num);
+
+
+      Button startButton = new JoystickButton(xboxController, Constants.start_button_num);
+      Button backButton = new JoystickButton(xboxController, Constants.back_button_num);
+      
+    // subsystem buttons
+      Button subLeftPad = new POVButton(subsystemController, Constants.left_pad_num);
+      Button subRightPad = new POVButton(subsystemController, Constants.right_pad_num);
+      Button subUpPad = new POVButton(subsystemController, Constants.up_pad_num);
+      Button subDownPad = new POVButton(subsystemController, Constants.down_pad_num);
+      Button subRightButton = new JoystickButton(subsystemController, Constants.rb_button_num);
+      Button subLeftButton = new JoystickButton(subsystemController, Constants.lb_button_num);
+      Button subXButton = new JoystickButton(subsystemController, Constants.x_button_num);
+      Button subAButton = new JoystickButton(subsystemController, Constants.a_button_num);
+      Button subBButton = new JoystickButton(subsystemController, Constants.b_button_num); 
+      Button subYButton = new JoystickButton(subsystemController, Constants.y_button_num);
+      Button subStartButton = new JoystickButton(subsystemController, Constants.start_button_num);
+      Button subBackButton = new JoystickButton(subsystemController, Constants.back_button_num);
   public RobotContainer() {
     // configures commands
     NavXGyro.ahrs.reset();
@@ -88,7 +112,11 @@ public class RobotContainer {
     KeepShooterStill ks = new KeepShooterStill(shooter);
     shooter.setDefaultCommand(ks);
     ks.addRequirements(shooter);
-    
+
+    ClimbCommand cc = new ClimbCommand(subsytemRemote, climb);
+    climb.setDefaultCommand(cc);
+    cc.addRequirements(climb);
+
     configureButtonBindings();
   }
 
@@ -100,21 +128,32 @@ public class RobotContainer {
    */
   
   private void configureButtonBindings() {
-    aButton.whenPressed(new DecreaseSpeed());
-    yButton.whenPressed(new IncreaseSpeed());
+    leftButton.whenPressed(new DecreaseSpeed());
+    rightButton.whenPressed(new IncreaseSpeed());
 
-    rightButton.whenHeld(new IntakeSpin(intake, indexer));
-    leftButton.whenPressed(new IntakeToggle(intake));
+  
 
-    xButton.whenPressed(new DecreaseRotateSpeed());
-    bButton.whenPressed(new IncreaseRotateSpeed());
+    yButton.whenPressed(new DecreaseRotateSpeed());
+    aButton.whenPressed(new IncreaseRotateSpeed());
     
     startButton.whenPressed(new AlignAllWheels(driveTrain));
     backButton.whenPressed(new SwitchDriveMode());
-    upPad.whenPressed(new SetShooterAngle(0, shooter));
-    leftPad.whenPressed(new SetShooterAngle(90, shooter));
-    downPad.whenPressed(new SetShooterAngle(180, shooter));
-    rightPad.whenPressed(new SetShooterAngle(270, shooter));
+    
+    //subsytems
+    subRightButton.whenHeld(new Fire(shooter));
+    subXButton.whenPressed(new IntakeToggle(intake));
+    subAButton.whenHeld(new IntakeSpin(intake, indexer));
+
+    subUpPad.whenPressed(new SetShooterAngle(0, shooter));
+    subLeftPad.whenPressed(new SetShooterAngle(90, shooter));
+    subDownPad.whenPressed(new SetShooterAngle(180, shooter));
+    subRightPad.whenPressed(new SetShooterAngle(270, shooter));
+
+    //subYButton.whenPressed(new EnableDisableClimb());
+    subYButton.whenPressed(new IncrementShooterOutput(-0.1));
+    subBButton.whenPressed(new IncrementShooterOutput(0.1));
+
+
   }
 
   /**
