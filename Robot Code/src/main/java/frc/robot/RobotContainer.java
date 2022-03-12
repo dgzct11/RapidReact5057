@@ -24,6 +24,7 @@ import frc.robot.commands.driving_commands.SwerveDrive;
 import frc.robot.commands.intake_commands.IntakeSpin;
 import frc.robot.commands.intake_commands.IntakeToggle;
 import frc.robot.commands.intake_commands.IntakeUpDown;
+import frc.robot.commands.shooter_commands.ControlHood;
 import frc.robot.commands.shooter_commands.Fire;
 import frc.robot.commands.shooter_commands.KeepShooterStill;
 import frc.robot.functional.trajectory.Circle;
@@ -110,6 +111,7 @@ public class RobotContainer {
     sd.addRequirements(driveTrain);
   
     KeepShooterStill ks = new KeepShooterStill(shooter);
+    ControlHood ch = new ControlHood(shooter, xboxRemote);
     shooter.setDefaultCommand(ks);
     ks.addRequirements(shooter);
 
