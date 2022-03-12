@@ -26,6 +26,7 @@
  */
 package frc.robot.subsystems.mechanical_subsystems;
 
+import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -35,7 +36,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 public class Shooter extends SubsystemBase {
   private double shooterAngle;
   TalonSRX turetMotor = new TalonSRX(Constants.turet_motor_id);
-  TalonSRX hoodMotor = new TalonSRX(Constants.hood_motor_id);
+  Servo hoodServo = new Servo(Constants.hood_servo_id);
   TalonSRX flywheelMotorL = new TalonSRX(Constants.flywheel_motor_id);
   TalonSRX flywheelMotorR = new TalonSRX(Constants.flywheel_motor_id);
   /** Creates a new Shooter. */
@@ -54,9 +55,12 @@ public class Shooter extends SubsystemBase {
   public double getTuretAngle(){
     return shooterAngle;
   }
-  public void setHoodAngle(int angle){
-    hoodMotor.set(ControlMode.Position, angle * Constants.hood_ticks_per_degree);
-  } 
+  /*public void setHoodAngle(int angle){
+    hoodServo.set(ControlMode.Position, angle * Constants.hood_ticks_per_degree);
+  }*/
+  public void setHood(double b) {
+    hoodServo.set(b);
+  }
   public int getHoodAngle(){
     //WIP
     return 0;

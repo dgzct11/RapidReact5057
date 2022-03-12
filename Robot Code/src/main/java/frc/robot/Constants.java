@@ -70,7 +70,7 @@ public final class Constants {
    
     //Shooter WIP
     public static final int turet_motor_id = 1111;//tbd
-    public static final int hood_motor_id = 1111;//tbd
+    public static final int hood_servo_id = 1111;//tbd
     public static final int flywheel_motor_id = 1111;//tbd
     public static final int turet_ticks_per_degree = 1;
     public static final int hood_ticks_per_degree = 1;
