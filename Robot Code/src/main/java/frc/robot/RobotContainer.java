@@ -116,7 +116,9 @@ public class RobotContainer {
     KeepShooterStill ks = new KeepShooterStill(shooter);
     ControlHood ch = new ControlHood(shooter, xboxRemote);
     shooter.setDefaultCommand(ks);
+    shooter.setDefaultCommand(ch);
     ks.addRequirements(shooter);
+    ch.addRequirements(shooter);
 
     ClimbCommand cc = new ClimbCommand(subsytemRemote, climb);
     climb.setDefaultCommand(cc);

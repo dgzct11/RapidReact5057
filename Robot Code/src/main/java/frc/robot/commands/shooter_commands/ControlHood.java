@@ -21,6 +21,7 @@ public class ControlHood extends CommandBase {
     // Use addRequirements() here to declare subsystem dependencies.
     shooter = s;
     xbox = remote;
+    addRequirements(shooter);
   }
 
   // Called when the command is initially scheduled.
