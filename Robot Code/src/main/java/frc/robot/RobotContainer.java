@@ -17,6 +17,7 @@ import frc.robot.commands.button_commands.EnableDisableClimb;
 import frc.robot.commands.button_commands.IncreaseRotateSpeed;
 import frc.robot.commands.button_commands.IncreaseSpeed;
 import frc.robot.commands.button_commands.IncrementShooterOutput;
+import frc.robot.commands.button_commands.ResetNavX;
 import frc.robot.commands.button_commands.SetShooterAngle;
 import frc.robot.commands.button_commands.SwitchDriveMode;
 import frc.robot.commands.climb_commands.ClimbCommand;
@@ -24,6 +25,8 @@ import frc.robot.commands.driving_commands.SwerveDrive;
 import frc.robot.commands.intake_commands.IntakeSpin;
 import frc.robot.commands.intake_commands.IntakeToggle;
 import frc.robot.commands.intake_commands.IntakeUpDown;
+
+
 import frc.robot.commands.shooter_commands.ControlHood;
 import frc.robot.commands.shooter_commands.Fire;
 import frc.robot.commands.shooter_commands.KeepShooterStill;
@@ -137,6 +140,7 @@ public class RobotContainer {
 
     yButton.whenPressed(new DecreaseRotateSpeed());
     aButton.whenPressed(new IncreaseRotateSpeed());
+    xButton.whenPressed(new ResetNavX());
     
     startButton.whenPressed(new AlignAllWheels(driveTrain));
     backButton.whenPressed(new SwitchDriveMode());
