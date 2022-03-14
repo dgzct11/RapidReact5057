@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.File;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -55,11 +56,14 @@ public class TrajectoryPlanning extends JFrame implements ActionListener{
     public void setControlPanel(SubsystemControlPanel control){
         controlPanel = control;
     }
-    public void display(){
+    public void display() throws IOException{
         frame = new JFrame();
         frame.setTitle("Trajectory Planning");
        
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        String currentPath = new java.io.File(".").getCanonicalPath();
+        System.out.println("hello: "+ currentPath);
+        fs = "\\";
         panel = new Panel("./PlanningGUI" + fs + "resources" + fs + "rapid_react_field_render_small.png", velocity, controlPanel);
         frame.add(panel);
         panel.setFocusable(true);

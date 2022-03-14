@@ -18,7 +18,8 @@ public class MainWindow {
      SubsystemControlPanel controlPanel;
      TrajectoryPlanning trajectoryPlanning;
     Velocity velocity;
-    public void display() {
+    public void display() throws IOException {
+        System.out.println("new world");
         trajectoryPlanning = new TrajectoryPlanning();
         controlPanel = new SubsystemControlPanel();
         velocity = new Velocity();
@@ -27,6 +28,7 @@ public class MainWindow {
         trajectoryPlanning.setControlPanel(controlPanel);
         velocity.setTrajectory(trajectoryPlanning);
         controlPanel.setTrajectory(trajectoryPlanning);
+        
         
         trajectoryPlanning.display();
         velocity.display();
