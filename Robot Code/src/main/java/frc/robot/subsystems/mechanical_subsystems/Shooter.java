@@ -35,10 +35,14 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 public class Shooter extends SubsystemBase {
   private double shooterAngle;
+  private double flywheelVelocity;
+  private double hoodAngle; 
+
   TalonSRX turetMotor = new TalonSRX(Constants.turet_motor_id);
   Servo hoodServo = new Servo(Constants.hood_servo_id);
   TalonSRX flywheelMotorL = new TalonSRX(Constants.flywheel_motor_id);
   TalonSRX flywheelMotorR = new TalonSRX(Constants.flywheel_motor_id);
+
   /** Creates a new Shooter. */
   public Shooter(double angle) {
     flywheelMotorL.setInverted(true);
@@ -48,28 +52,36 @@ public class Shooter extends SubsystemBase {
     flywheelMotorL.setInverted(true);
     shooterAngle = 0;
   }
+
+  //
   public void setTuretAngle(int angle){
-    turetMotor.set(ControlMode.Position, angle * Constants.turet_ticks_per_degree);
-    shooterAngle += angle;
+    if(angle != shooterAngle){
+      turetMotor.set(ControlMode.Position, angle * Constants.turet_ticks_per_degree);
+      shooterAngle = angle;
+    }
   } 
   public double getTuretAngle(){
     return shooterAngle;
   }
-  /*public void setHoodAngle(int angle){
-    hoodServo.set(ControlMode.Position, angle * Constants.hood_ticks_per_degree);
-  }*/
+
   public void setHood(double b) {
-    hoodServo.set(b);
+    if(b != hoodAngle){
+      hoodServo.set(b);
+      hoodAngle = b;
+    }
   }
-  public int getHoodAngle(){
-    //WIP
-    return 0;
+  public double getHoodAngle(){
+    return hoodAngle;
   }
-  public void setFlywheelVelocity(int velocity){
-    flywheelMotorL.set(ControlMode.Velocity, velocity * Constants.flywheel_velocity_to_ticks * Constants.flywheel_percent);
-    flywheelMotorR.set(ControlMode.Velocity, velocity * Constants.flywheel_velocity_to_ticks * Constants.flywheel_percent);
+
+  public void setFlywheelVelocity(double velocity){
+    if(velocity != flywheelVelocity){
+      flywheelMotorL.set(ControlMode.Velocity, velocity * Constants.flywheel_velocity_to_ticks * Constants.flywheel_percent);
+      flywheelMotorR.set(ControlMode.Velocity, velocity * Constants.flywheel_velocity_to_ticks * Constants.flywheel_percent);
+      flywheelVelocity = velocity;
+    }
   }
-  public double getFlywheelVelocity(int velocity){
+  public double getFlywheelVelocity(){
     return flywheelMotorL.getSelectedSensorVelocity()/Constants.flywheel_velocity_to_ticks;
   }
   
