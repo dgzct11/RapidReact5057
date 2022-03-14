@@ -57,11 +57,11 @@ public class RobotContainer {
 
   //subsystems
     //Mechanical subsystems
-  public DriveTrain driveTrain = new DriveTrain();
+public DriveTrain driveTrain = new DriveTrain();
   public Intake intake = new Intake();
   public Shooter shooter = new Shooter();
   public Indexer indexer = new Indexer();
-  public Climb climb = new Climb();
+  //public Climb climb = new Climb();
  
     //Sensor subsystems
   public XboxRemote xboxRemote = new XboxRemote(xboxController);
@@ -70,7 +70,7 @@ public class RobotContainer {
 
   public NavXGyro navx = new NavXGyro(); 
   public LimeLight limeLight = new LimeLight();
-  public Odometry odometry = new Odometry(driveTrain, limeLight);
+  //public Odometry odometry = new Odometry(driveTrain, limeLight);
   //buttons
 
     //xboxcontroller buttons
@@ -107,22 +107,22 @@ public class RobotContainer {
       Button subBackButton = new JoystickButton(subsystemController, Constants.back_button_num);
   public RobotContainer() {
     // configures commands
-    NavXGyro.ahrs.reset();
+    //NavXGyro.ahrs.reset();
 
-    SwerveDrive sd = new SwerveDrive(driveTrain, xboxRemote);
-    driveTrain.setDefaultCommand(sd);
-    sd.addRequirements(driveTrain);
+    //SwerveDrive sd = new SwerveDrive(driveTrain, xboxRemote);
+    //driveTrain.setDefaultCommand(sd);
+    //sd.addRequirements(driveTrain);
   
-    KeepShooterStill ks = new KeepShooterStill(shooter);
-    ControlHood ch = new ControlHood(shooter, xboxRemote);
-    shooter.setDefaultCommand(ks);
-    shooter.setDefaultCommand(ch);
-    ks.addRequirements(shooter);
-    ch.addRequirements(shooter);
+    //KeepShooterStill ks = new KeepShooterStill(shooter);
+    //ControlHood ch = new ControlHood(shooter, xboxRemote);
+    //shooter.setDefaultCommand(ks);
+    //shooter.setDefaultCommand(ch);
+    //ks.addRequirements(shooter);
+    //ch.addRequirements(shooter);
 
-    ClimbCommand cc = new ClimbCommand(subsytemRemote, climb);
-    climb.setDefaultCommand(cc);
-    cc.addRequirements(climb);
+    //ClimbCommand cc = new ClimbCommand(subsytemRemote, climb);
+    //climb.setDefaultCommand(cc);
+    //cc.addRequirements(climb);
 
     configureButtonBindings();
   }
@@ -144,7 +144,7 @@ public class RobotContainer {
     aButton.whenPressed(new IncreaseRotateSpeed());
     xButton.whenPressed(new ResetNavX());
     
-    startButton.whenPressed(new AlignAllWheels(driveTrain));
+    //startButton.whenPressed(new AlignAllWheels(driveTrain));
     backButton.whenPressed(new SwitchDriveMode());
     
     //subsytems
@@ -152,10 +152,10 @@ public class RobotContainer {
     subXButton.whenPressed(new IntakeToggle(intake));
     subAButton.whenHeld(new IntakeSpin(intake, indexer));
 
-    subUpPad.whenPressed(new SetShooterAngle(0, shooter));
-    subLeftPad.whenPressed(new SetShooterAngle(90, shooter));
-    subDownPad.whenPressed(new SetShooterAngle(180, shooter));
-    subRightPad.whenPressed(new SetShooterAngle(270, shooter));
+    //subUpPad.whenPressed(new SetShooterAngle(0, shooter));
+    //subLeftPad.whenPressed(new SetShooterAngle(90, shooter));
+    //subDownPad.whenPressed(new SetShooterAngle(180, shooter));
+    //subRightPad.whenPressed(new SetShooterAngle(270, shooter));
 
     //subYButton.whenPressed(new EnableDisableClimb());
     subYButton.whenPressed(new IncrementShooterOutput(-0.1));

@@ -206,17 +206,15 @@ public class DriveTrain extends SubsystemBase {
     rft.set(ControlMode.Velocity,  Constants.velocityMax * thrustCoefficients[2] * Constants.talon_velocity_per_ms*speeds[2]);
     rbt.set(ControlMode.Velocity,  Constants.velocityMax * thrustCoefficients[3] * Constants.talon_velocity_per_ms*speeds[3]);*/
     
-    double[] currentSpeeds = getVelocities();
-    SmartDashboard.putNumber("LF V Diff", Math.abs(currentSpeeds[0] - speeds[0]));
-    SmartDashboard.putNumber("LB V Diff", Math.abs(currentSpeeds[1] - speeds[1]));
-    SmartDashboard.putNumber("RF V Diff", Math.abs(currentSpeeds[2] - speeds[2]));
-    SmartDashboard.putNumber("RB V Diff", Math.abs(currentSpeeds[3] - speeds[3]));
+  
   }
   public int[] getThrustCoefficients(){
     return thrustCoefficients;
   }
   public void setDirectionalAngles(double[] angles){
-    double[] currentAngles = getAngles();
+    double[] currentAngles = {0,0,0,0};
+    if(!angles.equals(prevAngles))
+      currentAngles = getAngles();
     SmartDashboard.putNumber("LF A Diff", RobotContainer.angleDistance2(currentAngles[0], angles[0]));
     SmartDashboard.putNumber("LB A Diff", RobotContainer.angleDistance2(currentAngles[1], angles[1]));
     SmartDashboard.putNumber("RF A Diff", RobotContainer.angleDistance2(currentAngles[2], angles[2]));
@@ -237,7 +235,10 @@ public class DriveTrain extends SubsystemBase {
     setThrustSpeeds(speeds);
   }
   public void setDirectionalAnglesEff(double[] angles){
-    double[] currentAngles = getAngles();
+    double[] currentAngles = {0,0,0,0};
+    if(! angles.equals(prevAngles))
+      currentAngles = getAngles();
+
     for(int i = 0; i<4; i++){
 
       if(prevAngles[i] != angles[i]){
@@ -255,11 +256,7 @@ public class DriveTrain extends SubsystemBase {
         prevAngles[i] = angles[i];
       }
     }
-    SmartDashboard.putNumber("LF A Diff", RobotContainer.angleDistance2(currentAngles[0], angles[0]));
-    SmartDashboard.putNumber("LB A Diff", RobotContainer.angleDistance2(currentAngles[1], angles[1]));
-    SmartDashboard.putNumber("RF A Diff", RobotContainer.angleDistance2(currentAngles[2], angles[2]));
-    SmartDashboard.putNumber("RB A Diff", RobotContainer.angleDistance2(currentAngles[3], angles[3]));
-  }
+     }
 
   public double[] getDirectionalPositions(){
     double[] result = new double[4];
@@ -345,7 +342,7 @@ public class DriveTrain extends SubsystemBase {
   public void periodic() {
     
     
-    displayValues();
+    //displayValues();
     //setConstants();
     //setDirectionalConstants();
     
