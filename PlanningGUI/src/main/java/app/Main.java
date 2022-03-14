@@ -7,7 +7,7 @@ import app.gui.MainWindow;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        System.out.println("Hello world!");
+        System.out.println("Hello world!!!!!!!!!");
         MainWindow window = new MainWindow();
         window.display();
         /*NetClient netClient = new NetClient();
