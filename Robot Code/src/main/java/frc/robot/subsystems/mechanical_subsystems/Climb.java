@@ -25,6 +25,7 @@ public class Climb extends SubsystemBase {
   TalonSRX telescopingAL = new TalonSRX(Constants.motorALPort);
   TalonSRX telescopingAR = new TalonSRX(Constants.motorARPort);
   
+  double v, a, h = 0.0;
   public Climb() {}
   
   //TODO
@@ -46,19 +47,32 @@ public class Climb extends SubsystemBase {
 
   public void setVelocity(double velocity)
   {
-    telescopingTL.set(ControlMode.Velocity, velocity * (Constants.telescoping_velocity_to_ticks));
+    if (velocity != v) {
+      telescopingTL.set(ControlMode.Velocity, velocity * (Constants.telescoping_velocity_to_ticks));
+      v = velocity;
+    }
+
+   
+    
     
   }
   public void setHeight(double height)
   {
-    telescopingTL.set(ControlMode.MotionMagic, height*(Constants.telescoping_meter_to_ticks));
     
+    if (height != h) {
+      telescopingTL.set(ControlMode.MotionMagic, height*(Constants.telescoping_meter_to_ticks));
+      h = height;
+    }
   }
 
   public void setAngle(double angle)
   {
-    telescopingAL.set(ControlMode.MotionMagic, angle*(Constants.pivot_motor_ticks__per_degree));
-    telescopingAR.set(ControlMode.MotionMagic, angle*(Constants.pivot_motor_ticks__per_degree));
+    
+    if (angle != a) {
+      telescopingAL.set(ControlMode.MotionMagic, angle*(Constants.pivot_motor_ticks__per_degree));
+      telescopingAR.set(ControlMode.MotionMagic, angle*(Constants.pivot_motor_ticks__per_degree));
+      a = angle;
+    }
   }
 
   @Override

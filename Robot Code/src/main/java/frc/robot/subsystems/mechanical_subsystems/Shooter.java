@@ -46,6 +46,7 @@ public class Shooter extends SubsystemBase {
   TalonSRX flywheelMotor = new TalonSRX(Constants.flywheel_motor_id);
   TalonSRX flywheelMotor2 = new TalonSRX(Constants.flywheel_motor_2_id);
   
+  double a, v, p = 0;
   /** Creates a new Shooter. */
   public Shooter() {
     turetMotor.setSelectedSensorPosition(0);
@@ -65,12 +66,14 @@ public class Shooter extends SubsystemBase {
   }
 
   public void setTuretAngle(double angle){
-    
+    if(a != angle){
     //add motor checks
     if(angle<=90 && angle >= -90){
       turetMotor.set(ControlMode.Position, ((turetMotor.getSelectedSensorPosition() + 
       RobotContainer.angleDistance2(angle, getTuretAngle())*Constants.turet_ticks_per_degree * (RobotContainer.shouldTurnLeft(getTuretAngle(), angle) ? 1:-1) )));
     }
+    a = angle;
+  }
     
   } 
   public double getTuretAngle(){
@@ -93,11 +96,19 @@ public class Shooter extends SubsystemBase {
     return 0;
   }
   public void setFlywheelVelocity(double velocity){
+    if(v != velocity){
+
+    
     flywheelMotor.set(ControlMode.Velocity, velocity * Constants.flywheel_velocity_to_meters);
+    v = velocity;
+    }
   }
 
   public void setFlywheelPercentOutput(double percentOutput){
-    flywheelMotor.set(ControlMode.PercentOutput, percentOutput);
+    if( p!= percentOutput){
+      flywheelMotor.set(ControlMode.PercentOutput, percentOutput);
+      p = percentOutput;
+    }
   }
   public int getFlywheelVelocity(int velocity){
    //WIP

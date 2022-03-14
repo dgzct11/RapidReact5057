@@ -60,7 +60,7 @@ public class TrajectoryPlanning extends JFrame implements ActionListener{
         frame.setTitle("Trajectory Planning");
        
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        panel = new Panel("./RobotController" + fs + "resources" + fs + "Commons_drawing.png", velocity, controlPanel);
+        panel = new Panel("./PlanningGUI" + fs + "resources" + fs + "rapid_react_field_render_small.png", velocity, controlPanel);
         frame.add(panel);
         panel.setFocusable(true);
         frame.setFocusable(true);

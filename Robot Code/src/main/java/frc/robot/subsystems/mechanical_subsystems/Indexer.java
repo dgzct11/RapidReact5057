@@ -33,6 +33,8 @@ public class Indexer extends SubsystemBase {
   TalonSRX backleftMotor = new TalonSRX(Constants.back_left_Motor);
   TalonSRX backrightMotor = new TalonSRX(Constants.back_right_Motor);
 
+  double v, p = 0.0;
+
   public double[] getBallStates(){
     //TODO
     double[] zero = {0,0};
@@ -47,18 +49,45 @@ public class Indexer extends SubsystemBase {
   }
  
 
-  public void setVFront(int velocity){
-    frontleftMotor.set(ControlMode.Velocity, (velocity/10)*Constants.front_wheel_rev_per_meter*Constants.front_index_motor_ticks_per_rotation);
-    frontrightMotor.set(ControlMode.Velocity, (velocity/10)*Constants.front_wheel_rev_per_meter*Constants.front_index_motor_ticks_per_rotation);
+  public void setVFront(double velocity){
+    if (velocity != v) {
+      frontleftMotor.set(ControlMode.Velocity, (velocity/10)*Constants.front_wheel_rev_per_meter*Constants.front_index_motor_ticks_per_rotation);
+      frontrightMotor.set(ControlMode.Velocity, (velocity/10)*Constants.front_wheel_rev_per_meter*Constants.front_index_motor_ticks_per_rotation);
+      v = velocity;
+    }
   }
  
   public void setPercentOutput(double percentOutput){
-    backleftMotor.set(ControlMode.PercentOutput,  percentOutput);
-    backrightMotor.set(ControlMode.PercentOutput,  percentOutput);
+    if(percentOutput != p){
+      backleftMotor.set(ControlMode.PercentOutput,  percentOutput);
+      backrightMotor.set(ControlMode.PercentOutput,  percentOutput);
 
-    frontleftMotor.set(ControlMode.PercentOutput, percentOutput);
-    frontrightMotor.set(ControlMode.PercentOutput, percentOutput);
+      frontleftMotor.set(ControlMode.PercentOutput, percentOutput);
+      frontrightMotor.set(ControlMode.PercentOutput, percentOutput);
+      p = percentOutput;
+    }
   }
+
+
+  public void setPercentOutputFront(double percentOutput){
+    if(percentOutput != p){
+      
+      frontleftMotor.set(ControlMode.PercentOutput, percentOutput);
+      frontrightMotor.set(ControlMode.PercentOutput, percentOutput);
+      p = percentOutput;
+    }
+  }
+
+  
+  public void setPercentOutputBack(double percentOutput){
+    if(percentOutput != p){
+      
+      backleftMotor.set(ControlMode.PercentOutput,  percentOutput);
+      backrightMotor.set(ControlMode.PercentOutput,  percentOutput);
+      p = percentOutput;
+    }
+  }
+  
 
   
 
