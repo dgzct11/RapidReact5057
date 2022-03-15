@@ -29,7 +29,7 @@ public class ClimbCommand extends CommandBase{
         double leftYAxis = xboxRemote.getLeftY();
         double rightXAxis = xboxRemote.getRightX();
         
-        //climb.setVelocity(leftYAxis*(Constants.maximum_telescoping_velocity));
+        climb.setVelocity(leftYAxis*(0.1));
         //climb.setAngularVelocity(rightXAxis*(Constants.maximum_pivot_velocity));
       }
 
