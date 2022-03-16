@@ -56,6 +56,11 @@ public class Climb extends SubsystemBase {
     
     
   }
+
+
+  public void setPercentOutput(double percentOutput){
+    telescopingTL.set(ControlMode.PercentOutput, percentOutput);
+  }
   public void setHeight(double height)
   {
     

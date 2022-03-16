@@ -61,7 +61,7 @@ public DriveTrain driveTrain = new DriveTrain();
   public Intake intake = new Intake();
   public Shooter shooter = new Shooter();
   public Indexer indexer = new Indexer();
-  //public Climb climb = new Climb();
+  public Climb climb = new Climb();
  
     //Sensor subsystems
   public XboxRemote xboxRemote = new XboxRemote(xboxController);
@@ -120,9 +120,9 @@ public DriveTrain driveTrain = new DriveTrain();
     //ks.addRequirements(shooter);
     //ch.addRequirements(shooter);
 
-    //ClimbCommand cc = new ClimbCommand(subsytemRemote, climb);
-    //climb.setDefaultCommand(cc);
-    //cc.addRequirements(climb);
+    ClimbCommand cc = new ClimbCommand(subsytemRemote, climb);
+    climb.setDefaultCommand(cc);
+    cc.addRequirements(climb);
 
     configureButtonBindings();
   }

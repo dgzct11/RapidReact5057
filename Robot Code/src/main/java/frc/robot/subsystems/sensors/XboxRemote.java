@@ -39,6 +39,9 @@ public class XboxRemote extends SubsystemBase {
   public double getRightTrigger() {
     return xboxController.getRightTriggerAxis();
   }
+  public double getLeftTrigger() {
+    return xboxController.getLeftTriggerAxis();
+  }
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

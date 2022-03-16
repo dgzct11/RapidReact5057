@@ -25,12 +25,16 @@ public class ClimbCommand extends CommandBase{
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-      if(Constants.climb_enabled){
-        double leftYAxis = xboxRemote.getLeftY();
-        double rightXAxis = xboxRemote.getRightX();
+      if(true){
+        double right = xboxRemote.getRightTrigger();
+
+        double left = xboxRemote.getLeftTrigger();
         
+        double percentOutput = right> left ? right : -left;
+        System.out.println(percentOutput);
         //climb.setVelocity(leftYAxis*(Constants.maximum_telescoping_velocity));
         //climb.setAngularVelocity(rightXAxis*(Constants.maximum_pivot_velocity));
+        climb.setPercentOutput(percentOutput*0.5);
       }
 
     }

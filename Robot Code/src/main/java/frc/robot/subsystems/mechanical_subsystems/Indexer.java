@@ -39,6 +39,7 @@ public class Indexer extends SubsystemBase {
     //TODO
     double[] zero = {0,0};
     return zero;
+    
   }
  
   public Indexer(){
