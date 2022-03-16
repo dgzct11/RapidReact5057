@@ -25,7 +25,7 @@ import edu.wpi.first.wpilibj.Solenoid;
 
 public class Intake extends SubsystemBase {
   /** Creates a new Intake. */
-  Compressor comp = new Compressor(1, PneumaticsModuleType.REVPH);
+  //Compressor comp = new Compressor(1, PneumaticsModuleType.REVPH);
   
   Solenoid fs = new Solenoid(Constants.pneumatic_CAN_id, PneumaticsModuleType.REVPH, Constants.forward_channel_port);
   Solenoid rs = new Solenoid(Constants.pneumatic_CAN_id, PneumaticsModuleType.REVPH, Constants.reverse_channel_port);
