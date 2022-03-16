@@ -10,6 +10,7 @@ package frc.robot.subsystems.mechanical_subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import frc.robot.Constants;
+import frc.robot.RobotContainer;
 
 import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.*;
 
@@ -25,10 +26,10 @@ import edu.wpi.first.wpilibj.Solenoid;
 
 public class Intake extends SubsystemBase {
   /** Creates a new Intake. */
-  Compressor comp = new Compressor(1, PneumaticsModuleType.REVPH);
+  Compressor comp = RobotContainer.hub.makeCompressor();
   
-  Solenoid fs = new Solenoid(Constants.pneumatic_CAN_id, PneumaticsModuleType.REVPH, Constants.forward_channel_port);
-  Solenoid rs = new Solenoid(Constants.pneumatic_CAN_id, PneumaticsModuleType.REVPH, Constants.reverse_channel_port);
+  Solenoid fs = RobotContainer.hub.makeSolenoid(Constants.forward_channel_port);
+  Solenoid rs = RobotContainer.hub.makeSolenoid(Constants.reverse_channel_port);
 
   TalonSRX intakeMotor = new TalonSRX(Constants.intake_motor_id);
   public boolean isUp;
@@ -38,6 +39,7 @@ public class Intake extends SubsystemBase {
   //m_motor = new CANSparkMax(deviceID, MotorType.kBrushless);
   public Intake() {
     up();
+    
   }
 
   public void up(){
