@@ -27,9 +27,10 @@ public class Intake extends SubsystemBase {
   /** Creates a new Intake. */
   //Compressor comp = new Compressor(1, PneumaticsModuleType.REVPH);
   
-  Solenoid fs = new Solenoid(Constants.pneumatic_CAN_id, PneumaticsModuleType.REVPH, Constants.forward_channel_port);
-  Solenoid rs = new Solenoid(Constants.pneumatic_CAN_id, PneumaticsModuleType.REVPH, Constants.reverse_channel_port);
+  //Solenoid fs = new Solenoid(Constants.pneumatic_CAN_id, PneumaticsModuleType.REVPH, Constants.forward_channel_port);
+  //Solenoid rs = new Solenoid(Constants.pneumatic_CAN_id, PneumaticsModuleType.REVPH, Constants.reverse_channel_port);
 
+  DoubleSolenoid ds = new DoubleSolenoid(Constants.pneumatic_CAN_id, PneumaticsModuleType.REVPH, Constants.forward_channel_port, Constants.reverse_channel_port);
   TalonSRX intakeMotor = new TalonSRX(Constants.intake_motor_id);
   public boolean isUp;
 
@@ -38,21 +39,27 @@ public class Intake extends SubsystemBase {
   //m_motor = new CANSparkMax(deviceID, MotorType.kBrushless);
   public Intake() {
     up();
+    intakeMotor.setStatusFramePeriod(1, 255);
+    intakeMotor.setStatusFramePeriod(2, 255);
+
+    
+    
   }
 
   public void up(){
     isUp = true;
-    fs.set(true);
-    rs.set(false);
+    //fs.set(true);
+    //rs.set(false);
+    //ds.set(kForward);
     
     
   }
   public void down(){
     isUp = false;
-    fs.set(false);
-    rs.set(true);
+    //fs.set(false);
+    //rs.set(true);
     
-    
+    //ds.set(kReverse);
   }
 
   public void spin(){

@@ -26,7 +26,18 @@ public class Climb extends SubsystemBase {
   TalonSRX telescopingAR = new TalonSRX(Constants.motorARPort);
   
   double v, a, h = 0.0;
-  public Climb() {}
+  public Climb() {
+    telescopingAL.setStatusFramePeriod(1, 255);
+    telescopingAL.setStatusFramePeriod(2, 255);
+
+    telescopingTL.setStatusFramePeriod(1, 255);
+    telescopingTL.setStatusFramePeriod(2, 255);
+    
+
+    telescopingAR.setStatusFramePeriod(1, 255);
+    telescopingAR.setStatusFramePeriod(2, 255);
+
+  }
   
   //TODO
   public double getHeight()

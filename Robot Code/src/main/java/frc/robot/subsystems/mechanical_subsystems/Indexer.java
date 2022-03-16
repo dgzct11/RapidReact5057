@@ -47,6 +47,18 @@ public class Indexer extends SubsystemBase {
     frontrightMotor.setInverted(true);
     backleftMotor.setInverted(false);
     backleftMotor.setInverted(false);
+
+    frontleftMotor.setStatusFramePeriod(1, 255);
+    frontleftMotor.setStatusFramePeriod(2, 255);
+    
+    frontrightMotor.setStatusFramePeriod(1, 255);
+    frontrightMotor.setStatusFramePeriod(2, 255);
+
+    backleftMotor.setStatusFramePeriod(1, 255);
+    backleftMotor.setStatusFramePeriod(2, 255);
+
+    backrightMotor.setStatusFramePeriod(1, 255);
+    backrightMotor.setStatusFramePeriod(2, 255);
   }
  
 
