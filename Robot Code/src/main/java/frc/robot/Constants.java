@@ -187,6 +187,7 @@ public final class Constants {
 
     public static final double camera_angle = 0;
     public static final double hub_height = 0;
+    public static final int right_trigger_num = 2;
 
 
 

@@ -21,11 +21,15 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
+import edu.wpi.first.wpilibj.Solenoid;
 
 public class Intake extends SubsystemBase {
   /** Creates a new Intake. */
-  //Compressor comp = new Compressor(1, PneumaticsModuleType.REVPH);
-  //DoubleSolenoid ds = new DoubleSolenoid(Constants.pneumatic_CAN_id, PneumaticsModuleType.REVPH, Constants.forward_channel_port, Constants.reverse_channel_port);
+  Compressor comp = new Compressor(1, PneumaticsModuleType.REVPH);
+  
+  Solenoid fs = new Solenoid(Constants.pneumatic_CAN_id, PneumaticsModuleType.REVPH, Constants.forward_channel_port);
+  Solenoid rs = new Solenoid(Constants.pneumatic_CAN_id, PneumaticsModuleType.REVPH, Constants.reverse_channel_port);
+
   TalonSRX intakeMotor = new TalonSRX(Constants.intake_motor_id);
   public boolean isUp;
 
@@ -38,13 +42,15 @@ public class Intake extends SubsystemBase {
 
   public void up(){
     isUp = true;
-    //ds.set(kReverse);
+    fs.set(true);
+    rs.set(false);
     
     
   }
   public void down(){
     isUp = false;
-    //ds.set(kForward);
+    fs.set(false);
+    rs.set(true);
     
     
   }

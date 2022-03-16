@@ -56,7 +56,8 @@ public class Shooter extends SubsystemBase {
     turetMotor.configReverseSoftLimitThreshold(-90*Constants.turet_ticks_per_degree);
     flywheelMotor2.follow(flywheelMotor);
     flywheelMotor2.setInverted(InvertType.OpposeMaster);
-
+    hoodServo1.set(0);
+    hoodServo2.set(0);
 
 
     //TODO

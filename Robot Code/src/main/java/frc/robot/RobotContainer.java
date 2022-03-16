@@ -7,6 +7,7 @@ package frc.robot;
 
 
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 
 import edu.wpi.first.wpilibj2.command.Command;
@@ -42,6 +43,7 @@ import frc.robot.subsystems.sensors.NavXGyro;
 import frc.robot.subsystems.sensors.Odometry;
 import frc.robot.subsystems.sensors.XboxRemote;
 import edu.wpi.first.wpilibj2.command.button.POVButton;
+import edu.wpi.first.wpilibj2.command.button.Trigger;
 import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 /**
@@ -105,6 +107,8 @@ public DriveTrain driveTrain = new DriveTrain();
       Button subYButton = new JoystickButton(subsystemController, Constants.y_button_num);
       Button subStartButton = new JoystickButton(subsystemController, Constants.start_button_num);
       Button subBackButton = new JoystickButton(subsystemController, Constants.back_button_num);
+      Joystick subRightJ = new Joystick(Constants.right_joystick_port);
+
   public RobotContainer() {
     // configures commands
     //NavXGyro.ahrs.reset();
@@ -157,11 +161,12 @@ public DriveTrain driveTrain = new DriveTrain();
     //subDownPad.whenPressed(new SetShooterAngle(180, shooter));
     //subRightPad.whenPressed(new SetShooterAngle(270, shooter));
 
-    //subYButton.whenPressed(new EnableDisableClimb());
-    subYButton.whenPressed(new IncrementShooterOutput(-0.1));
+    subYButton.whenPressed(new EnableDisableClimb());
+    //subYButton.whenPressed(new IncrementShooterOutput(-0.1));
     subBButton.whenPressed(new IncrementShooterOutput(0.1));
 
-
+    
+    
   }
 
   /**
