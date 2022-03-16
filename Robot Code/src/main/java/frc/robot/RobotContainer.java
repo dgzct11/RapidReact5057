@@ -74,7 +74,7 @@ public class RobotContainer {
   public NavXGyro navx = new NavXGyro(); 
   public LimeLight limeLight = new LimeLight();
 
-  public static PneumaticHub hub = new PneumaticHub(19);
+  
   //public Odometry odometry = new Odometry(driveTrain, limeLight);
   //buttons
 
