@@ -5,15 +5,22 @@
 package frc.robot.commands.autonomous_commands;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import frc.robot.subsystems.mechanical_subsystems.DriveTrain;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class FinalAuto extends SequentialCommandGroup {
   /** Creates a new FinalAuto. */
-  public FinalAuto() {
+  public FinalAuto(DriveTrain dt) {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    addCommands();
+    addCommands(
+      //follow path to the ball
+
+      //start intake
+
+      //
+    );
   }
 }
