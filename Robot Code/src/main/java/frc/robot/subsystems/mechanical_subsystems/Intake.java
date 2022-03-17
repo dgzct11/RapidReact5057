@@ -15,7 +15,9 @@ import frc.robot.Constants;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticHub;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.Solenoid;
 
 public class Intake extends SubsystemBase {
@@ -27,6 +29,7 @@ public class Intake extends SubsystemBase {
   //Solenoid fs  = hub.makeSolenoid(Constants.forward_channel_port);
   //Solenoid rs = hub.makeSolenoid(Constants.reverse_channel_port);
 
+  //DoubleSolenoid ds = new DoubleSolenoid(PneumaticsModuleType.REVPH, Constants.forward_channel, Constants.reverse_channel);
   TalonSRX intakeMotor;
   public boolean isUp;
 

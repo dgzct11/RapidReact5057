@@ -37,7 +37,7 @@ public final class Constants {
     public static final Port mxp_port = Port.kMXP;
     
     //Swurve Drive
-    public static final int left_front_direction_port = 1;
+    public static final int left_front_direction_port = 19;
     public static final int left_front_thrust_port = 2;
     public static final int right_back_direction_port = 7;
     public static final int right_back_thrust_port = 8;
@@ -80,7 +80,7 @@ public final class Constants {
     //Intake
     public static final int forward_channel_port = 1;
     public static final int reverse_channel_port = 0;
-    public static final int pneumatic_CAN_id = 19;
+    public static final int pneumatic_CAN_id = 1;
     public static final int intake_motor_id = 0;
     public static final double intake_motor_percent_output = 0.3;
 

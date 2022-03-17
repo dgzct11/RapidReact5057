@@ -16,7 +16,7 @@ public class FileReader {
     
     public String currentPath = Filesystem.getDeployDirectory().toString() +"/path_files/";
    
-    public FileReader() {
+    public FileReader(String prefix) {
      
 
         points = new ArrayList<double[]>();
@@ -24,7 +24,7 @@ public class FileReader {
         distances = new ArrayList<Double>();
         
         try {
-            Scanner sp = new Scanner(new File (currentPath + "points.txt"));
+            Scanner sp = new Scanner(new File (currentPath + prefix +"points.txt"));
             while (sp.hasNextLine()) {
                 String line = sp.nextLine();
                 int index = line.indexOf(",");
@@ -32,7 +32,7 @@ public class FileReader {
                 String point2 = line.substring(index + 1);
                 points.add(new double[]{Double.parseDouble(point1), Double.parseDouble(point2)});
             }
-            Scanner sv = new Scanner(new File(currentPath + "velocity.txt"));
+            Scanner sv = new Scanner(new File(currentPath + prefix +  "velocity.txt"));
             while (sv.hasNextLine()) {
                 String line = sv.nextLine();
                 int index = line.indexOf(",");
@@ -40,7 +40,7 @@ public class FileReader {
                 String point2 = line.substring(index + 1);
                 velocity.add(new double[]{Double.parseDouble(point1), Double.parseDouble(point2)});
             }
-            Scanner sd = new Scanner(new File(currentPath + "distances.txt"));
+            Scanner sd = new Scanner(new File(currentPath+ prefix + "distances.txt"));
             while (sd.hasNextLine()) {
                 distances.add(Double.parseDouble(sd.nextLine()));
             }
