@@ -31,8 +31,8 @@ public class Intake extends SubsystemBase {
   public static PneumaticHub hub = new PneumaticHub(19);
   //Compressor comp = hub.makeCompressor();
   
-  Solenoid fs  = hub.makeSolenoid(Constants.forward_channel_port);
-  Solenoid rs = hub.makeSolenoid(Constants.reverse_channel_port);
+  //Solenoid fs  = hub.makeSolenoid(Constants.forward_channel_port);
+  //Solenoid rs = hub.makeSolenoid(Constants.reverse_channel_port);
 
   //DoubleSolenoid ds = new DoubleSolenoid(Constants.pneumatic_CAN_id, PneumaticsModuleType.REVPH, Constants.forward_channel_port, Constants.reverse_channel_port);
   TalonSRX intakeMotor = new TalonSRX(Constants.intake_motor_id);
