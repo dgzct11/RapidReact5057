@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.PneumaticHub;
 import edu.wpi.first.wpilibj.XboxController;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.commands.button_commands.AlignAllWheels;
 import frc.robot.commands.button_commands.DecreaseRotateSpeed;
 import frc.robot.commands.button_commands.DecreaseSpeed;
 import frc.robot.commands.button_commands.EnableDisableClimb;
@@ -24,8 +25,7 @@ import frc.robot.commands.climb_commands.ClimbCommand;
 import frc.robot.commands.driving_commands.SwerveDrive;
 import frc.robot.commands.intake_commands.IntakeSpin;
 import frc.robot.commands.intake_commands.IntakeToggle;
-
-
+import frc.robot.commands.shooter_commands.ControlHood;
 import frc.robot.commands.shooter_commands.Fire;
 import frc.robot.functional.trajectory.Circle;
 import frc.robot.functional.trajectory.Line;
