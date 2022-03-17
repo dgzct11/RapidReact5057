@@ -6,8 +6,10 @@ package frc.robot.functional.trajectory;
 
 import java.util.ArrayList;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotContainer;
-
+import frc.robot.functional.files.FileReader;
+import frc.robot.functional.files.SCSetPoint;
 
 /** Add your docs here. */
 public class Path {
@@ -17,7 +19,7 @@ public class Path {
     public double totalDistance = 0;
     public int currentIndex = 0;
     public double[] angles;
-   
+    public ArrayList<SCSetPoint> setPoints;
     public Kinematics kinematics;
    
     public Path(double[][] pts, double[] dist, double[] ang){
@@ -27,8 +29,28 @@ public class Path {
        getTotalDistance();
     }
 
-   
-   
+    public Path() {
+        FileReader f = new FileReader();
+        points = f.getPoints();
+        distances = f.getDistances();
+         angles = new double[distances.length+1];
+        for (int i = 0; i < angles.length; i++) {
+            angles[i] = 0;
+        }
+        setPoints = f.getSetPoints();
+        initializeSegments();
+        getTotalDistance();
+        kinematics = new Kinematics(this, f.getVelocity());
+        
+    }
+    public SCSetPoint getSetPoint(double time){
+        double distance = kinematics.getDistance(time);
+        for(SCSetPoint setPoint: setPoints){
+            if(distance >=setPoint.startDistance && distance <= setPoint.endDistance) return setPoint;
+        }
+        return null;
+    }
+  
     public void initializeSegments(){
         segments = new ArrayList<Segment>();
         double[] startPoint = points[0];

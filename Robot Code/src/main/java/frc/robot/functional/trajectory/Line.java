@@ -1,4 +1,5 @@
 package frc.robot.functional.trajectory;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotContainer;
 
 // Copyright (c) FIRST and other WPILib contributors.

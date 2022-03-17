@@ -6,13 +6,6 @@ public class Position {
     public double x, y, angle;
     String str;
     public double[] point = new double[2];
-    public Position(double _x, double _y){
-        angle = 0;
-        x = _x;
-        y = _y;
-        point[0] = x;
-        point[1] = y;
-    }
     public Position(double _x, double _y, double _angle){
         angle = _angle;
         x = _x;
