@@ -64,7 +64,7 @@ public class TrajectoryPlanning extends JFrame implements ActionListener{
         String currentPath = new java.io.File(".").getCanonicalPath();
         System.out.println("hello: "+ currentPath);
         fs = "\\";
-        panel = new Panel("./PlanningGUI" + fs + "resources" + fs + "rapid_react_field_render_small.png", velocity, controlPanel);
+        panel = new Panel("./PlanningGUI" + fs + "resources" + fs + "field_image.png", velocity, controlPanel);
         frame.add(panel);
         panel.setFocusable(true);
         frame.setFocusable(true);
