@@ -21,6 +21,7 @@ import frc.robot.commands.button_commands.IncrementShooterOutput;
 import frc.robot.commands.button_commands.ResetNavX;
 import frc.robot.commands.button_commands.SwitchDriveMode;
 import frc.robot.commands.climb_commands.ClimbCommand;
+import frc.robot.commands.driving_commands.SwerveDrive;
 import frc.robot.commands.intake_commands.IntakeSpin;
 import frc.robot.commands.intake_commands.IntakeToggle;
 
@@ -109,9 +110,9 @@ public class RobotContainer {
     // configures commands
     //NavXGyro.ahrs.reset();
 
-    //SwerveDrive sd = new SwerveDrive(driveTrain, xboxRemote);
-    //driveTrain.setDefaultCommand(sd);
-    //sd.addRequirements(driveTrain);
+    SwerveDrive sd = new SwerveDrive(driveTrain, xboxRemote);
+    driveTrain.setDefaultCommand(sd);
+    sd.addRequirements(driveTrain);
   
     //KeepShooterStill ks = new KeepShooterStill(shooter);
     //ControlHood ch = new ControlHood(shooter, xboxRemote);
