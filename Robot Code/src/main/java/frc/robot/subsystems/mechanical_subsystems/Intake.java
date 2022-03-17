@@ -34,9 +34,7 @@ public class Intake extends SubsystemBase {
 
   //m_motor = new CANSparkMax(deviceID, MotorType.kBrushless);
   public Intake(PneumaticHub hub) {
-    this.hub=hub;
-    fs=hub.makeSolenoid(Constants.forward_channel_port);
-    rs=hub.makeSolenoid(Constants.reverse_channel_port);
+   
     intakeMotor = new TalonSRX(Constants.intake_motor_id);
     up();
     intakeMotor.setStatusFramePeriod(1, 255);
