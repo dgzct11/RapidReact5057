@@ -13,6 +13,7 @@
 package frc.robot.subsystems.mechanical_subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -27,6 +28,7 @@ public class Climb extends SubsystemBase {
   
   double v, a, h = 0.0;
   public Climb() {
+    telescopingTL.setNeutralMode(NeutralMode.Brake);
     telescopingAL.setStatusFramePeriod(1, 255);
     telescopingAL.setStatusFramePeriod(2, 255);
 

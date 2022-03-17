@@ -114,18 +114,18 @@ public class RobotContainer {
 
   public RobotContainer() {
     // configures commands
-    //NavXGyro.ahrs.reset();
+    NavXGyro.ahrs.reset();
 
-    //SwerveDrive sd = new SwerveDrive(driveTrain, xboxRemote);
-    //driveTrain.setDefaultCommand(sd);
-    //sd.addRequirements(driveTrain);
+    SwerveDrive sd = new SwerveDrive(driveTrain, xboxRemote);
+    driveTrain.setDefaultCommand(sd);
+    sd.addRequirements(driveTrain);
   
     //KeepShooterStill ks = new KeepShooterStill(shooter);
-    //ControlHood ch = new ControlHood(shooter, xboxRemote);
+    ControlHood ch = new ControlHood(shooter, xboxRemote);
     //shooter.setDefaultCommand(ks);
-    //shooter.setDefaultCommand(ch);
+    shooter.setDefaultCommand(ch);
     //ks.addRequirements(shooter);
-    //ch.addRequirements(shooter);
+    ch.addRequirements(shooter);
 
     ClimbCommand cc = new ClimbCommand(subsytemRemote, climb);
     climb.setDefaultCommand(cc);
@@ -151,7 +151,7 @@ public class RobotContainer {
     aButton.whenPressed(new IncreaseRotateSpeed());
     xButton.whenPressed(new ResetNavX());
     
-    //startButton.whenPressed(new AlignAllWheels(driveTrain));
+    startButton.whenPressed(new AlignAllWheels(driveTrain));
     backButton.whenPressed(new SwitchDriveMode());
     
     //subsytems

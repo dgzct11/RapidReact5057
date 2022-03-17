@@ -28,7 +28,7 @@ import edu.wpi.first.wpilibj.Solenoid;
 public class Intake extends SubsystemBase {
   /** Creates a new Intake. */
 
-  public static PneumaticHub hub = new PneumaticHub(19);
+  //public static PneumaticHub hub = new PneumaticHub(19);
   //Compressor comp = hub.makeCompressor();
   
   //Solenoid fs  = hub.makeSolenoid(Constants.forward_channel_port);
