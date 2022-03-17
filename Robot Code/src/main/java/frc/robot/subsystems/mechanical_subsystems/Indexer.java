@@ -99,12 +99,14 @@ public class Indexer extends SubsystemBase {
 
   
   public void setPercentOutputBack(double percentOutput){
-    if(percentOutput != p){
+    /*if(percentOutput != p){
       
       backleftMotor.set(ControlMode.PercentOutput,  percentOutput);
       backrightMotor.set(ControlMode.PercentOutput,  percentOutput);
       p = percentOutput;
-    }
+    }*/
+    backleftMotor.set(ControlMode.PercentOutput,  percentOutput);
+    backrightMotor.set(ControlMode.PercentOutput,  percentOutput);
   }
   
 

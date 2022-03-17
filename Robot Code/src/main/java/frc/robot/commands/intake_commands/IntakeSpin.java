@@ -23,8 +23,7 @@ public class IntakeSpin extends CommandBase {
   @Override
   public void initialize() {
     intake.spin();
-    indexer.setPercentOutputBack(1);
-    indexer.setPercentOutputFront(0.5);
+    
   }
 
   // Called every time the scheduler runs while the command is scheduled.
