@@ -12,7 +12,6 @@ import edu.wpi.first.wpilibj.PneumaticHub;
 import edu.wpi.first.wpilibj.XboxController;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.commands.button_commands.AlignAllWheels;
 import frc.robot.commands.button_commands.DecreaseRotateSpeed;
 import frc.robot.commands.button_commands.DecreaseSpeed;
 import frc.robot.commands.button_commands.EnableDisableClimb;
@@ -20,18 +19,14 @@ import frc.robot.commands.button_commands.IncreaseRotateSpeed;
 import frc.robot.commands.button_commands.IncreaseSpeed;
 import frc.robot.commands.button_commands.IncrementShooterOutput;
 import frc.robot.commands.button_commands.ResetNavX;
-import frc.robot.commands.button_commands.SetShooterAngle;
 import frc.robot.commands.button_commands.SwitchDriveMode;
 import frc.robot.commands.climb_commands.ClimbCommand;
 import frc.robot.commands.driving_commands.SwerveDrive;
 import frc.robot.commands.intake_commands.IntakeSpin;
 import frc.robot.commands.intake_commands.IntakeToggle;
-import frc.robot.commands.intake_commands.IntakeUpDown;
 
 
-import frc.robot.commands.shooter_commands.ControlHood;
 import frc.robot.commands.shooter_commands.Fire;
-import frc.robot.commands.shooter_commands.KeepShooterStill;
 import frc.robot.functional.trajectory.Circle;
 import frc.robot.functional.trajectory.Line;
 import frc.robot.subsystems.mechanical_subsystems.Climb;
@@ -41,10 +36,8 @@ import frc.robot.subsystems.mechanical_subsystems.Intake;
 import frc.robot.subsystems.mechanical_subsystems.Shooter;
 import frc.robot.subsystems.sensors.LimeLight;
 import frc.robot.subsystems.sensors.NavXGyro;
-import frc.robot.subsystems.sensors.Odometry;
 import frc.robot.subsystems.sensors.XboxRemote;
 import edu.wpi.first.wpilibj2.command.button.POVButton;
-import edu.wpi.first.wpilibj2.command.button.Trigger;
 import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 /**
@@ -61,7 +54,7 @@ public class RobotContainer {
   //subsystems
     //Mechanical subsystems
   public DriveTrain driveTrain = new DriveTrain();
-  public Intake intake = new Intake();
+  public Intake intake;
   public Shooter shooter = new Shooter();
   public Indexer indexer = new Indexer();
   public Climb climb = new Climb();
@@ -69,6 +62,7 @@ public class RobotContainer {
     //Sensor subsystems
   public XboxRemote xboxRemote = new XboxRemote(xboxController);
   public XboxRemote subsytemRemote = new XboxRemote(subsystemController);
+  public PneumaticHub hub = new PneumaticHub(53);
 
 
   public NavXGyro navx = new NavXGyro(); 
@@ -126,6 +120,8 @@ public class RobotContainer {
     shooter.setDefaultCommand(ch);
     //ks.addRequirements(shooter);
     ch.addRequirements(shooter);
+
+    intake = new Intake(hub);
 
     ClimbCommand cc = new ClimbCommand(subsytemRemote, climb);
     climb.setDefaultCommand(cc);

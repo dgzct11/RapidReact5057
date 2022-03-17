@@ -1,0 +1,29 @@
+{
+  "HALProvider": {
+    "PWM Outputs": {
+      "window": {
+        "visible": true
+      }
+    }
+  },
+  "NTProvider": {
+    "types": {
+      "/FMSInfo": "FMSInfo",
+      "/LiveWindow/Climb": "Subsystem",
+      "/LiveWindow/DriveTrain": "Subsystem",
+      "/LiveWindow/Indexer": "Subsystem",
+      "/LiveWindow/Intake": "Subsystem",
+      "/LiveWindow/LimeLight": "Subsystem",
+      "/LiveWindow/NavXGyro": "Subsystem",
+      "/LiveWindow/Shooter": "Subsystem",
+      "/LiveWindow/Ungrouped/Scheduler": "Scheduler",
+      "/LiveWindow/Ungrouped/navX-Sensor[4]": "Gyro",
+      "/LiveWindow/XboxRemote": "Subsystem"
+    }
+  },
+  "NetworkTables": {
+    "LiveWindow": {
+      "open": true
+    }
+  }
+}

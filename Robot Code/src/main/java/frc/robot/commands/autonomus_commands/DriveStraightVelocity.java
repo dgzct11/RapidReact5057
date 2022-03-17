@@ -2,45 +2,38 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.commands.intake_commands;
+package frc.robot.commands.autonomus_commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.mechanical_subsystems.Indexer;
-import frc.robot.subsystems.mechanical_subsystems.Intake;
+import frc.robot.subsystems.mechanical_subsystems.DriveTrain;
 
-public class IntakeSpin extends CommandBase {
-  /** Creates a new IntakeSpin. */
-  public Intake intake;
-  public Indexer indexer;
-  public IntakeSpin(Intake i, Indexer in ) {
-    intake = i;
-    indexer = in;
-   
+public class DriveStraightVelocity extends CommandBase {
+  /** Creates a new DriveStraightVelocity. */
+  DriveTrain driveTrain;
+  double time;
+  double initialTime = 0;
+  public DriveStraightVelocity(DriveTrain dt, double t) {
     // Use addRequirements() here to declare subsystem dependencies.
+    driveTrain = dt;
+    time = t;
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    intake.spin();
-    indexer.setPercentOutputBack(1);
-    indexer.setPercentOutputFront(0.5);
+    initialTime = System.currentTimeMillis();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    
-    
-    
+    double[] velocities = {1,1,1,1};
+    driveTrain.setThrustSpeeds(velocities);
   }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {
-    intake.stop();
-    indexer.setPercentOutput(0);
-  }
+  public void end(boolean interrupted) {}
 
   // Returns true when the command should end.
   @Override
