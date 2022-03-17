@@ -7,7 +7,6 @@ package frc.robot.commands.intake_commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.mechanical_subsystems.Indexer;
 import frc.robot.subsystems.mechanical_subsystems.Intake;
-import frc.robot.subsystems.sensors.XboxRemote;
 
 public class IntakeSpin extends CommandBase {
   /** Creates a new IntakeSpin. */

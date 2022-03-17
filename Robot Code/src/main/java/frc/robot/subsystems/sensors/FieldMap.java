@@ -42,7 +42,7 @@ public class FieldMap extends SubsystemBase {
   }
  
   public void updateField(){
-    ArrayList<Position> currentBalls = jetson.getBallPositions();
+    //ArrayList<Position> currentBalls = jetson.getBallPositions();
     
   }
 

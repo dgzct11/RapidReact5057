@@ -1,8 +1,6 @@
 package frc.robot.commands.climb_commands;
 
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.Constants;
 import frc.robot.subsystems.mechanical_subsystems.Climb;
 import frc.robot.subsystems.sensors.XboxRemote;
 

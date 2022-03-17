@@ -10,38 +10,33 @@ package frc.robot.subsystems.mechanical_subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import frc.robot.Constants;
-import frc.robot.RobotContainer;
 
-import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.*;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
-import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticHub;
-import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.Solenoid;
 
 public class Intake extends SubsystemBase {
   /** Creates a new Intake. */
 
-  public static PneumaticHub hub = new PneumaticHub(19);
-  //Compressor comp = hub.makeCompressor();
+  PneumaticHub hub;
   
-  Solenoid fs  = hub.makeSolenoid(Constants.forward_channel_port);
-  Solenoid rs = hub.makeSolenoid(Constants.reverse_channel_port);
+  Solenoid fs; 
+  Solenoid rs;
 
-  //DoubleSolenoid ds = new DoubleSolenoid(Constants.pneumatic_CAN_id, PneumaticsModuleType.REVPH, Constants.forward_channel_port, Constants.reverse_channel_port);
-  TalonSRX intakeMotor = new TalonSRX(Constants.intake_motor_id);
+  TalonSRX intakeMotor;
   public boolean isUp;
 
 
 
   //m_motor = new CANSparkMax(deviceID, MotorType.kBrushless);
-  public Intake() {
+  public Intake(PneumaticHub hub) {
+    this.hub=hub;
+    fs=hub.makeSolenoid(Constants.forward_channel_port);
+    rs=hub.makeSolenoid(Constants.reverse_channel_port);
+    intakeMotor = new TalonSRX(Constants.intake_motor_id);
     up();
     intakeMotor.setStatusFramePeriod(1, 255);
     intakeMotor.setStatusFramePeriod(2, 255);

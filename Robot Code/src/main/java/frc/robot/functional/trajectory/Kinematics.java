@@ -6,7 +6,6 @@ package frc.robot.functional.trajectory;
 
 import java.util.ArrayList;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /** Add your docs here. */
 public class Kinematics {
