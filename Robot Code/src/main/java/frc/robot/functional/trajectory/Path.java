@@ -29,8 +29,8 @@ public class Path {
        getTotalDistance();
     }
 
-    public Path() {
-        FileReader f = new FileReader();
+    public Path(String prefix) {
+        FileReader f = new FileReader(prefix);
         points = f.getPoints();
         distances = f.getDistances();
          angles = new double[distances.length+1];

@@ -25,9 +25,9 @@ public class FollowPathFromFile extends CommandBase {
   double initialTime;
   double timeUnit = 0.1;
   
-  public FollowPathFromFile(DriveTrain dt, Odometry od) {
+  public FollowPathFromFile(DriveTrain dt, Odometry od, String prefix) {
     // Use addRequirements() here to declare subsystem dependencies.
-    path = new Path();
+    path = new Path(prefix);
     odometry = od;
     driveTrain = dt;
   }
