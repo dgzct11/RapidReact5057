@@ -19,7 +19,7 @@ public class IndexerSpin extends CommandBase {
   @Override
   public void initialize() {
     indexer.setPercentOutputFront(0.5);
-    indexer.setPercentOutputBack(0.5);
+    //indexer.setPercentOutputBack(0.75);
     
   }
 
@@ -31,7 +31,7 @@ public class IndexerSpin extends CommandBase {
   @Override
   public void end(boolean interrupted) {
     indexer.setPercentOutputFront(0);
-    indexer.setPercentOutputBack(0);
+    //indexer.setPercentOutputBack(0);
   }
 
   // Returns true when the command should end.

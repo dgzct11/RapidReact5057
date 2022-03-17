@@ -23,11 +23,14 @@ import frc.robot.commands.button_commands.ResetNavX;
 import frc.robot.commands.button_commands.SwitchDriveMode;
 import frc.robot.commands.climb_commands.ClimbCommand;
 import frc.robot.commands.driving_commands.SwerveDrive;
+import frc.robot.commands.indexer_commands.BackIndexer;
 import frc.robot.commands.indexer_commands.IndexerSpin;
+import frc.robot.commands.intake_commands.BackIndexerSpin;
 import frc.robot.commands.intake_commands.IntakeSpin;
 import frc.robot.commands.intake_commands.IntakeToggle;
 import frc.robot.commands.shooter_commands.ControlHood;
 import frc.robot.commands.shooter_commands.Fire;
+import frc.robot.commands.shooter_commands.KeepShooterStill;
 import frc.robot.functional.trajectory.Circle;
 import frc.robot.functional.trajectory.Line;
 import frc.robot.subsystems.mechanical_subsystems.Climb;
@@ -115,12 +118,12 @@ public class RobotContainer {
     driveTrain.setDefaultCommand(sd);
     sd.addRequirements(driveTrain);
   
-    //KeepShooterStill ks = new KeepShooterStill(shooter);
-    ControlHood ch = new ControlHood(shooter, xboxRemote);
+    //KeepShooterStill ks = new KeepShooterStill(shooter, limeLight);
+    
     //shooter.setDefaultCommand(ks);
-    shooter.setDefaultCommand(ch);
+   
     //ks.addRequirements(shooter);
-    ch.addRequirements(shooter);
+    
 
     intake = new Intake(hub);
 
@@ -152,10 +155,11 @@ public class RobotContainer {
     backButton.whenPressed(new SwitchDriveMode());
     
     //subsytems
-    subRightButton.whenHeld(new Fire(shooter));
+    subRightButton.whenHeld(new Fire(shooter, limeLight));
     subXButton.whenPressed(new IntakeToggle(intake));
     subAButton.whenHeld(new IntakeSpin(intake, indexer));
     subBButton.whenHeld(new IndexerSpin(indexer));
+    subYButton.whenHeld(new BackIndexerSpin(indexer));
 
     //subUpPad.whenPressed(new SetShooterAngle(0, shooter));
     //subLeftPad.whenPressed(new SetShooterAngle(90, shooter));

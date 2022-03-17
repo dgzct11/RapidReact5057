@@ -82,7 +82,7 @@ public final class Constants {
     public static final int reverse_channel_port = 0;
     public static final int pneumatic_CAN_id = 19;
     public static final int intake_motor_id = 0;
-    public static final double intake_motor_percent_output = 0.3;
+    public static final double intake_motor_percent_output = 0.5;
 
     
 
@@ -157,7 +157,7 @@ public final class Constants {
 
    
    
-    public static  double velocityMax = 1;
+    public static  double velocityMax = 2;
     
     public static double shooterPercent = -1;
     public static double max_motor_percent = 1;

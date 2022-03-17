@@ -7,13 +7,17 @@ package frc.robot.commands.shooter_commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.mechanical_subsystems.Shooter;
+import frc.robot.subsystems.sensors.LimeLight;
+import frc.robot.subsystems.sensors.NavXGyro;
 
 public class Fire extends CommandBase {
   /** Creates a new Fire. */
   Shooter shooter;
-  public Fire(Shooter s) {
+  LimeLight limelight;
+  public Fire(Shooter s, LimeLight ll) {
     // Use addRequirements() here to declare subsystem dependencies.
     shooter = s;
+    limelight = ll;
 
   }
 
@@ -21,12 +25,13 @@ public class Fire extends CommandBase {
   @Override
   public void initialize() {
     shooter.setFlywheelPercentOutput(Constants.shooterPercent);
+
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    
+    shooter.setTuretAngle(NavXGyro.getAngle() - limelight.getHorizontalOffset());
   }
 
   // Called once the command ends or is interrupted.
