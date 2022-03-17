@@ -23,6 +23,7 @@ import frc.robot.commands.button_commands.ResetNavX;
 import frc.robot.commands.button_commands.SwitchDriveMode;
 import frc.robot.commands.climb_commands.ClimbCommand;
 import frc.robot.commands.driving_commands.SwerveDrive;
+import frc.robot.commands.indexer_commands.IndexerSpin;
 import frc.robot.commands.intake_commands.IntakeSpin;
 import frc.robot.commands.intake_commands.IntakeToggle;
 import frc.robot.commands.shooter_commands.ControlHood;
@@ -154,6 +155,7 @@ public class RobotContainer {
     subRightButton.whenHeld(new Fire(shooter));
     subXButton.whenPressed(new IntakeToggle(intake));
     subAButton.whenHeld(new IntakeSpin(intake, indexer));
+    subBButton.whenHeld(new IndexerSpin(indexer));
 
     //subUpPad.whenPressed(new SetShooterAngle(0, shooter));
     //subLeftPad.whenPressed(new SetShooterAngle(90, shooter));
