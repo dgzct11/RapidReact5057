@@ -58,6 +58,8 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
  * subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
+
+  
   //hardware
   public XboxController xboxController = new XboxController(Constants.xbox_port);
   public XboxController subsystemController = new XboxController(Constants.xbox_port_2);
@@ -123,8 +125,30 @@ public class RobotContainer {
       Button subBackButton = new JoystickButton(subsystemController, Constants.back_button_num);
       Joystick subRightJ = new Joystick(Constants.right_joystick_port);
 
+
+
+
+    // A simple auto routine that drives forward a specified distance, and then stops
+
+// A complex auto routine that drives forward, drops a hatch, and then drives backward.
+private final Command right_terminal = new FinalAuto(driveTrain, odometry, intake, indexer, shooter, limeLight);
+
+// A chooser for autonomous commands
+SendableChooser<Command> m_chooser = new SendableChooser<>();
+
+
+
+
   public RobotContainer() {
     // configures commands
+
+    //Add Auto commands
+    m_chooser.setDefaultOption("Right Terminal", right_terminal);
+    //m_chooser.addOption("Left Terminal", left_terminal);
+
+    SmartDashboard.putData(m_chooser);
+
+
     NavXGyro.ahrs.reset();
 
     SwerveDrive sd = new SwerveDrive(driveTrain, xboxRemote);
@@ -197,12 +221,15 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
+    return m_chooser.getSelected();
     
     //if()
-    return new IntakeBall(driveTrain, indexer, intake);
+    //return new IntakeBall(driveTrain, indexer, intake);
     //return new FinalAuto(driveTrain, odometry, intake, indexer, shooter, limeLight);
     //return new AutoTest(driveTrain, intake, indexer, shooter, odometry, limeLight);
   }
+
+  
 
   public static double navxTo360(double angle){
         
@@ -284,6 +311,8 @@ public static double getArcLength(Circle circle){
     double dy = endpoint[0]- secondpoint[0];
     return Math.toDegrees(Math.atan2(dy, dx)) + 270;
   }
+
+  
 
 
 }
