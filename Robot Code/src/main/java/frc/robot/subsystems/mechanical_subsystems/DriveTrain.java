@@ -136,6 +136,16 @@ public class DriveTrain extends SubsystemBase {
     rbt.setSelectedSensorPosition(0);
     
   }
+  public void reset(){
+    lfd.setSelectedSensorPosition(0);
+    lft.setSelectedSensorPosition(0);
+    lbd.setSelectedSensorPosition(0);
+    lbt.setSelectedSensorPosition(0);
+    rfd.setSelectedSensorPosition(0);
+    rft.setSelectedSensorPosition(0);
+    rbd.setSelectedSensorPosition(0);
+    rbt.setSelectedSensorPosition(0);
+  }
 
   
   public void alignDrive(double strafeAngle, double speed, double angle){
