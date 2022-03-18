@@ -49,6 +49,6 @@ public class IntakeBall extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return System.currentTimeMillis() - initialTime > 4000; //|| !Constants.in_auto;
+    return System.currentTimeMillis() - initialTime > 5000; //|| !Constants.in_auto;
   }
 }

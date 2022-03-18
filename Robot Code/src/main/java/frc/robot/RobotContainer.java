@@ -221,10 +221,10 @@ SendableChooser<Command> m_chooser = new SendableChooser<>();
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    return m_chooser.getSelected();
+    //return m_chooser.getSelected();
     
     //if()
-    //return new IntakeBall(driveTrain, indexer, intake);
+    return new IntakeBall(driveTrain, indexer, intake);
     //return new FinalAuto(driveTrain, odometry, intake, indexer, shooter, limeLight);
     //return new AutoTest(driveTrain, intake, indexer, shooter, odometry, limeLight);
   }
