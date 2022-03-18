@@ -25,7 +25,7 @@ public class TrajectoryCircleLine extends Trajectory{
 
     public TrajectoryCircleLine(double a, double mv, double[] angles) {
         super(a, mv, angles);
-        FileReader f = new FileReader("hello");
+        FileReader f = new FileReader("hello", "hello");
         points = f.getPoints();
        
        distances = f.getDistances();

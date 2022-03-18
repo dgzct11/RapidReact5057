@@ -14,10 +14,15 @@ public class FileReader {
     private ArrayList<Double> distances;
     public ArrayList<SCSetPoint> setPoints = new ArrayList<SCSetPoint>();
     
-    public String currentPath = Filesystem.getDeployDirectory().toString() +"/path_files/";
+    public String currentPath = Filesystem.getDeployDirectory().toString();
    
-    public FileReader(String prefix) {
-     
+    public FileReader(String prefix, String folder) {
+       currentPath += String.format("/%s/", folder);
+
+
+
+
+
 
         points = new ArrayList<double[]>();
         velocity = new ArrayList<double[]>();

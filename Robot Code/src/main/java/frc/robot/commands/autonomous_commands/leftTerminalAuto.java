@@ -22,16 +22,17 @@ public class leftTerminalAuto extends SequentialCommandGroup {
   // Add your commands in the addCommands() call, e.g.
   // addCommands(new FooCommand(), new BarCommand());
   public leftTerminalAuto(DriveTrain dt, Odometry od, Intake in, Indexer id, Shooter s, LimeLight ll) {
+    String folder = "left_terminal";
     addCommands(
       //lower terminal
       new InitiateForAuto(od, Constants.leftTerminalID),
       
-      new FollowPathFromFile(dt, od, "one"),
+      new FollowPathFromFile(dt, od, "one", folder),
       new IntakeBall(dt, id, in),
       new Shoot(dt, od, s, id, ll),
-      new FollowPathFromFile(dt, od, "two"),
+      new FollowPathFromFile(dt, od, "two", folder),
       new IntakeBall(dt, id, in),
-      new FollowPathFromFile(dt, od, "three"),
+      new FollowPathFromFile(dt, od, "three", folder),
       new IntakeBall(dt, id, in),
       new Shoot(dt, od, s, id, ll)
       

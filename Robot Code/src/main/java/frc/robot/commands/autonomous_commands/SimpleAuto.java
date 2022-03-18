@@ -5,7 +5,6 @@
 package frc.robot.commands.autonomous_commands;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-import frc.robot.Constants;
 import frc.robot.subsystems.mechanical_subsystems.DriveTrain;
 import frc.robot.subsystems.mechanical_subsystems.Indexer;
 import frc.robot.subsystems.mechanical_subsystems.Intake;
@@ -16,24 +15,13 @@ import frc.robot.subsystems.sensors.Odometry;
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
-public class FinalAuto extends SequentialCommandGroup {
-  /** Creates a new FinalAuto. */
-  public FinalAuto(DriveTrain dt, Odometry od, Intake in, Indexer id, Shooter s, LimeLight ll) {
+public class SimpleAuto extends SequentialCommandGroup {
+  /** Creates a new SimpleAuto. */
+  public SimpleAuto(DriveTrain dt, Odometry od, Intake in, Indexer id, Shooter s, LimeLight ll) {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    String folder = "right_terminal";
     addCommands(
-      //lower terminal
-      new InitiateForAuto(od, Constants.rightTerminalID),
-      new FollowPathFromFile(dt, od, "one", folder ),
       new IntakeBall(dt, id, in),
-      new Shoot(dt, od, s, id, ll),
-      new FollowPathFromFile(dt, od, "two", folder),
-      new IntakeBall(dt, id, in),
-      new Shoot(dt, od, s, id, ll),
-      new FollowPathFromFile(dt, od, "three", folder),
-      new IntakeBall(dt, id, in),
-      new FollowPathFromFile(dt, od, "four", folder),
       new Shoot(dt, od, s, id, ll)
     );
   }

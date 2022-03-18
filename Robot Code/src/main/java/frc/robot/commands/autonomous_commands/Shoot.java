@@ -39,24 +39,28 @@ public class Shoot extends CommandBase {
   public void initialize() {
     shooter.setFlywheelPercentOutput(1);
     angle = RobotContainer.vectorToAngle(odometry.currentPosition.x, -+odometry.currentPosition.y);
-    drivetrain.alignDrive(0, 0, angle);
+    shooter.setTuretAngle(0);
+    //drivetrain.alignDrive(0, 0, angle);
 
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (RobotContainer.angleDistance2(NavXGyro.getAngle(), angle) > 5) {
-      shooter.setTuretAngle(NavXGyro.getAngle() - limelight.getHorizontalOffset());
-      indexer.setPercentOutputBack(0.75);
-      indexer.setPercentOutputFront(0.5);
-    }
-    drivetrain.alignDrive(0, 0, angle);
+    //if (RobotContainer.angleDistance2(NavXGyro.getAngle(), angle) > 5) {
+      if(System.currentTimeMillis() - initialTime > 3000){
+      
+        indexer.setPercentOutputBack(0.75);
+        indexer.setPercentOutputFront(0.5);
+      }
+    //}
+    //drivetrain.alignDrive(0, 0, angle);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+
     indexer.setPercentOutputBack(0);
     indexer.setPercentOutputBack(0);
     shooter.setFlywheelPercentOutput(0);
@@ -65,7 +69,7 @@ public class Shoot extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return System.currentTimeMillis() - initialTime > 3000 || Constants.in_auto;
+    return System.currentTimeMillis() - initialTime > 6000 || !Constants.in_auto;
 
   }
 }

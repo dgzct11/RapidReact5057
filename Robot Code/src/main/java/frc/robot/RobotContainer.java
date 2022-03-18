@@ -16,6 +16,9 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.autonomous_commands.AutoTest;
 import frc.robot.commands.autonomous_commands.FinalAuto;
 import frc.robot.commands.autonomous_commands.IntakeBall;
+import frc.robot.commands.autonomous_commands.LeftTerminal;
+import frc.robot.commands.autonomous_commands.SimpleAuto;
+import frc.robot.commands.autonomous_commands.leftTerminalAuto;
 import frc.robot.commands.button_commands.AlignAllWheels;
 import frc.robot.commands.button_commands.DecreaseRotateSpeed;
 import frc.robot.commands.button_commands.DecreaseSpeed;
@@ -64,7 +67,7 @@ public class RobotContainer {
   public XboxController xboxController = new XboxController(Constants.xbox_port);
   public XboxController subsystemController = new XboxController(Constants.xbox_port_2);
 
-  private SendableChooser<Command> chooser = new SendableChooser<>();
+  
 
 
   //subsystems
@@ -131,20 +134,20 @@ public class RobotContainer {
     // A simple auto routine that drives forward a specified distance, and then stops
 
 // A complex auto routine that drives forward, drops a hatch, and then drives backward.
-private final Command right_terminal = new FinalAuto(driveTrain, odometry, intake, indexer, shooter, limeLight);
+//private final Command right_terminal = new FinalAuto(driveTrain, odometry, intake, indexer, shooter, limeLight);
 
 // A chooser for autonomous commands
-SendableChooser<Command> m_chooser = new SendableChooser<>();
-
-
+SendableChooser<Command> m_chooser = new SendableChooser<Command>();
+FinalAuto rightTerminal = new FinalAuto(driveTrain, odometry, intake, indexer, shooter, limeLight);
+//leftTerminalAuto leftTerminal = new leftTerminalAuto(driveTrain, odometry, intake, indexer, shooter, limeLight);
 
 
   public RobotContainer() {
     // configures commands
 
     //Add Auto commands
-    m_chooser.setDefaultOption("Right Terminal", right_terminal);
-    //m_chooser.addOption("Left Terminal", left_terminal);
+    m_chooser.setDefaultOption("Right Terminal", rightTerminal);
+    //m_chooser.addOption("Left Terminal", leftTerminal);
 
     SmartDashboard.putData(m_chooser);
 
@@ -169,7 +172,6 @@ SendableChooser<Command> m_chooser = new SendableChooser<>();
     cc.addRequirements(climb);
 
 
-    SmartDashboard.putData("Autonomous Chooser", chooser);
 
     configureButtonBindings();
   }
@@ -221,12 +223,13 @@ SendableChooser<Command> m_chooser = new SendableChooser<>();
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    //return m_chooser.getSelected();
+   // return m_chooser.getSelected();
     
     //if()
-    return new IntakeBall(driveTrain, indexer, intake);
+    //return new IntakeBall(driveTrain, indexer, intake);
     //return new FinalAuto(driveTrain, odometry, intake, indexer, shooter, limeLight);
     //return new AutoTest(driveTrain, intake, indexer, shooter, odometry, limeLight);
+    return new SimpleAuto(driveTrain, odometry, intake, indexer, shooter, limeLight);
   }
 
   

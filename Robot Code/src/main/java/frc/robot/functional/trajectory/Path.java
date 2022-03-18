@@ -30,8 +30,8 @@ public class Path {
        getTotalDistance();
     }
 
-    public Path(String prefix, Odometry odometry) {
-        FileReader f = new FileReader(prefix);
+    public Path(String prefix, Odometry odometry, String folder) {
+        FileReader f = new FileReader(prefix, folder);
         points = f.getPoints();
 
         points[0] = odometry.currentPosition.point.clone();
@@ -47,6 +47,7 @@ public class Path {
         double[][] velocity = f.getVelocity();
         velocity[velocity.length-1][0] = totalDistance;
         kinematics = new Kinematics(this, f.getVelocity());
+        kinematics.path = this;
         
     }
     public SCSetPoint getSetPoint(double time){

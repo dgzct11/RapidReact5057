@@ -5,6 +5,7 @@
 package frc.robot.commands.autonomous_commands;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import frc.robot.Constants;
 import frc.robot.subsystems.mechanical_subsystems.DriveTrain;
 import frc.robot.subsystems.mechanical_subsystems.Indexer;
 import frc.robot.subsystems.mechanical_subsystems.Intake;
@@ -22,7 +23,7 @@ public class AutoTest extends SequentialCommandGroup {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
-      new InitiateForAuto(o, true),
+      new InitiateForAuto(o, Constants.leftTerminalID),
       new IntakeBall(dt, id, in),
       new Shoot(dt, o, s, id, ll)
           );
