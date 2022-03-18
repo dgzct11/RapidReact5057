@@ -36,7 +36,7 @@ public class Intake extends SubsystemBase {
 
 
   //m_motor = new CANSparkMax(deviceID, MotorType.kBrushless);
-  public Intake(PneumaticHub hub) {
+  public Intake() {
    
     intakeMotor = new TalonSRX(Constants.intake_motor_id);
     up();

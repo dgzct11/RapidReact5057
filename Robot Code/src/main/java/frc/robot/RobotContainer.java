@@ -71,7 +71,7 @@ public class RobotContainer {
     //Sensor subsystems
   public XboxRemote xboxRemote = new XboxRemote(xboxController);
   public XboxRemote subsytemRemote = new XboxRemote(subsystemController);
-  public PneumaticHub hub = new PneumaticHub(53);
+ 
   public NavXGyro navx = new NavXGyro(); 
   public LimeLight limeLight = new LimeLight();
 
@@ -132,7 +132,7 @@ public class RobotContainer {
     //ks.addRequirements(shooter);
     
 
-    intake = new Intake(hub);
+    intake = new Intake();
 
     ClimbCommand cc = new ClimbCommand(subsytemRemote, climb);
     climb.setDefaultCommand(cc);
