@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotContainer;
 import frc.robot.functional.files.FileReader;
 import frc.robot.functional.files.SCSetPoint;
+import frc.robot.subsystems.sensors.Odometry;
 
 /** Add your docs here. */
 public class Path {
@@ -29,11 +30,14 @@ public class Path {
        getTotalDistance();
     }
 
-    public Path(String prefix) {
+    public Path(String prefix, Odometry odometry) {
         FileReader f = new FileReader(prefix);
         points = f.getPoints();
+        
+        points[0] = odometry.currentPosition.point.clone();
+
         distances = f.getDistances();
-         angles = new double[distances.length+1];
+        angles = new double[distances.length+1];
         for (int i = 0; i < angles.length; i++) {
             angles[i] = 0;
         }

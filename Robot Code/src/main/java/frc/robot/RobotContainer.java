@@ -13,15 +13,17 @@ import edu.wpi.first.wpilibj.XboxController;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.autonomous_commands.AutoTest;
+import frc.robot.commands.autonomous_commands.FinalAuto;
 import frc.robot.commands.button_commands.AlignAllWheels;
 import frc.robot.commands.button_commands.DecreaseRotateSpeed;
 import frc.robot.commands.button_commands.DecreaseSpeed;
-import frc.robot.commands.button_commands.EnableDisableClimb;
+
 import frc.robot.commands.button_commands.IncreaseRotateSpeed;
 import frc.robot.commands.button_commands.IncreaseSpeed;
 import frc.robot.commands.button_commands.IncrementShooterOutput;
 import frc.robot.commands.button_commands.ResetNavX;
 import frc.robot.commands.button_commands.SwitchDriveMode;
+import frc.robot.commands.button_commands.ToggleLimelight;
 import frc.robot.commands.climb_commands.ClimbCommand;
 import frc.robot.commands.driving_commands.SwerveDrive;
 import frc.robot.commands.indexer_commands.BackIndexer;
@@ -70,10 +72,12 @@ public class RobotContainer {
   public XboxRemote xboxRemote = new XboxRemote(xboxController);
   public XboxRemote subsytemRemote = new XboxRemote(subsystemController);
   public PneumaticHub hub = new PneumaticHub(53);
-  public Odometry odometry = new Odometry();
-
   public NavXGyro navx = new NavXGyro(); 
   public LimeLight limeLight = new LimeLight();
+
+  public Odometry odometry = new Odometry(driveTrain, limeLight);
+
+  
 
   
   //public Odometry odometry = new Odometry(driveTrain, limeLight);
@@ -153,6 +157,7 @@ public class RobotContainer {
     yButton.whenPressed(new DecreaseRotateSpeed());
     aButton.whenPressed(new IncreaseRotateSpeed());
     xButton.whenPressed(new ResetNavX());
+    bButton.whenPressed(new ToggleLimelight());
     
     startButton.whenPressed(new AlignAllWheels(driveTrain));
     backButton.whenPressed(new SwitchDriveMode());
@@ -169,7 +174,7 @@ public class RobotContainer {
     //subDownPad.whenPressed(new SetShooterAngle(180, shooter));
     //subRightPad.whenPressed(new SetShooterAngle(270, shooter));
 
-    subYButton.whenPressed(new EnableDisableClimb());
+    
     //subYButton.whenPressed(new IncrementShooterOutput(-0.1));
     subBButton.whenPressed(new IncrementShooterOutput(0.1));
 
@@ -183,7 +188,8 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    return new AutoTest(driveTrain, intake , indexer, shooter, odometry, limeLight);
+    //return new FinalAuto(driveTrain, odometry, intake, indexer, shooter, limeLight);
+    return new AutoTest(driveTrain, intake, indexer, shooter, odometry, limeLight);
   }
 
   public static double navxTo360(double angle){

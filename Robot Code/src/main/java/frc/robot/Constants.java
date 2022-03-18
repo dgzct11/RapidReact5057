@@ -171,7 +171,8 @@ public final class Constants {
     public static String drive_mode = field_oriented;
   
     public static boolean in_auto = false;
-    public static boolean climb_enabled = false;
+    
+    public static boolean limelight_enabled = true;
 
     public static double[] camera_0_radial_constants;
     public static double[] camera_0_distortion_center;

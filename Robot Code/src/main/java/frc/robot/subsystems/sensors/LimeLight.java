@@ -56,7 +56,7 @@ public class LimeLight extends SubsystemBase {
 
   @Override
   public void periodic() {
-   System.out.println(ta.getDouble(0)); //prints area of object
+   //System.out.println(ta.getDouble(0)); //prints area of object
   }
 }
 //hi

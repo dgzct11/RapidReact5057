@@ -15,6 +15,7 @@
       "/LiveWindow/Intake": "Subsystem",
       "/LiveWindow/LimeLight": "Subsystem",
       "/LiveWindow/NavXGyro": "Subsystem",
+      "/LiveWindow/Odometry": "Subsystem",
       "/LiveWindow/Shooter": "Subsystem",
       "/LiveWindow/Ungrouped/Scheduler": "Scheduler",
       "/LiveWindow/Ungrouped/navX-Sensor[4]": "Gyro",

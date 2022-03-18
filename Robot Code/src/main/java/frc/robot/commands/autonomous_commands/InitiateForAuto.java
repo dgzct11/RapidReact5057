@@ -28,6 +28,7 @@ public class InitiateForAuto extends InstantCommand {
     odometry.currentPosition = new Position(2, 2, 0);
     NavXGyro.reset();
     NavXGyro.ahrs.setAngleAdjustment(225);
+    //1.168, -0.6
 
   }
 }

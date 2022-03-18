@@ -29,10 +29,10 @@ public class ClimbCommand extends CommandBase{
         double left = xboxRemote.getLeftTrigger();
         
         double percentOutput = right> left ? right : -left;
-        System.out.println(percentOutput);
+        //System.out.println(percentOutput);
         //climb.setVelocity(leftYAxis*(Constants.maximum_telescoping_velocity));
         //climb.setAngularVelocity(rightXAxis*(Constants.maximum_pivot_velocity));
-        climb.setPercentOutput(percentOutput*0.5);
+        climb.setPercentOutput(percentOutput);
       }
 
     }

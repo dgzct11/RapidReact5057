@@ -10,14 +10,14 @@ import frc.robot.Constants;
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
-public class EnableDisableClimb extends InstantCommand {
-  public EnableDisableClimb() {
+public class ToggleLimelight extends InstantCommand {
+  public ToggleLimelight() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    Constants.climb_enabled = !Constants.climb_enabled;
+    Constants.limelight_enabled = !Constants.limelight_enabled;
   }
 }

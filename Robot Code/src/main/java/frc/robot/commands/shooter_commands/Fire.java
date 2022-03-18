@@ -31,7 +31,10 @@ public class Fire extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    shooter.setTuretAngle(NavXGyro.getAngle() - limelight.getHorizontalOffset());
+    if(Constants.limelight_enabled)
+      shooter.setTuretAngle(NavXGyro.getAngle() - limelight.getHorizontalOffset());
+    else
+      shooter.setTuretAngle(0);
   }
 
   // Called once the command ends or is interrupted.

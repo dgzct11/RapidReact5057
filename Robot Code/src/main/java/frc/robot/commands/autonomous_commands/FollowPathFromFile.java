@@ -28,7 +28,7 @@ public class FollowPathFromFile extends CommandBase {
   
   public FollowPathFromFile(DriveTrain dt, Odometry od, String prefix) {
     // Use addRequirements() here to declare subsystem dependencies.
-    path = new Path(prefix);
+    path = new Path(prefix, od);
     odometry = od;
     driveTrain = dt;
     angle = RobotContainer.getAngleFromPathEndpoints(path);
