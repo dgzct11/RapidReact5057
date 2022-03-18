@@ -22,7 +22,7 @@ public class AutoTest extends SequentialCommandGroup {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
-      new InitiateForAuto(o),
+      new InitiateForAuto(o, true),
       new IntakeBall(dt, id, in),
       new Shoot(dt, o, s, id, ll)
           );

@@ -21,7 +21,8 @@ public class FinalAuto extends SequentialCommandGroup {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
-      new InitiateForAuto(od),
+      //lower terminal
+      new InitiateForAuto(od, true),
       new FollowPathFromFile(dt, od, "one"),
       new IntakeBall(dt, id, in),
       new Shoot(dt, od, s, id, ll),

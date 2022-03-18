@@ -17,9 +17,29 @@ public class InitiateForAuto extends InstantCommand {
 
   Odometry odometry;
 
-  public InitiateForAuto(Odometry od) {
+  public InitiateForAuto(Odometry od, boolean b) {
     // Use addRequirements() here to declare subsystem dependencies.
     odometry = od;
+    if (b) {
+      rightTerminal();
+    }
+    else {
+      leftTerminal();
+    }
+  }
+
+  public void leftTerminal() {
+    odometry.currentPosition = new Position(2, 2, 0);
+    NavXGyro.reset();
+    NavXGyro.ahrs.setAngleAdjustment(225);
+    //1.168, -0.6
+  }
+
+  public void rightTerminal() {
+    odometry.currentPosition = new Position(2, 2, 0);
+    NavXGyro.reset();
+    NavXGyro.ahrs.setAngleAdjustment(225);
+    //1.168, -0.6
   }
 
   // Called when the command is initially scheduled.
