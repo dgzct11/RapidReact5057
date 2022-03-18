@@ -259,13 +259,13 @@ public static double getArcLength(Circle circle){
   double halfAngle = Math.atan(distance(midPoint, base.startPoint)/distance(midPoint, circle.center));
   return halfAngle*2*circle.radius;
 }
-public static double getAngleFromPathEndpoints(Path path){
-  double[] endpoint = path.points[path.points.length-1];
-  double[] secondpoint = path.points[path.points.length-2];
-  double dx = endpoint[0]- secondpoint[0];
-  double dy = endpoint[0]- secondpoint[0];
-  return Math.toDegrees(Math.atan2(dy, dx)-90);
-}
+  public static double getAngleFromPathEndpoints(Path path){
+    double[] endpoint = path.points[path.points.length-1];
+    double[] secondpoint = path.points[path.points.length-2];
+    double dx = endpoint[0]- secondpoint[0];
+    double dy = endpoint[0]- secondpoint[0];
+    return Math.toDegrees(Math.atan2(dy, dx)) + 270;
+  }
 
 
 }
