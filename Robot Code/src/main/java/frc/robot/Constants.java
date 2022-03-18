@@ -191,6 +191,9 @@ public final class Constants {
     public static final int right_trigger_num = 2;
 
 
+    //auto ID's
+    public static final int leftTerminalID = 0;
+    public static final int rightTerminalID = 1; 
 
 
     
