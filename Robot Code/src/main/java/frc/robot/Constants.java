@@ -170,7 +170,7 @@ public final class Constants {
     
     public static String drive_mode = field_oriented;
   
-    public static boolean in_auto = false;
+    public static boolean in_auto = true;
     
     public static boolean limelight_enabled = true;
 

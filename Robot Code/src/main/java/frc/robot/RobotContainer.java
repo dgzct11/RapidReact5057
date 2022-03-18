@@ -10,7 +10,8 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PneumaticHub;
 import edu.wpi.first.wpilibj.XboxController;
-
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.autonomous_commands.AutoTest;
 import frc.robot.commands.autonomous_commands.FinalAuto;
@@ -60,6 +61,9 @@ public class RobotContainer {
   public XboxController xboxController = new XboxController(Constants.xbox_port);
   public XboxController subsystemController = new XboxController(Constants.xbox_port_2);
 
+  private SendableChooser<Command> chooser = new SendableChooser<>();
+
+
   //subsystems
     //Mechanical subsystems
   public DriveTrain driveTrain = new DriveTrain();
@@ -78,6 +82,7 @@ public class RobotContainer {
   public Odometry odometry = new Odometry(driveTrain, limeLight);
 
   
+  //FinalAuto auto = new FinalAuto(driveTrain, odometry, intake, indexer, shooter, limeLight);
 
   
   //public Odometry odometry = new Odometry(driveTrain, limeLight);
@@ -138,6 +143,9 @@ public class RobotContainer {
     climb.setDefaultCommand(cc);
     cc.addRequirements(climb);
 
+
+    SmartDashboard.putData("Autonomous Chooser", chooser);
+
     configureButtonBindings();
   }
 
@@ -188,7 +196,10 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    return new FinalAuto(driveTrain, odometry, intake, indexer, shooter, limeLight);
+    Command auto = null;
+    //if()
+    return null;
+    //return new FinalAuto(driveTrain, odometry, intake, indexer, shooter, limeLight);
     //return new AutoTest(driveTrain, intake, indexer, shooter, odometry, limeLight);
   }
 
