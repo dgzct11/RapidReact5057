@@ -29,13 +29,13 @@ public class IntakeBall extends CommandBase {
   public void initialize() {
     intake.spin();
     indexer.setPercentOutputFront(Constants.front_indexer_speed);
-    drivetrain.rotateDriveVelocity(0, 1, 0);
+    drivetrain.rotateDriveVelocity(0, 0.4826, 0);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    drivetrain.rotateDriveVelocity(0, 1, 0);
+    drivetrain.rotateDriveVelocity(0, 0.4826, 0);
   }
 
   // Called once the command ends or is interrupted.
