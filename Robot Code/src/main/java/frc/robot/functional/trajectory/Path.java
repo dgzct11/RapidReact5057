@@ -33,7 +33,7 @@ public class Path {
     public Path(String prefix, Odometry odometry) {
         FileReader f = new FileReader(prefix);
         points = f.getPoints();
-        
+
         points[0] = odometry.currentPosition.point.clone();
 
         distances = f.getDistances();
@@ -44,6 +44,8 @@ public class Path {
         setPoints = f.getSetPoints();
         initializeSegments();
         getTotalDistance();
+        double[][] velocity = f.getVelocity();
+        velocity[velocity.length-1][0] = totalDistance;
         kinematics = new Kinematics(this, f.getVelocity());
         
     }

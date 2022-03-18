@@ -188,8 +188,8 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    //return new FinalAuto(driveTrain, odometry, intake, indexer, shooter, limeLight);
-    return new AutoTest(driveTrain, intake, indexer, shooter, odometry, limeLight);
+    return new FinalAuto(driveTrain, odometry, intake, indexer, shooter, limeLight);
+    //return new AutoTest(driveTrain, intake, indexer, shooter, odometry, limeLight);
   }
 
   public static double navxTo360(double angle){
