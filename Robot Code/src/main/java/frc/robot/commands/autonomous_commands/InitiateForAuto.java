@@ -5,6 +5,7 @@
 package frc.robot.commands.autonomous_commands;
 
 import edu.wpi.first.wpilibj2.command.InstantCommand;
+import frc.robot.Constants;
 import frc.robot.functional.trajectory.Position;
 import frc.robot.subsystems.mechanical_subsystems.DriveTrain;
 import frc.robot.subsystems.sensors.NavXGyro;
@@ -17,10 +18,15 @@ public class InitiateForAuto extends InstantCommand {
 
   Odometry odometry;
 
-  public InitiateForAuto(Odometry od, boolean b) {
+  public InitiateForAuto(Odometry od, int b) {
     // Use addRequirements() here to declare subsystem dependencies.
+    
     odometry = od;
-    rightTerminal();
+    if(b == Constants.leftTerminalID){
+      leftTerminal();
+    }else{
+      rightTerminal();
+    }
   }
 
   public void leftTerminal() {

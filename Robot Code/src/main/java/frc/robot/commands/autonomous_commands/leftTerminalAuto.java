@@ -16,24 +16,26 @@ import frc.robot.subsystems.sensors.Odometry;
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
-public class FinalAuto extends SequentialCommandGroup {
-  /** Creates a new FinalAuto. */
-  public FinalAuto(DriveTrain dt, Odometry od, Intake in, Indexer id, Shooter s, LimeLight ll) {
-    // Add your commands in the addCommands() call, e.g.
-    // addCommands(new FooCommand(), new BarCommand());
+public class leftTerminalAuto extends SequentialCommandGroup {
+  /** Creates a new leftTerminalAuto. */
+ 
+  // Add your commands in the addCommands() call, e.g.
+  // addCommands(new FooCommand(), new BarCommand());
+  public leftTerminalAuto(DriveTrain dt, Odometry od, Intake in, Indexer id, Shooter s, LimeLight ll) {
     addCommands(
       //lower terminal
-      new InitiateForAuto(od, Constants.rightTerminalID),
+      new InitiateForAuto(od, Constants.leftTerminalID),
+      
       new FollowPathFromFile(dt, od, "one"),
       new IntakeBall(dt, id, in),
       new Shoot(dt, od, s, id, ll),
       new FollowPathFromFile(dt, od, "two"),
       new IntakeBall(dt, id, in),
-      new Shoot(dt, od, s, id, ll),
       new FollowPathFromFile(dt, od, "three"),
       new IntakeBall(dt, id, in),
-      new FollowPathFromFile(dt, od, "four"),
       new Shoot(dt, od, s, id, ll)
+      
     );
   }
+ 
 }
