@@ -20,12 +20,7 @@ public class InitiateForAuto extends InstantCommand {
   public InitiateForAuto(Odometry od, boolean b) {
     // Use addRequirements() here to declare subsystem dependencies.
     odometry = od;
-    if (b) {
-      rightTerminal();
-    }
-    else {
-      leftTerminal();
-    }
+    rightTerminal();
   }
 
   public void leftTerminal() {

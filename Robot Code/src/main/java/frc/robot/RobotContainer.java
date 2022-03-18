@@ -159,12 +159,12 @@ public class RobotContainer {
     xButton.whenPressed(new ResetNavX());
     bButton.whenPressed(new ToggleLimelight());
     
-    startButton.whenPressed(new AlignAllWheels(driveTrain));
+    //startButton.whenPressed(new AlignAllWheels(driveTrain));
     backButton.whenPressed(new SwitchDriveMode());
     
     //subsytems
     subRightButton.whenHeld(new Fire(shooter, limeLight));
-    subXButton.whenPressed(new IntakeToggle(intake));
+    //subXButton.whenPressed(new IntakeToggle(intake));
     subAButton.whenHeld(new IntakeSpin(intake, indexer));
     subBButton.whenHeld(new IndexerSpin(indexer));
     subYButton.whenHeld(new BackIndexerSpin(indexer));
@@ -176,7 +176,7 @@ public class RobotContainer {
 
     
     //subYButton.whenPressed(new IncrementShooterOutput(-0.1));
-    subBButton.whenPressed(new IncrementShooterOutput(0.1));
+    //subBButton.whenPressed(new IncrementShooterOutput(0.1));
 
     
     

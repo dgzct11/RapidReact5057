@@ -21,5 +21,6 @@ public class ResetNavX extends InstantCommand {
   @Override
   public void initialize() {
     NavXGyro.reset();
+    NavXGyro.ahrs.setAngleAdjustment(0);
   }
 }
