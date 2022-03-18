@@ -24,12 +24,12 @@ public class Shoot extends CommandBase {
   LimeLight limelight;
   long initialTime;
 
-  public Shoot(DriveTrain dt, Odometry o, Shooter s, Indexer i, LimeLight ll) {
+  public Shoot(DriveTrain dt, Odometry o, Shooter s, Indexer id, LimeLight ll) {
     // Use addRequirements() here to declare subsystem dependencies.
     drivetrain = dt;
     odometry = o;
     shooter = s;
-    indexer = i;
+    indexer = id;
     limelight = ll;
     initialTime = System.currentTimeMillis();
   }
@@ -49,6 +49,7 @@ public class Shoot extends CommandBase {
     if (RobotContainer.angleDistance2(NavXGyro.getAngle(), angle) > 5) {
       shooter.setTuretAngle(NavXGyro.getAngle() - limelight.getHorizontalOffset());
       indexer.setPercentOutputBack(0.75);
+      indexer.setPercentOutputFront(0.5);
     }
     drivetrain.alignDrive(0, 0, angle);
   }
@@ -56,6 +57,7 @@ public class Shoot extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+    indexer.setPercentOutputBack(0);
     indexer.setPercentOutputBack(0);
     shooter.setFlywheelPercentOutput(0);
   }

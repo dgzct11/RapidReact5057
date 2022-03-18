@@ -46,7 +46,7 @@ public class Field extends JFrame{
         frame.setTitle("Field");
        
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        panel = new Panel("./FieldGUI\\rapid_react_field_render_small.png");
+        panel = new Panel("./FieldGUI\\field_image.png");
         frame.add(panel);
         panel.setFocusable(true);
         frame.setFocusable(true);

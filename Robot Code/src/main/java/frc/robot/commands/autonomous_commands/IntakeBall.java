@@ -16,11 +16,11 @@ public class IntakeBall extends CommandBase {
   Indexer indexer;
   Intake intake;
   long initialTime;
-  public IntakeBall(DriveTrain dt, Indexer in, Intake it) {
+  public IntakeBall(DriveTrain dt, Indexer id, Intake in) {
     // Use addRequirements() here to declare subsystem dependencies.
     drivetrain = dt;
-    indexer = in;
-    intake = it;
+    indexer = id;
+    intake = in;
     initialTime = System.currentTimeMillis();
   }
 
