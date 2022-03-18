@@ -136,7 +136,7 @@ public class TrajectoryPlanning extends JFrame implements ActionListener{
     }
     public void saveSubsystems(){
         try{
-            FileWriter subsystemWriter = new FileWriter("./RobotController" + fs + "memory" + fs + "subsystem.txt");
+            FileWriter subsystemWriter = new FileWriter("./PlanningGUI" + fs + "memory" + fs + "subsystem.txt");
             String text = "";
            for(SCSetPoint point:controlPanel.panel.setPoints )
                 text += point.toString();
@@ -150,7 +150,7 @@ public class TrajectoryPlanning extends JFrame implements ActionListener{
     }
     public void saveV(){
         try{
-            FileWriter velocityWriter = new FileWriter("./RobotController" + fs + "memory" + fs + "velocity.txt");
+            FileWriter velocityWriter = new FileWriter("./PlanningGUI" + fs + "memory" + fs + "velocity.txt");
             String text = "";
            for(double[] point: panel.velocity.panel.kinematics.velocities)
                text += String.format("%f,%f\n", point[0], point[1]);
@@ -166,14 +166,14 @@ public class TrajectoryPlanning extends JFrame implements ActionListener{
 
     public void savePath(){    
         try{
-            FileWriter pointsWriter = new FileWriter("./RobotController" + fs + "memory" + fs + "points.txt");
+            FileWriter pointsWriter = new FileWriter("./PlanningGUI" + fs + "memory" + fs + "points.txt");
             String pointsText = "";
            for(double[] point: panel.path.points)
-               pointsText += String.format("%f,%f\n", point[1], point[0]);
+               pointsText += String.format("%f,%f\n", point[1]-GUIConstants.field_height/2, point[0]-GUIConstants.field_width/2);
             pointsWriter.write(pointsText);
             pointsWriter.close();
 
-            FileWriter distancesWriter = new FileWriter("./RobotController" + fs + "memory" + fs + "distances.txt");
+            FileWriter distancesWriter = new FileWriter("./PlanningGUI" + fs + "memory" + fs + "distances.txt");
             String distanceText = "";
             for(double distance: panel.path.distances)
                distanceText += String.format("%f\n", distance);
