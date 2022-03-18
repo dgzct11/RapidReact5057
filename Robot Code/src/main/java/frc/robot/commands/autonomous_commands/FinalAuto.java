@@ -22,7 +22,7 @@ public class FinalAuto extends SequentialCommandGroup {
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
       new InitiateForAuto(od),
-      new FollowPathFromFile(dt, od, "one", 270),
+      new FollowPathFromFile(dt, od, "one"),
       new IntakeBall(dt, id, in),
       new Shoot(dt, od, s, id, ll),
       new FollowPathFromFile(dt, od, "two"),

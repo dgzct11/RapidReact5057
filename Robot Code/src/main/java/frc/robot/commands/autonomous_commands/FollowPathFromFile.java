@@ -26,12 +26,12 @@ public class FollowPathFromFile extends CommandBase {
   double timeUnit = 0.1;
   double angle;
   
-  public FollowPathFromFile(DriveTrain dt, Odometry od, String prefix, double a) {
+  public FollowPathFromFile(DriveTrain dt, Odometry od, String prefix) {
     // Use addRequirements() here to declare subsystem dependencies.
     path = new Path(prefix);
     odometry = od;
     driveTrain = dt;
-    angle = a;
+    angle = RobotContainer.getAngleFromPathEndpoints(path);
   }
 
   // Called when the command is initially scheduled.
