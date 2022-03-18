@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.PneumaticHub;
 import edu.wpi.first.wpilibj.XboxController;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.commands.autonomous_commands.AutoTest;
 import frc.robot.commands.button_commands.AlignAllWheels;
 import frc.robot.commands.button_commands.DecreaseRotateSpeed;
 import frc.robot.commands.button_commands.DecreaseSpeed;
@@ -40,6 +41,7 @@ import frc.robot.subsystems.mechanical_subsystems.Intake;
 import frc.robot.subsystems.mechanical_subsystems.Shooter;
 import frc.robot.subsystems.sensors.LimeLight;
 import frc.robot.subsystems.sensors.NavXGyro;
+import frc.robot.subsystems.sensors.Odometry;
 import frc.robot.subsystems.sensors.XboxRemote;
 import edu.wpi.first.wpilibj2.command.button.POVButton;
 import edu.wpi.first.wpilibj2.command.button.Button;
@@ -67,7 +69,7 @@ public class RobotContainer {
   public XboxRemote xboxRemote = new XboxRemote(xboxController);
   public XboxRemote subsytemRemote = new XboxRemote(subsystemController);
   public PneumaticHub hub = new PneumaticHub(53);
-
+  public Odometry odometry = new Odometry();
 
   public NavXGyro navx = new NavXGyro(); 
   public LimeLight limeLight = new LimeLight();
@@ -180,7 +182,7 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    return null;
+    return new AutoTest(driveTrain, intake , indexer, shooter, odometry, limeLight);
   }
 
   public static double navxTo360(double angle){
