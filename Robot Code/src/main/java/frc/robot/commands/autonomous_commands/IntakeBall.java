@@ -27,28 +27,28 @@ public class IntakeBall extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    intake.spin();
-    indexer.setPercentOutputFront(Constants.front_indexer_speed);
-    drivetrain.rotateDriveVelocity(0, 0.4826, 0);
+    //intake.spin();
+    //indexer.setPercentOutputFront(Constants.front_indexer_speed);
+    drivetrain.rotateDriveVelocity(0, -0.4826, 0);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    drivetrain.rotateDriveVelocity(0, 0.4826, 0);
+    drivetrain.rotateDriveVelocity(0, -0.4826, 0);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    intake.stop();
-    indexer.setPercentOutput(0.0);
+    //intake.stop();
+    //indexer.setPercentOutput(0.0);
     drivetrain.stop();
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return System.currentTimeMillis() - initialTime > 1000 || Constants.in_auto;
+    return System.currentTimeMillis() - initialTime > 4000 || Constants.in_auto;
   }
 }
