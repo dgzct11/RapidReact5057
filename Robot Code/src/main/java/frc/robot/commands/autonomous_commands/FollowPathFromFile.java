@@ -24,12 +24,14 @@ public class FollowPathFromFile extends CommandBase {
   DriveTrain driveTrain;
   double initialTime;
   double timeUnit = 0.1;
+  double angle;
   
-  public FollowPathFromFile(DriveTrain dt, Odometry od, String prefix) {
+  public FollowPathFromFile(DriveTrain dt, Odometry od, String prefix, double a) {
     // Use addRequirements() here to declare subsystem dependencies.
     path = new Path(prefix);
     odometry = od;
     driveTrain = dt;
+    angle = a;
   }
 
   // Called when the command is initially scheduled.
@@ -66,7 +68,7 @@ public class FollowPathFromFile extends CommandBase {
     KinematicSegment segment = path.kinematics.segments.get(path.kinematics.currentIndex);
     
     
-    driveTrain.fieldOrientedDrive(angleToPoint, speed, 0);
+    driveTrain.alignDrive(angleToPoint, speed, angle);
     /*
     if(subsytemSetting == null){
       

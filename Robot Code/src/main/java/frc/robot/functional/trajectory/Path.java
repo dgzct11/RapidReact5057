@@ -13,7 +13,7 @@ import frc.robot.functional.files.SCSetPoint;
 
 /** Add your docs here. */
 public class Path {
-    double[][] points;
+    public double[][] points;
     double[] distances;
     public ArrayList<Segment> segments;
     public double totalDistance = 0;

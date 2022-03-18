@@ -34,6 +34,7 @@ import frc.robot.commands.shooter_commands.Fire;
 import frc.robot.commands.shooter_commands.KeepShooterStill;
 import frc.robot.functional.trajectory.Circle;
 import frc.robot.functional.trajectory.Line;
+import frc.robot.functional.trajectory.Path;
 import frc.robot.subsystems.mechanical_subsystems.Climb;
 import frc.robot.subsystems.mechanical_subsystems.DriveTrain;
 import frc.robot.subsystems.mechanical_subsystems.Indexer;
@@ -257,6 +258,13 @@ public static double getArcLength(Circle circle){
   double[] midPoint = base.getMidPoint();
   double halfAngle = Math.atan(distance(midPoint, base.startPoint)/distance(midPoint, circle.center));
   return halfAngle*2*circle.radius;
+}
+public static double getAngleFromPathEndpoints(Path path){
+  double[] endpoint = path.points[path.points.length-1];
+  double[] secondpoint = path.points[path.points.length-2];
+  double dx = endpoint[0]- secondpoint[0];
+  double dy = endpoint[0]- secondpoint[0];
+  return Math.toDegrees(Math.atan2(dy, dx)-90);
 }
 
 
