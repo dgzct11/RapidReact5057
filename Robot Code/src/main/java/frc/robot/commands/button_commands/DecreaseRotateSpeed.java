@@ -18,6 +18,7 @@ public class DecreaseRotateSpeed extends InstantCommand {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    Constants.max_rotate -= 0.25;
+    if(Constants.max_rotate >= 0.25)
+      Constants.max_rotate -= 0.25;
   }
 }

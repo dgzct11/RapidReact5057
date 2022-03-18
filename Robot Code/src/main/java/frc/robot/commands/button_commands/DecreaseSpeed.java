@@ -18,6 +18,7 @@ public class DecreaseSpeed extends InstantCommand {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    Constants.velocityMax -= 0.5;
+    if(Constants.velocityMax >= 0.5)
+      Constants.velocityMax -= 0.5;
   }
 }
