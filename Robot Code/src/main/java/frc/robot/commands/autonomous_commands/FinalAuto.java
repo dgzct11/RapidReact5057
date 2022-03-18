@@ -5,6 +5,7 @@
 package frc.robot.commands.autonomous_commands;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import frc.robot.Constants;
 import frc.robot.subsystems.mechanical_subsystems.DriveTrain;
 import frc.robot.subsystems.mechanical_subsystems.Indexer;
 import frc.robot.subsystems.mechanical_subsystems.Intake;
@@ -22,7 +23,7 @@ public class FinalAuto extends SequentialCommandGroup {
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
       //lower terminal
-      new InitiateForAuto(od, true),
+      new InitiateForAuto(od, Constants.rightTerminalID),
       new FollowPathFromFile(dt, od, "one"),
       new IntakeBall(dt, id, in),
       new Shoot(dt, od, s, id, ll),
