@@ -204,12 +204,12 @@ public class DriveTrain extends SubsystemBase {
   public void setVelocities(double[] speeds){
 
     for(short i = 0; i<4; i++){
-      if(speeds[i] != prevVelocities[i]){
+      
         TalonFX motor = thrusts[i];
         
         motor.set(ControlMode.Velocity,  Constants.velocityMax * thrustCoefficients[i] * Constants.talon_velocity_per_ms*speeds[i]);
         prevVelocities[i] = speeds[i];
-      }
+      
     }
     /*lft.set(ControlMode.Velocity,  Constants.velocityMax * thrustCoefficients[0] * Constants.talon_velocity_per_ms*speeds[0]);
     lbt.set(ControlMode.Velocity,  Constants.velocityMax * thrustCoefficients[1] * Constants.talon_velocity_per_ms*speeds[1]);
@@ -246,12 +246,12 @@ public class DriveTrain extends SubsystemBase {
   }
   public void setDirectionalAnglesEff(double[] angles){
     double[] currentAngles = {0,0,0,0};
-    if(! angles.equals(prevAngles))
-      currentAngles = getAngles();
+   
+     currentAngles = getAngles();
 
     for(int i = 0; i<4; i++){
 
-      if(prevAngles[i] != angles[i]){
+      
         TalonFX motor = directionals[i];
         if(RobotContainer.angleDistance2(angles[i], currentAngles[i]) > 90){
           thrustCoefficients[i] = -1;
@@ -264,7 +264,7 @@ public class DriveTrain extends SubsystemBase {
                 RobotContainer.angleDistance2(angles[i], currentAngles[i])*Constants.pos_units_per_degree * 
                 (RobotContainer.shouldTurnLeft(currentAngles[i], angles[i]) ? 1:-1))));
         prevAngles[i] = angles[i];
-      }
+      
     }
      }
 

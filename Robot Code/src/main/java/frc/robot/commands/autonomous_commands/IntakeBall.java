@@ -16,11 +16,10 @@ public class IntakeBall extends CommandBase {
   Indexer indexer;
   Intake intake;
   long initialTime;
-  public IntakeBall(DriveTrain dt, Indexer id, Intake in) {
+  public IntakeBall(DriveTrain dt) {
     // Use addRequirements() here to declare subsystem dependencies.
     drivetrain = dt;
-    indexer = id;
-    intake = in;
+   
     initialTime = System.currentTimeMillis();
   }
 
@@ -50,6 +49,6 @@ public class IntakeBall extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return System.currentTimeMillis() - initialTime > 5000; //|| !Constants.in_auto;
+    return System.currentTimeMillis() - initialTime > 4000; //|| !Constants.in_auto;
   }
 }

@@ -13,12 +13,9 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.commands.autonomous_commands.AutoTest;
-import frc.robot.commands.autonomous_commands.FinalAuto;
 import frc.robot.commands.autonomous_commands.IntakeBall;
-import frc.robot.commands.autonomous_commands.LeftTerminal;
 import frc.robot.commands.autonomous_commands.SimpleAuto;
-import frc.robot.commands.autonomous_commands.leftTerminalAuto;
+
 import frc.robot.commands.button_commands.AlignAllWheels;
 import frc.robot.commands.button_commands.DecreaseRotateSpeed;
 import frc.robot.commands.button_commands.DecreaseSpeed;
@@ -73,9 +70,9 @@ public class RobotContainer {
   //subsystems
     //Mechanical subsystems
   public DriveTrain driveTrain = new DriveTrain();
-  public Intake intake;
-  public Shooter shooter = new Shooter();
-  public Indexer indexer = new Indexer();
+  //public Intake intake;
+  //public Shooter shooter = new Shooter();
+  //public Indexer indexer = new Indexer();
   public Climb climb = new Climb();
  
     //Sensor subsystems
@@ -83,9 +80,9 @@ public class RobotContainer {
   public XboxRemote subsytemRemote = new XboxRemote(subsystemController);
  
   public NavXGyro navx = new NavXGyro(); 
-  public LimeLight limeLight = new LimeLight();
+  //public LimeLight limeLight = new LimeLight();
 
-  public Odometry odometry = new Odometry(driveTrain, limeLight);
+  //public Odometry odometry = new Odometry(driveTrain, limeLight);
 
   
   //FinalAuto auto = new FinalAuto(driveTrain, odometry, intake, indexer, shooter, limeLight);
@@ -138,7 +135,7 @@ public class RobotContainer {
 
 // A chooser for autonomous commands
 SendableChooser<Command> m_chooser = new SendableChooser<Command>();
-FinalAuto rightTerminal = new FinalAuto(driveTrain, odometry, intake, indexer, shooter, limeLight);
+//FinalAuto rightTerminal = new FinalAuto(driveTrain, odometry, intake, indexer, shooter, limeLight);
 //leftTerminalAuto leftTerminal = new leftTerminalAuto(driveTrain, odometry, intake, indexer, shooter, limeLight);
 
 
@@ -146,7 +143,7 @@ FinalAuto rightTerminal = new FinalAuto(driveTrain, odometry, intake, indexer, s
     // configures commands
 
     //Add Auto commands
-    m_chooser.setDefaultOption("Right Terminal", rightTerminal);
+   // m_chooser.setDefaultOption("Right Terminal", rightTerminal);
     //m_chooser.addOption("Left Terminal", leftTerminal);
 
     SmartDashboard.putData(m_chooser);
@@ -165,7 +162,7 @@ FinalAuto rightTerminal = new FinalAuto(driveTrain, odometry, intake, indexer, s
     //ks.addRequirements(shooter);
     
 
-    intake = new Intake();
+    //intake = new Intake();
 
     ClimbCommand cc = new ClimbCommand(subsytemRemote, climb);
     climb.setDefaultCommand(cc);
@@ -198,11 +195,11 @@ FinalAuto rightTerminal = new FinalAuto(driveTrain, odometry, intake, indexer, s
     backButton.whenPressed(new SwitchDriveMode());
     
     //subsytems
-    subRightButton.whenHeld(new Fire(shooter, limeLight));
+    //subRightButton.whenHeld(new Fire(shooter, limeLight));
     //subXButton.whenPressed(new IntakeToggle(intake));
-    subAButton.whenHeld(new IntakeSpin(intake, indexer));
-    subBButton.whenHeld(new IndexerSpin(indexer));
-    subYButton.whenHeld(new BackIndexerSpin(indexer));
+    //subAButton.whenHeld(new IntakeSpin(intake, indexer));
+    //subBButton.whenHeld(new IndexerSpin(indexer));
+    //subYButton.whenHeld(new BackIndexerSpin(indexer));
 
     //subUpPad.whenPressed(new SetShooterAngle(0, shooter));
     //subLeftPad.whenPressed(new SetShooterAngle(90, shooter));
@@ -226,10 +223,10 @@ FinalAuto rightTerminal = new FinalAuto(driveTrain, odometry, intake, indexer, s
    // return m_chooser.getSelected();
     
     //if()
-    //return new IntakeBall(driveTrain, indexer, intake);
+    return new IntakeBall(driveTrain);
     //return new FinalAuto(driveTrain, odometry, intake, indexer, shooter, limeLight);
     //return new AutoTest(driveTrain, intake, indexer, shooter, odometry, limeLight);
-    return new SimpleAuto(driveTrain, odometry, intake, indexer, shooter, limeLight);
+    //return new SimpleAuto(driveTrain, odometry, intake, indexer, shooter, limeLight);
   }
 
   

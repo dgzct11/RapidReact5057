@@ -168,7 +168,7 @@ public final class Constants {
     public static String field_oriented = "fo";
     public static String robot_oriented = "ro";
     
-    public static String drive_mode = field_oriented;
+    public static String drive_mode = robot_oriented;
   
     public static boolean in_auto = true;
     

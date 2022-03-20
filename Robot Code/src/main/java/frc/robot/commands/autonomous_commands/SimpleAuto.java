@@ -21,7 +21,7 @@ public class SimpleAuto extends SequentialCommandGroup {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
-      new IntakeBall(dt, id, in),
+      //new IntakeBall(dt, id, in),
       new Shoot(dt, od, s, id, ll)
     );
   }

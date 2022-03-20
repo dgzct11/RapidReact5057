@@ -71,14 +71,15 @@ public class Shooter extends SubsystemBase {
   }
 
   public void setTuretAngle(double angle){
-    if(a != angle){
+    return;
+    /*if(a != angle){
     //add motor checks
     if(angle<=90 && angle >= -90){
       turetMotor.set(ControlMode.Position, ((turetMotor.getSelectedSensorPosition() + 
       RobotContainer.angleDistance2(angle, getTuretAngle())*Constants.turet_ticks_per_degree * (RobotContainer.shouldTurnLeft(getTuretAngle(), angle) ? 1:-1) )));
     }
-    a = angle;
-  }
+    a = angle;*/
+  
     
   } 
   public double getTuretAngle(){
